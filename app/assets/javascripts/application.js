@@ -14,15 +14,3 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-
-//= require assets/scripts/jquery-2.2.0.min
-//= require assets/scripts/mmenu.min
-//= require assets/scripts/chosen.min
-//= require assets/scripts/slick.min
-//= require assets/scripts/rangeslider.min
-//= require assets/scripts/magnific-popup.min
-//= require assets/scripts/waypoints.min
-//= require assets/scripts/counterup.min
-//= require assets/scripts/jquery-ui.min
-//= require assets/scripts/tooltips.min
-//= require assets/scripts/custom

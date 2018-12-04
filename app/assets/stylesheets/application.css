@@ -12,9 +12,5 @@
  *
  *= require_tree .
  *= require_self
-
- *= require assets/css/style
- *= require assets/css/colors/main
-
  */
 
