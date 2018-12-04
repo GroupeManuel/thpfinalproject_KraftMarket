@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
     # Controller Static
+    
   get '/', to: 'static#home_buyer', as: 'root'
   get 'bienvenue-ravitailleur', to: 'static#home_seller', as: 'home_seller'
 
@@ -18,12 +19,13 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  #Controller Order
+    #Controller Order
+
   resources :orders, only: [:create, :show]
   get 'confirmation-commande', to: 'orders#thanks', as: 'order_thanks'
 
+    # Controller Cart
 
-  # Controller Cart
-  resources :carts, only: [:show]
+  resources :carts, only: [:show, :new, :create]
 
 end
