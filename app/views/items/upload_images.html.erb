@@ -1,0 +1,8 @@
+<%= @new_item.title %>
+
+<p>UPLOAD HERE YOUR IMAGES WITH ACTIVE STORAGE</p>
+
+<p>
+    <%= link_to 'Back', destroy_item_path(Item.last.id), method: :delete %>
+    <%= link_to 'Valider', update_item_path(Item.last.id), method: :put %>
+</p>
