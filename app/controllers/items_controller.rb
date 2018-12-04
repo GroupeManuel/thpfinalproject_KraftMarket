@@ -6,14 +6,12 @@ class ItemsController < ApplicationController
 
   def create
     #When necessary, creation of new category from ItemsHelper
-    if create_category
-      item_params[:category_id] = Category.last.id
-    end
-
+    create_category
+    
     #creation of the new item
-    Item.create!(item_params)
+    Item.create!(essential_item_params)
 
-    redirect_to item_optimize_path(Item.last.id)
+    redirect_to item_optimize_path
   end
 
   def index
@@ -36,8 +34,8 @@ class ItemsController < ApplicationController
     redirect_to new_item_path
   end
 
-  def optimize(id)
-    @item = Item.find(id)
+  def optimize
+    @item = Item.last
   end
 
   def thanks
@@ -46,10 +44,8 @@ class ItemsController < ApplicationController
   
   private
 
-  def item_params
-    if params
-    params.require(:item).permit(:title, :category_id, :description, :seller_id, :status)
-    end
+  def essential_item_params
+      @item_params.permit(:title, :category_id, :description, :seller_id, :status)
   end
 
   def status
@@ -57,11 +53,13 @@ class ItemsController < ApplicationController
   end
 
   def create_category
-    unless params[:item][:other_category] == nil
-      Category.create(category_name: params[:item][:other_category])
-        return true
-      end
-      return false
+    @item_params = params[:item]
+
+    unless @item_params[:other_category] == nil
+      Category.create(category_name: @item_params[:other_category])
+      @item_params[:category_id] = Category.last.id
+      return @item_params
+    end
   end
 
 end

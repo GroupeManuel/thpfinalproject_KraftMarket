@@ -8,5 +8,4 @@ module ItemsHelper
 		return category_list
 	end
 
-
 end
