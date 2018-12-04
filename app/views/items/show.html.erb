@@ -1,6 +1,7 @@
-SHOW PRODUIT
+SHOW PRODUIT<br>
 
-<%= @item.title %>
-<%= @item.price%>
+<p>Produit: <%= @item.title %></p>
+<p>Description: <%= @item.description%></p>
+<p>Prix: <%= @item.price%> €</p>
 
 <%= link_to 'Back', :back %>

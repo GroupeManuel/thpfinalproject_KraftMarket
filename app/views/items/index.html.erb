@@ -10,5 +10,6 @@
     <p><%= Category.find(item.category_id).category_name %></p>
     <p><%= item.description %></p>
     <p><%= item.status %></p>
+    <p><%= link_to 'Voir plus', item_path(item.id) %></p>
     <p>______________</p>
 <% end %>

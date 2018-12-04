@@ -13,9 +13,9 @@ class ItemsController < ApplicationController
       # Select items with category in the form 
 
     if params[:search_form] == nil
-      @items_selection = Item.all
+      @items_selection = Item.all.published
     else
-      @items_selection = Item.where(category_id: params[:search_form][:category_id])
+      @items_selection = Item.where(category_id: params[:search_form][:category_id]).published
     end
 
   end
