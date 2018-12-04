@@ -2,6 +2,11 @@
 
 <p>UPLOAD HERE YOUR IMAGES WITH ACTIVE STORAGE</p>
 
+<div class='field'>
+	<%= form.label :pictures %>
+	<%= form.file_field :pictures %> 
+</div>
+
 <p>
     <%= link_to 'Back', destroy_item_path(Item.last.id), method: :delete %>
     <%= link_to 'Valider', update_item_path(Item.last.id), method: :put %>
