@@ -9,7 +9,15 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all.where(category_id: params[:category_id])
+
+      # Select items with category in the form 
+
+    if params[:search_form] == nil
+      @items_selection = Item.all
+    else
+      @items_selection = Item.where(category_id: params[:search_form][:category_id])
+    end
+
   end
 
   def show
@@ -35,8 +43,4 @@ class ItemsController < ApplicationController
   def thanks
   end
 
-  private
-  def item_params
-    params.require(:item).permit(:category_id, :title, :description)
-  end
 end
