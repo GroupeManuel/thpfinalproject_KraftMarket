@@ -1,0 +1,8 @@
+<%= @item.title %>
+
+<p>UPLOAD HERE YOUR IMAGES WITH ACTIVE STORAGE</p>
+
+<p>
+    <%= link_to 'Optimiser plus tard', items_path %>
+    <%= link_to 'Valider', edit_item_path(@item.id), method: :put %>
+</p>
