@@ -1,11 +1,36 @@
-AJOUTE UN ARTICLE
+<h3>AJOUTE UN ARTICLE</h3>
 
-<%= form_for Item.new do |f| %>
-    <%= f.label :category_name %>
-    <%= f.text_field :category_id %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-    <%= f.submit %>
+<%= form_with model: @item, class:'form' do |f| %>
+
+	<% if user_signed_in? %>
+		<%= f.hidden_field :seller_id, value: current_user.id %>
+	<% end %>
+	<%= f.hidden_field :status, value:'draft' %>
+
+	<div class='form-group form-inline row'>
+		<div class='col-sm-2 align-top'>Nom de l'article</div>
+		<div class='col-sm-10'><%= f.text_field :title, class:'form-control', required:true %></div>
+	</div>
+	<div class='form-group form-inline row align-items-start mt-10'>
+		<div class='col-sm-2 align-top'>Catégorie</div>
+		<div class='col-sm-10'>Parmi <%= f.collection_select :category_id, Category.all, :id, :category_name, include_blank: true, class:'form-control' %>
+			ou personnalisée : <%= f.text_field :other_category, class:'form-control' %></div>
+	</div>
+
+	<div class='form-group form-inline row align-items-start mt-10'>
+		<div class='col-sm-2'>Description</div>
+		<div class='col-sm-10'><%= f.text_area :description, class:'form-control col-12', required:true, rows:"3" %>
+			<p class='font-weight-light'>
+				Donnez le maximum de détails pour maximiser la confiance des artisans et vous éviter des questions de leur part. <br/>
+				Pensez à préciser : 
+				<ul class='font-weight-light'>
+					<li>Provenance et utilisation première de la matière</li>
+					<li>Nombre de pièces</li>
+					<li>Dimensions principales : épaisseur, longueur</li>
+				</ul> 
+			</p>
+		</div>
+	</div>
+  	
+  	<%= f.submit class:'btn btn-success' %>
 <% end %>

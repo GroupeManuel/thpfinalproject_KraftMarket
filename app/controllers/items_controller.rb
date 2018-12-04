@@ -1,11 +1,19 @@
 class ItemsController < ApplicationController
 
   def new
+    @item = Item.new
   end
 
   def create
-    @new_item = Item.create!(item_params)
-    redirect_to items_upload_images_path
+    #When necessary, creation of new category from ItemsHelper
+    if create_category
+      item_params[:category_id] = Category.last.id
+    end
+
+    #creation of the new item
+    Item.create!(item_params)
+
+    redirect_to item_optimize_path(Item.last.id)
   end
 
   def index
@@ -28,15 +36,32 @@ class ItemsController < ApplicationController
     redirect_to new_item_path
   end
 
-  def optimization
-    @new_item = Item.last
+  def optimize(id)
+    @item = Item.find(id)
   end
 
   def thanks
   end
 
+  
   private
+
   def item_params
-    params.require(:item).permit(:category_id, :title, :description)
+    if params
+    params.require(:item).permit(:title, :category_id, :description, :seller_id, :status)
+    end
   end
+
+  def status
+    @status = ['draft', 'published', 'sold', 'deleted']
+  end
+
+  def create_category
+    unless params[:item][:other_category] == nil
+      Category.create(category_name: params[:item][:other_category])
+        return true
+      end
+      return false
+  end
+
 end
