@@ -22,6 +22,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+
+      # Create a session variable for use the item in page cart#show
+    session[:item_id] = @item.id
   end
 
   def edit
@@ -37,7 +40,7 @@ class ItemsController < ApplicationController
   end
 
   def optimization
-    @new_item = Item.last
+
   end
 
   def thanks
