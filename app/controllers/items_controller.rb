@@ -12,18 +12,25 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all.where(category_id: params[:category_id])
+
+      # Select items with category in the form 
+
+    if params[:search_form] == nil
+      @items_selection = Item.all.published
+    else
+      @items_selection = Item.where(category_id: params[:search_form][:category_id]).published
+    end
+
   end
 
   def show
     @item = Item.find(params[:id])
+
+      # Create a session variable for use the item in page cart#show
+    session[:item_id] = @item.id
   end
 
   def edit
-  end
-
-  def thanks
-    @item = Item.last
   end
 
   def destroy

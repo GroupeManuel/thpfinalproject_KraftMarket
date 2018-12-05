@@ -69,3 +69,5 @@ gem "faker", "~> 1.9"
 gem "aws-sdk-s3", require: false
 # Gem to modify images coming from active storage - by calling method variant
 gem 'image_processing', '~> 1.2'
+
+gem "simple_form", "~> 4.1"
