@@ -3,6 +3,7 @@ SHOW PRODUIT<br>
 <p>Produit: <%= @item.title %></p>
 <p>Description: <%= @item.description%></p>
 <p>Prix: <%= @item.price%> €</p>
+<p>Vendeur: <%= User.find(@item.seller_id).first_name %></p>
 
 <%= link_to 'Retour', :back %>
-<%= link_to 'Payer', :back %>
+<%= link_to 'Payer', new_cart_path %>
