@@ -6,10 +6,10 @@
 </div>
 
 <% @items_selection.each do |item| %>
-    <p><%= item.title %></p>
-    <p><%= Category.find(item.category_id).category_name %></p>
-    <p><%= item.description %></p>
+    <p>Produit: <%= item.title %></p>
+    <p>Catégorie: <%= Category.find(item.category_id).category_name %></p>
+    <p>Description: <%= item.description %></p>
     <p><%= item.status %></p>
     <p><%= link_to 'Voir plus', item_path(item.id) %></p>
-    <p>______________</p>
+    <p>_____________________</p>
 <% end %>
