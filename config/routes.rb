@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     # Controller User via Devise
 
   devise_for :users
+  resources :users, only: [:show, :update]
 
   #Controller Order
   resources :orders, only: [:create, :show]
