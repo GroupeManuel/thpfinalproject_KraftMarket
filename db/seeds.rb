@@ -7,10 +7,10 @@ Order.destroy_all
 
     # Create instances of model User
 
-User.create!(email: "victor@victor.fr", password: "123456")
-User.create!(email: "hugo@hugo.fr", password: "123456")
-User.create!(email: "handa@handa.fr", password: "123456")
-User.create!(email: "damien@damien.fr", password: "123456")
+User.create!(email: "victor@victor.fr", password: "123456", first_name: "Victor")
+User.create!(email: "hugo@hugo.fr", password: "123456", first_name: "Hugo")
+User.create!(email: "handa@handa.fr", password: "123456", first_name: "Handa")
+User.create!(email: "damien@damien.fr", password: "123456", first_name: "Damien")
 
     # Create 3 categories
 
