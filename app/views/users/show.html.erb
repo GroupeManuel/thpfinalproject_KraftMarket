@@ -1,2 +1,10 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class='row'>
+	<div class='col-3'>
+  		<%= render 'profile_tabs' %>
+  	</div>
+  	<div class="tab-content col-9">
+  		<%= render 'profile_info' %>
+  		<%= render 'buyer_profile' %>
+  		<%= render 'seller_profile' %>
+	</div>
+</div>
