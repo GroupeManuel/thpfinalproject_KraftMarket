@@ -1,10 +1,12 @@
 <p>Détail de votre panier</p><br>
 
-<p>Nom du produit:</p>
-<p>Quantité:</p>
-<p>Prix:</p>
+<p>Nom du produit: <%= @cart_item.title %></p>
+<p>Quantité: 1</p>
+<p>Prix: <%= @cart_item.price %></p>
 
 <p>Mode de livraison</p>
 <input type="checkbox" name="Remise en mains propres">
 <input type="checkbox" name="Livraison à domicile">
 
+<!-- Delete the cart -->
+<%= link_to 'Annuler', cart_path(@cart_item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
