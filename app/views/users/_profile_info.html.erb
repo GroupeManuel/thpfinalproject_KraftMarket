@@ -15,7 +15,7 @@
 	<div class='tab-pane fade' role="tabpanel"  id="company" aria-labelledby="company-tab" >
 		<%= render 'users/edit/edit_company_info', f:f %>
 	</div>
-	<div class='tab-pane fade' role="tabpanel"  id="addresses" aria-labelledby="addresses-tab" >
+	<div class='tab-pane fade row' role="tabpanel"  id="addresses" aria-labelledby="addresses-tab" >
 		<div class='col-6'>
 			<%= render 'users/edit/edit_invoice_address', f:f %>
 		</div>
@@ -26,5 +26,6 @@
 	<div class='tab-pane fade' role="tabpanel" id="password-tab" aria-labelledby="password-tab">
 		<%= render 'users/edit/edit_password', f:f %>
 	</div>
+	
 	<% end %>
 </div>

@@ -3,8 +3,14 @@
   		<%= render 'profile_tabs' %>
   	</div>
   	<div class="tab-content col-9">
-  		<%= render 'profile_info' %>
-  		<%= render 'buyer_profile' %>
-  		<%= render 'seller_profile' %>
+		<div class='tab-pane fade show active' role='tabpanel' id="profile-info" aria-labelledby="profile-info-tab" >
+	  		<%= render 'profile_info' %>
+	  	</div>
+		<div class='tab-pane fade' role='tabpanel' id="buyer" aria-labelledby="buyer-tab" >
+	  		<%= render 'buyer_profile' %>
+	  	</div>
+		<div class='tab-pane fade' role='tabpanel' id="seller" aria-labelledby="seller-tab" >
+	  		<%= render 'seller_profile' %>
+	  	</div>
 	</div>
 </div>
