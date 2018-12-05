@@ -1,3 +1,15 @@
-<% @items.each do |item| %>
+<div class="main-search-input-item">
+    <%= form_for :search_form, url: items_path, method: :get do |f| %>
+        <%= f.collection_select(:category_id, Category.all, :id, :category_name) %>
+        <%= f.submit "Recherche", class:"btn btn-primary" %>
+    <% end %>
+</div>
 
+<% @items_selection.each do |item| %>
+    <p>Produit: <%= item.title %></p>
+    <p>Catégorie: <%= Category.find(item.category_id).category_name %></p>
+    <p>Description: <%= item.description %></p>
+    <p><%= item.status %></p>
+    <p><%= link_to 'Voir plus', item_path(item.id) %></p>
+    <p>_____________________</p>
 <% end %>

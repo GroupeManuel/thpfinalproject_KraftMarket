@@ -13,8 +13,7 @@
 	</div>
 	<div class='form-group form-inline row align-items-start mt-10'>
 		<div class='col-sm-2 align-top'>Catégorie</div>
-		<div class='col-sm-10'>Parmi <%= f.collection_select :category_id, Category.all, :id, :category_name, include_blank: true, class:'form-control' %>
-			ou personnalisée : <%= f.text_field :other_category, class:'form-control' %></div>
+		<div class='col-sm-10'>Parmi <%= f.collection_select :category_id, Category.all, :id, :category_name, include_blank: true, class:'form-control' %></div>
 	</div>
 
 	<div class='form-group form-inline row align-items-start mt-10'>
@@ -30,6 +29,15 @@
 				</ul> 
 			</p>
 		</div>
+	</div>
+
+	<div class='form-group form-inline row'>
+		<div class='col-sm-2 align-top'><%= f.label "Télécharger les images" %></div>
+		<div class='col-sm-10'><%= f.file_field :item_images, multiple: true %></div>
+	</div>
+
+	<div class='item_confirmation_message'>
+		<p>Merci d'avoir créé cet article</p>
 	</div>
   	
   	<%= f.submit class:'btn btn-success' %>

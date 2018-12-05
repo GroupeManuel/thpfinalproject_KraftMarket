@@ -1,6 +1,19 @@
-SHOW PRODUIT
+SHOW PRODUIT<br>
 
-<%= @item.title %>
-<%= @item.price%>
+<p>Produit: <%= @item.title %></p>
+<p>Description: <%= @item.description%></p>
+<p>Prix: <%= @item.price%> €</p>
+<p>Vendeur: <%= User.find(@item.seller_id).first_name %></p>
 
-<%= link_to 'Back', :back %>
+<%= link_to 'Retour', :back %><br><br> 
+
+<%= form_for :create_cart, url: carts_path, method: :post do |f| %>
+    <%= f.submit "Créer un panier", class:"btn btn-primary" %>
+<% end %><br>
+
+    <!-- Attention ça supprime que le dernier panier, c'est pas good -->
+<%= form_for :delete_cart, url: cart_path(Cart.last), method: :delete do |f| %>
+    <%= f.submit "Vider mon panier", class:"btn btn-primary" %>
+<% end %><br>
+
+    
