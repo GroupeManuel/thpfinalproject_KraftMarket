@@ -5,21 +5,15 @@ SHOW PRODUIT<br>
 <p>Prix: <%= @item.price%> €</p>
 <p>Vendeur: <%= User.find(@item.seller_id).first_name %></p>
 
-<%= link_to 'Retour', :back %>
+<%= link_to 'Retour', :back %><br><br> 
 
 <%= form_for :create_cart, url: carts_path, method: :post do |f| %>
     <%= f.submit "Créer un panier", class:"btn btn-primary" %>
-<% end %>
+<% end %><br>
 
-<!--Attention ça supprime que le dernier panier, c'est pas good-->
+    <!-- Attention ça supprime que le dernier panier, c'est pas good -->
 <%= form_for :delete_cart, url: cart_path(Cart.last), method: :delete do |f| %>
     <%= f.submit "Vider mon panier", class:"btn btn-primary" %>
-<% end %>
+<% end %><br>
 
-
-<div class="main-search-input-item">
-    <%= form_for Order.new, url: orders_path, method: :post do |f| %>
-        <%= f.select :delivery_method, [["Remise en mains propres", "pickup"], ["Livraison à domicile", "bike"]] %>
-        <%= f.submit "Payer", class:"btn btn-primary" %>
-    <% end %>
-</div>
+    

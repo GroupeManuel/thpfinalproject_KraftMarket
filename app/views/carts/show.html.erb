@@ -4,9 +4,12 @@
 <p>Quantité: 1</p>
 <p>Prix: <%= @cart_item.price %></p>
 
-<p>Mode de livraison</p>
-<input type="checkbox" name="Remise en mains propres">
-<input type="checkbox" name="Livraison à domicile">
+<!-- Use simple_form gem for radio button choice -->
+<%= simple_form_for Order.new do |f| %>
+  <%= f.input :delivery_method, as: :radio_buttons, collection: [["Remise en mains propres", "pickup"], ["Livraison à domicile", "bike"]], label: false %><br>
+  <%= f.button :submit, "Payer" %>
+<% end %><br>
 
 <!-- Delete the cart -->
 <%= link_to 'Annuler', cart_path(@cart_item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+
