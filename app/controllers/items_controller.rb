@@ -48,6 +48,10 @@ class ItemsController < ApplicationController
       @item_params.permit(:title, :category_id, :description, :seller_id, :status)
   end
 
+  def other_item_params
+      @item_params.permit(:images)
+  end
+
   def status
     @status = ['draft', 'published', 'sold', 'deleted']
   end
