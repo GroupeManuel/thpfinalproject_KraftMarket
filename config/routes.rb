@@ -10,9 +10,6 @@ Rails.application.routes.draw do
     # Controller Item
 
   resources :items
-  get 'nouvel-objet/etape1', to: 'items#new'
-  get 'nouvel-objet/etape2', to: 'items#optimize', as: 'item_optimize'
-  get 'nouvel-objet/confirmation', to: 'items#thanks', as: 'item_thanks'
 
     # Controller User via Devise
 

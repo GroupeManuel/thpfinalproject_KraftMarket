@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.1', '>= 5.2.1.1'
+gem 'rails', '~> 5.2.2.rc1', '>= 5.2.2.rc1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -64,3 +64,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise", "~> 4.5"
 
 gem "faker", "~> 1.9"
+
+# Gem for active storage
+gem "aws-sdk-s3", require: false
+# Gem to modify images coming from active storage - by calling method variant
+gem 'image_processing', '~> 1.2'
