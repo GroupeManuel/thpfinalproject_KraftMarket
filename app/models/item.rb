@@ -9,4 +9,5 @@ class Item < ApplicationRecord
 
   scope :published, -> {where(status: "published")}
 
+  has_many_attached :images
 end

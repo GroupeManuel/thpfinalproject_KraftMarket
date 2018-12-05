@@ -1,9 +1,10 @@
 <% if user_signed_in? %>
+	<li><%= link_to "Devenir ravitailleur", home_seller_path %></li>
     <li><%= link_to "Acceuil", root_path %></li>
     <li><%= link_to "Mon compte", edit_user_registration_path %></li>
     <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></li>
 <% else %>	 
-    <li><%= link_to "Acceuil", root_path %></li>
+    <li><%= link_to "Accueil", root_path %></li>
     <li><%= link_to "Se connecter", new_user_session_path %></li>
     <li><%= link_to "S'inscrire", new_user_registration_path %></li>
 <% end %> 
