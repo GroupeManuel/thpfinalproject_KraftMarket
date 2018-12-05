@@ -1,0 +1,21 @@
+<h2>Informations personnelles</h2>
+
+<div class=''>
+  <div class="form-group form-inline row">
+    <div class='col-3'>Email</div>
+    <%= f.email_field :email, value: @user.email, class:'form-control' %>
+  </div>
+  <div class="form-group form-inline row">
+    <div class='col-3'>Prénom</div>
+    <%= f.text_field :first_name, value: @user.first_name, class:'form-control' %>
+  </div>
+  <div class="form-group form-inline row">
+    <div class='col-3'>Nom</div>
+    <%= f.text_field :last_name, value: @user.last_name, class:'form-control' %>
+  </div>
+  <div class="form-group form-inline row">
+    <div class='col-3'>Téléphone</div>
+    <%= f.phone_field :phone_number, value: @user.phone_number, class:'form-control' %>
+  </div>
+
+</div>
