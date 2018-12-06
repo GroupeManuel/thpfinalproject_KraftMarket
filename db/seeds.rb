@@ -28,18 +28,17 @@ order_status = ["payed", "being_shipped", "shipped"]
 100.times do
 
     # Create instances of model Item
- 
     item = Item.create!(
-        title: Faker::StarWars.character,
-        description: Faker::StarWars.quote,
-        price: rand(10..100),
-        status: item_status[rand(0..3)],
-        category_id: rand(Category.first.id..Category.last.id),
+        title: Faker::StarWars.character, 
+        description: Faker::StarWars.quote, 
+        price: rand(10..100), 
+        status: item_status[rand(0..3)], 
+        category_id: rand(Category.first.id..Category.last.id), 
         seller_id: rand(User.first.id..User.last.id)
         )
- 
+
+
     # Create order if item sold
- 
     if Item.last.status == "sold"
         Order.create!(
             buyer_id: rand(User.first.id..User.last.id),
@@ -59,7 +58,6 @@ order_status = ["payed", "being_shipped", "shipped"]
             invoice_city: Faker::Address.city,
             invoice_country: Faker::Address.country
             )
- 
         item.order_id = Order.last.id
         item.save
     end

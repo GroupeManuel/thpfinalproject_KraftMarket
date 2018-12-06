@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: kraft-market_production
-  username: kraft-market
-  password: <%= ENV['KRAFT-MARKET_DATABASE_PASSWORD'] %>
+# username: kraft-market
+# password: <%= ENV['KRAFT-MARKET_DATABASE_PASSWORD'] %>
