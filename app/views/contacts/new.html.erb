@@ -39,19 +39,18 @@
 						<% if flash[:error].present? %>
 							<p> flash[:error]</p>
 						<% end %>
+
+						<div class="row">
+						<div class="col-md-6">
+							<div><%= f.text_field :name, required: true, id: "name", placeholder: "Votre nom" %></div>
+						</div>
+						<div class="col-md-6">
+							<div><%= f.text_field :email, required: true, id: "email", placeholder: "Votre email" %></div>
+						</div>
+						<div><%= f.text_field :topic, id: "subject", placeholder: "Sujet du message" %></div>
+						<div><%= f.text_area :message, as: :text, cols: "40", rows:"3", id: "comments", placeholder: "Votre message" %></div>
 						
-						<%= f.label :name %> <br>
-						<%= f.text_field :name, required: true %>
-						<br>
-						
-						<%= f.label :email %> <br>
-						<%= f.text_field :email, required: true %>
-						<br>
-						
-						<%= f.label :message %> <br>
-						<%= f.text_area :message, as: :text %>
-						
-						<%= f.submit 'Send Message', class: "button" %>
+						<%= f.submit 'Envoyer le message', class: "submit button", id: "submit" %>
 					<% end %>
 			</section>
 		</div>

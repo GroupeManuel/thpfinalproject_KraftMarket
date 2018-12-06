@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <body>
-
+<p>YOOOOOOO</p>
 <!-- Wrapper -->
 <div id="wrapper">
 
@@ -15,18 +15,7 @@
 		<!-- Contact Details -->
 		<div class="col-md-4">
 
-			<h4 class="headline margin-bottom-30">Nous contacter</h4>
-
-			<!-- Contact Details -->
-			<div class="sidebar-textbox">
-				<p>Recyclez vos matières premières de qualité (cuir, toile de jute, papier...). Proposez ou trouvez les matières qui vous inspireront.</p>
-
-				<ul class="contact-details">
-					<li><i class="im im-icon-Phone-2"></i> <strong>Phone:</strong> <span>(+33) 06 54 43 44 45 </span></li>
-					<li><i class="im im-icon-Globe"></i> <strong>Web:</strong> <span><a href="#">www.kraft-market.com</a></span></li>
-					<li><i class="im im-icon-Envelope"></i> <strong>E-Mail:</strong> <span><a href="#">contact@kraft-market.com</a></span></li>
-				</ul>
-			</div>
+			
 
 		</div>
 
@@ -34,69 +23,9 @@
 		<!-- Contact Form using gem Mail-Form and Sendgrid for Heroku -->
 		<div class="col-md-8">
 
-			<section id="contact">
-				<h4 class="headline margin-bottom-35">Formulaire de contact</h4>
-				<div id="contact-message"></div>
-					<%= form_for @contact do |f| %>
-						<% if flash[:error].present? %>
-							<p> flash[:error]</p>
-						<% end %>
-						
-						<%= f.label :name %> <br>
-						<%= f.text_field :name, required: true %>
-						<br>
-						
-						<%= f.label :email %> <br>
-						<%= f.text_field :email, required: true %>
-						<br>
-						
-						<%= f.label :message %> <br>
-						<%= f.text_area :message, as: :text %>
-						
-						<%= f.submit 'Send Message', class: "button" %>
-					<% end %>
-			</section>
+			
 		</div>
 		<!-- Contact Form / End -->
-
-		<!-- Contact Form -->
-<!-- 		<div class="col-md-8">
-
-			<section id="contact">
-				<h4 class="headline margin-bottom-35">Formulaire de contact</h4>
-
-				<div id="contact-message"></div> 
-
-					<form method="post" name="contactform" id="contactform" >
-
-					<div class="row">
-						<div class="col-md-6">
-							<div>
-								<input name="name" type="text" id="name" placeholder="Votre Nom" />
-							</div>
-						</div>
-
-						<div class="col-md-6">
-							<div>
-								<input name="email" type="email" id="email" placeholder="Adresse Email" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$" />
-							</div>
-						</div>
-					</div>
-
-					<div>
-						<input name="subject" type="text" id="subject" placeholder="Sujet" />
-					</div>
-
-					<div>
-						<textarea name="comments" cols="40" rows="3" id="comments" placeholder="Message"></textarea>
-					</div>
-
-					<input type="submit" class="submit button" id="submit" value="Envoyer le message" />
-
-					</form>
-			</section>
-		</div>
- -->		<!-- Contact Form / End -->
 
 	</div>
 
