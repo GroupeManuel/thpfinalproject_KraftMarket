@@ -1,16 +1,27 @@
 <div class='row'>
+
+	<!-- Tabs to display profile section -->
 	<div class='col-3'>
   		<%= render 'profile_tabs' %>
   	</div>
+
   	<div class="tab-content col-9">
-		<div class='tab-pane fade show active' role='tabpanel' id="profile-info" aria-labelledby="profile-info-tab" >
-	  		<%= render 'profile_info' %>
-	  	</div>
-		<div class='tab-pane fade' role='tabpanel' id="buyer" aria-labelledby="buyer-tab" >
-	  		<%= render 'buyer_profile' %>
-	  	</div>
+	
+		<!-- Tab-content displaying items owned by the user -->
 		<div class='tab-pane fade' role='tabpanel' id="seller" aria-labelledby="seller-tab" >
 	  		<%= render 'seller_profile' %>
 	  	</div>
+
+
+		<!-- Tab-content displaying orders done by the user -->
+		<div class='tab-pane fade show active' role='tabpanel' id="buyer" aria-labelledby="buyer-tab" >
+	  		<%= render 'buyer_profile' %>
+	  	</div>
+
+		<!-- Tab-content displaying forms to modify personal info from the user -->
+		<div class='tab-pane fade' role='tabpanel' id="profile-info" aria-labelledby="profile-info-tab" >
+	  		<%= render 'profile_info' %>
+	  	</div>
+
 	</div>
 </div>

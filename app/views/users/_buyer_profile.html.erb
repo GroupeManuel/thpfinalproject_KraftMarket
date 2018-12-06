@@ -1,0 +1,40 @@
+<!-- Tabs corresponding to each order status -->
+
+<ul class="nav nav-tabs" id='profile-tabs' role='tablist'>
+	<% @order_status.each do |status, french_status| %>
+	  	<li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" id=<%= status+'-tab' %> href=<%= '#'+status %> aria-controls=<%= status %> aria-selected="false"  >
+	  		<%= french_status %>
+  		</a></li>
+	<% end %>
+</ul>
+
+
+<!-- Tab contents -->
+<div class='tab-content'>
+
+	<!-- Tabs corresponding to order each status -->
+	<% @user_orders.each do |status, orders| %>
+	<div class='tab-pane fade' role='tabpanel' id=<%= status %> aria-labelledby=<%= status+'-tab' %> >
+		<table class="table">
+			<thead class="thead-light"><tr>
+				<th>Nom de l'annonce</th>
+				<th>Catégorie</th>
+				<th>Prix</th>
+			</tr></thead>
+			<tbody>
+
+				<!-- Tab-content : table showing orders information -->
+				<% orders.each do |order| %>
+				<tr>
+					<td><%= order.item.title %></td>
+					<td><%= order.item.category.category_name %></td>
+					<td><%= order.item.price %> €</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+
+	<% end %>
+
+</div>
