@@ -1,7 +1,7 @@
 <ul class="nav nav-tabs" id='profile-tabs' role='tablist'>
 
-	<!-- Tabs corresponding to each item status -->
-	<% @item_status.each do |status, french_status| %>
+	<!-- Tabs corresponding to each order status -->
+	<% @order_status.each do |status, french_status| %>
 	  	<li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" id=<%= status+'-tab' %> href=<%= '#'+status %> aria-controls=<%= status %> aria-selected="false"  >
 	  		<%= french_status %>
   		</a></li>
@@ -11,8 +11,8 @@
 
 <!-- Tab contents -->
 <div class='tab-content'>
-	<!-- Tabs content corresponding to each status for the items owned by the current user -->
-	<% @user_sales.each do |status, items| %>
+	<!-- Tabs content corresponding to each status for the items bought by the current user -->
+	<% @user_orders.each do |status, orders| %>
 	<div class='tab-pane fade' role='tabpanel' id=<%= status %> aria-labelledby=<%= status+'-tab' %> >
 		<table class="table">
 			<thead class="thead-light"><tr>
@@ -21,11 +21,11 @@
 				<th>Prix</th>
 			</tr></thead>
 			<tbody>
-				<% items.each do |item| %>
+				<% orders.each do |order| %>
 				<tr>
-					<td><%= item.title %></td>
-					<td><%= item.category.category_name %></td>
-					<td><%= item.price %> €</td>
+					<td><%= order.item.title %></td>
+					<td><%= order.item.category.category_name %></td>
+					<td><%= order.item.price %> €</td>
 				</tr>
 				<% end %>
 			</tbody>

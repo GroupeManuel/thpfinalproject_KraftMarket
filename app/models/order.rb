@@ -3,3 +3,4 @@ class Order < ApplicationRecord
     belongs_to :buyer, class_name: "User"
     # has_one :seller, through: :item, source: :user
 end
+
