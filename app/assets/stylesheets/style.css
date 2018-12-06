@@ -4874,11 +4874,6 @@ input#date-picker:hover {
     transform: translate3d(0,0,0) rotate(0deg);
 }
 
-#booking-date-range i {
-	color: #999;
-	background-color: 
-}
-
 /* Booking Requests Filter / End */
 .daterangepicker .ranges li {
   font-size: 13px;
