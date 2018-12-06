@@ -1,3 +1,5 @@
+
+<!-- Tabs that display separately profile information -->
 <ul class="nav nav-tabs" id='profile-tabs' role='tablist'>
   	<li class="nav-item" ><a class="nav-link tab-link active" role='tab' data-toggle="tab" href='#personal' id='personal-tab' aria-controls="personal" aria-selected="true" >Coordonnées</a></li>
 	<li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" href='#company' id='company-tab' aria-controls="company" aria-selected="false" >Entreprise</a></li>
@@ -6,8 +8,9 @@
 </ul>
 
 
-
+<!-- Tab contents -->
 <div class='tab-content'>
+	<!-- Form to update id information -->
 	<div class='tab-pane fade show active' role='tabpanel' id="personal" aria-labelledby="personal-tab" >
 		<%= form_for(current_user, url: user_path(current_user.id), html: { method: :put }) do |f| %>
 		<%= render 'users/edit/edit_personal_info', f:f %>
@@ -16,6 +19,7 @@
     	</div>
 		<% end %>
 	</div>
+	<!-- Form to update company information -->
 	<div class='tab-pane fade' role="tabpanel"  id="company" aria-labelledby="company-tab" >
 		<%= form_for(current_user, url: user_path(current_user.id), html: { method: :put }) do |f| %>
 		<%= render 'users/edit/edit_company_info', f:f %>
@@ -24,6 +28,8 @@
     	</div>
 		<% end %>
 	</div>
+
+	<!-- Form to update default adresses (invoice and delivery) -->
 	<div class='tab-pane fade' role="tabpanel"  id="addresses" aria-labelledby="addresses-tab" >
 		<%= form_for(current_user, url: user_path(current_user.id), html: { method: :put }) do |f| %>
 		<div class='row'>
@@ -39,6 +45,8 @@
       	</div>
 		<% end %>
 	</div>
+
+	<!-- Form to update password with devise, using UsersHelper -->
 	<div class='tab-pane fade' role="tabpanel" id="password" aria-labelledby="password-tab">
 		<%= render 'devise/registrations/edit_password' %>
 	</div>	

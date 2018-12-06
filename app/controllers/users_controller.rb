@@ -25,33 +25,30 @@ class UsersController < ApplicationController
 
   #sort of all items by status to display on profile page
   def user_sales
-    item_status = ['draft','published','sold']
-    @french_status = {
+    @item_status = {
       'draft' => 'Objets en attente de parution',
       'published' => 'Annonces en ligne',
       'sold' => 'Objets vendus'
     }
 
-    @sales = {}
-
-    item_status.each do |status|
-      @sales[status] = @user.items.where(status:status)
+    @user_sales = {}
+    @item_status.each do |status,translation|
+      @user_sales[status] = @user.items.where(status:status)
     end
 
   end
 
   #sort of all orders by status to display on profile page
   def user_orders
-    order_status = ['payed','being_shipped','shipped']
-    @french_status = {
+    @order_status = {
       'payed' => 'Objets payés',
       'being_shipped' => 'Objets en cours de livraison',
       'shipped' => 'Objets reçus'
     }
 
-    @orders = {}
-    order_status.each do |status|
-      @orders[status] = @user.orders.where(status:status)
+    @user_orders = {}
+    @order_status.each do |status,translation|
+      @user_orders[status] = @user.orders.where(status:status)
     end
   end
 
