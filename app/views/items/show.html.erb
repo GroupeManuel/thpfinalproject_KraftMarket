@@ -1,6 +1,7 @@
 SHOW PRODUIT<br>
 
 <p>Produit: <%= @item.title %></p>
+<p><%= image_tag @item.item_images[0] %></p>
 <p>Description: <%= @item.description%></p>
 <p>Prix: <%= @item.price%> €</p>
 <p>Vendeur: <%= User.find(@item.seller_id).first_name %></p>
@@ -8,5 +9,5 @@ SHOW PRODUIT<br>
 <%= link_to 'Retour', :back %><br><br> 
 
 <%= form_for :create_cart, url: carts_path, method: :post do |f| %>
-    <%= f.submit "Créer un panier", class:"btn btn-primary" %>
+    <%= f.submit "Acheter", class:"btn btn-primary" %>
 <% end %><br>
