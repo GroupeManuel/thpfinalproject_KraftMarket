@@ -10,29 +10,24 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
 
-//= require assets/scripts/extensions/revolution.extension.actions.min
-//= require assets/scripts/extensions/revolution.extension.carousel.min
-//= require assets/scripts/extensions/revolution.extension.kenburn.min
-//= require assets/scripts/extensions/revolution.extension.layeranimation.min
-//= require assets/scripts/extensions/revolution.extension.migration.min
-//= require assets/scripts/extensions/revolution.extension.navigation.min
-//= require assets/scripts/extensions/revolution.extension.parallax.min
-//= require assets/scripts/extensions/revolution.extension.slideanims.min
-//= require assets/scripts/extensions/revolution.extension.video.min
 
-//= require assets/scripts/jquery-2.2.0.min
-//= require assets/scripts/mmenu.min
-//= require assets/scripts/chosen.min
-//= require assets/scripts/slick.min
-//= require assets/scripts/rangeslider.min
-//= require assets/scripts/magnific-popup.min
-//= require assets/scripts/waypoints.min
-//= require assets/scripts/counterup.min
-//= require assets/scripts/jquery-ui.min
-//= require assets/scripts/tooltips.min
-//= require assets/scripts/custom
+//= require jquery-2.2.0.min
+//= require mmenu.min
+//= require chosen.min
+//= require slick.min
+//= require rangeslider.min
+//= require magnific-popup.min
+//= require waypoints.min
+//= require counterup.min
+//= require jquery-ui.min
+//= require tooltips.min
+//= require custom
+
+//= require themepunch.tools.min
+//= require themepunch.revolution.min

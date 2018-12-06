@@ -12,17 +12,24 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-grid
+ *= require icons
+ *= require style
+ *= require colors/main
+ *= require plugins/revolutionslider
+ *= require font-awesome
 
- *= require assets/css/style
- *= require assets/css/colors/main
  */
 
-/*
-@import url("http://fonts.googleapis.com/ css?family=Open+Sans:400");
-@import "components/_navbar.scss"; 
-@import "components/_buttons.scss"; 
 
-body {
-font-family: "Open Sans"
- }
-  */
+
+.devise_signin{
+	margin: 30px 50px;
+	max-width: 400px;
+}
+
+.devise_signup{
+	margin: 30px 50px;
+	max-width: 400px;
+}
+

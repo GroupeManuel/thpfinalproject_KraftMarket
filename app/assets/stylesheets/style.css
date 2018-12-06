@@ -1747,7 +1747,7 @@ em.mm-counter+a.mm-fullsubopen+span {
 	height: 100%;
 	width: 100%;
 	display: block;
-	background: linear-gradient(to right, rgba(255,255,255,0.99) 20%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,0) 95%);
+	background: ;
 }
 
 .main-search-container h2 {
@@ -2603,7 +2603,7 @@ input[type="range"]:focus + .rangeslider .rangeslider__handle {
 	background: #fff;
 	z-index: 112;
 	opacity: 1;
-	transition: all 0.3s;
+	tranition: all 0.3s;
 }
 
 
@@ -4876,7 +4876,7 @@ input#date-picker:hover {
 
 #booking-date-range i {
 	color: #999;
-	background-color: white;
+	background-color: 
 }
 
 /* Booking Requests Filter / End */
@@ -12405,7 +12405,7 @@ input[type="time"]::-webkit-clear-button{
 #scrollEnabling:hover,
 #scrollEnabling.enabled,
 #mapnav-buttons a:hover {
-	background-color: #66676b;
+	background-color: #00a948;
 	color: #fff;
 }
 
