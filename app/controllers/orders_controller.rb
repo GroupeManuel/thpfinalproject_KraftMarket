@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 
   def create
     # Order.create!(buyer_id: current_user.id, delivery_method: params_order[:delivery_method])
-    Order.create!(buyer_id: current_user.id, 
+    @new_order = Order.create!(buyer_id: current_user.id, 
                   delivery_method: params_order[:delivery_method],
                   delivery_entity: params_order[:delivery_entity],
                   delivery_street: params_order[:delivery_street],
@@ -16,8 +16,12 @@ class OrdersController < ApplicationController
                   invoice_street: params_order[:invoice_street],
                   invoice_postcode: params_order[:invoice_postcode],
                   invoice_city: params_order[:invoice_city],
-                  invoice_country: params_order[:invoice_country]
+                  invoice_country: params_order[:invoice_country],
+                  price: Item.find(session[:item_id])
     )
+
+      # Update the item to make appear the order 
+    Item.find(session[:item_id]).update(order_id: @new_order.id)
 
     flash[:notice] = "Votre commande est bien passé"
     redirect_to root_path

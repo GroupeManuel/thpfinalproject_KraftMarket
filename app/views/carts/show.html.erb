@@ -9,25 +9,25 @@
   <%= f.input :delivery_method, as: :radio_buttons, collection: [["Remise en mains propres", "pickup"], ["Livraison à domicile", "bike"]], label: false %><br>
   <div id="delivery_form">
     <p>Informations de livraison</p>
-    <%= f.input :delivery_entity, label: 'Identité' %>
-    <%= f.input :delivery_street, label: 'Adresse' %>
-    <%= f.input :delivery_street2, label: 'Adresse (suite)' %>
-    <%= f.input :delivery_postcode, label: 'Code postal' %>
-    <%= f.input :delivery_city, label: 'Ville' %>
+    <%= f.input :delivery_entity, label: 'Identité', input_html: { value: current_user.delivery_entity }  %>
+    <%= f.input :delivery_street, label: 'Adresse', input_html: { value: current_user.delivery_street } %>
+    <%= f.input :delivery_street2, label: 'Adresse (suite)', input_html: { value: current_user.delivery_street2 } %>
+    <%= f.input :delivery_postcode, label: 'Code postal', input_html: { value: current_user.delivery_postcode } %>
+    <%= f.input :delivery_city, label: 'Ville', input_html: { value: current_user.delivery_city } %>
     <%= f.label :pays %>
     <%= f.country_select :delivery_country, priority_countries: ["FR"] %>
     <%= f.input :delivery_instructions, label: 'Instructions' %>
   </div>
 
-  <p>_______________________________________</p>
+  <p>_______________________________________</p>  
 
   <div id="invoice_form">
     <p>Informations de facturation</p>
-    <%= f.input :invoice_entity, label: 'Identité' %>
-    <%= f.input :invoice_street, label: 'Adresse' %>
-    <%= f.input :invoice_street2, label: 'Adresse (suite)' %>
-    <%= f.input :invoice_postcode, label: 'Code postal' %>
-    <%= f.input :invoice_city, label: 'Ville' %>
+    <%= f.input :invoice_entity, label: 'Identité', input_html: { value: current_user.invoice_entity } %>
+    <%= f.input :invoice_street, label: 'Adresse', input_html: { value: current_user.invoice_street } %>
+    <%= f.input :invoice_street2, label: 'Adresse (suite)', input_html: { value: current_user.invoice_street2 } %>
+    <%= f.input :invoice_postcode, label: 'Code postal', input_html: { value: current_user.invoice_postcode } %>
+    <%= f.input :invoice_city, label: 'Ville', input_html: { value: current_user.invoice_city } %>
     <%= f.label :pays %>
     <%= f.country_select :invoice_country, priority_countries: ["FR"] %>
   </div>
