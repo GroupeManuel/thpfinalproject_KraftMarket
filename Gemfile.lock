@@ -109,6 +109,8 @@ GEM
     faker (1.9.1)
       i18n (>= 0.7)
     ffi (1.9.25)
+    font-awesome-rails (4.7.0.4)
+      railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (1.1.1)
@@ -268,7 +270,10 @@ DEPENDENCIES
   country_select (~> 3.1)
   devise (~> 4.5)
   faker (~> 1.9)
+
+  font-awesome-rails
   image_processing (~> 1.2)
+
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks

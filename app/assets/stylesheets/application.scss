@@ -12,5 +12,24 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-grid
+ *= require icons
+ *= require style
+ *= require colors/main
+ *= require plugins/revolutionslider
+ *= require font-awesome
+
  */
+
+
+
+.devise_signin{
+	margin: 30px 50px;
+	max-width: 400px;
+}
+
+.devise_signup{
+	margin: 30px 50px;
+	max-width: 400px;
+}
 
