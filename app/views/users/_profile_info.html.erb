@@ -19,6 +19,7 @@
     	</div>
 		<% end %>
 	</div>
+	
 	<!-- Form to update company information -->
 	<div class='tab-pane fade' role="tabpanel"  id="company" aria-labelledby="company-tab" >
 		<%= form_for(current_user, url: user_path(current_user.id), html: { method: :put }) do |f| %>

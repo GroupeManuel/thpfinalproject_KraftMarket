@@ -1,6 +1,6 @@
-<ul class="nav nav-tabs" id='profile-tabs' role='tablist'>
+<!-- Tabs corresponding to each order status -->
 
-	<!-- Tabs corresponding to each order status -->
+<ul class="nav nav-tabs" id='profile-tabs' role='tablist'>
 	<% @order_status.each do |status, french_status| %>
 	  	<li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" id=<%= status+'-tab' %> href=<%= '#'+status %> aria-controls=<%= status %> aria-selected="false"  >
 	  		<%= french_status %>
@@ -11,7 +11,8 @@
 
 <!-- Tab contents -->
 <div class='tab-content'>
-	<!-- Tabs content corresponding to each status for the items bought by the current user -->
+
+	<!-- Tabs corresponding to order each status -->
 	<% @user_orders.each do |status, orders| %>
 	<div class='tab-pane fade' role='tabpanel' id=<%= status %> aria-labelledby=<%= status+'-tab' %> >
 		<table class="table">
@@ -21,6 +22,8 @@
 				<th>Prix</th>
 			</tr></thead>
 			<tbody>
+
+				<!-- Tab-content : table showing orders information -->
 				<% orders.each do |order| %>
 				<tr>
 					<td><%= order.item.title %></td>
