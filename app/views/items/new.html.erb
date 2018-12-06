@@ -5,7 +5,7 @@
 	<% if user_signed_in? %>
 		<%= f.hidden_field :seller_id, value: current_user.id %>
 	<% end %>
-	<%= f.hidden_field :status, value:'draft' %>
+	<%= f.hidden_field :status, value:'published' %>
 
 	<div class='form-group form-inline row'>
 		<div class='col-sm-2 align-top'>Nom de l'article</div>
