@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_162812) do
+ActiveRecord::Schema.define(version: 2018_12_06_114032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 2018_12_04_162812) do
     t.string "delivery_postcode"
     t.string "delivery_city"
     t.string "delivery_country"
-    t.string "delivery_state"
     t.string "delivery_instructions"
     t.string "invoice_entity"
     t.string "invoice_street"
@@ -86,7 +85,6 @@ ActiveRecord::Schema.define(version: 2018_12_04_162812) do
     t.string "invoice_postcode"
     t.string "invoice_city"
     t.string "invoice_country"
-    t.string "invoice_state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
@@ -124,7 +122,6 @@ ActiveRecord::Schema.define(version: 2018_12_04_162812) do
     t.string "delivery_postcode"
     t.string "delivery_city"
     t.string "delivery_country"
-    t.string "delivery_state"
     t.string "delivery_instructions"
     t.string "invoice_entity"
     t.string "invoice_street"
@@ -132,7 +129,6 @@ ActiveRecord::Schema.define(version: 2018_12_04_162812) do
     t.string "invoice_postcode"
     t.string "invoice_city"
     t.string "invoice_country"
-    t.string "invoice_state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
