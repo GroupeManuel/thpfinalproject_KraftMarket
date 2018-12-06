@@ -248,6 +248,7 @@ img.footer-logo { max-height: 38px; width: auto; }
 .header-widget .button,
 .header-widget .button.border {
 	margin-right: 0;
+	text-decoration: none;
 	min-width: 130px;
 	text-align: center;
 	position: relative;
@@ -6808,7 +6809,7 @@ a.button.border {
 }
 
 a.button.border:hover {
-	background-color: #66676b;
+	background-color: #FC7526;
 	color: #fff;
 	opacity: 1;
 }
