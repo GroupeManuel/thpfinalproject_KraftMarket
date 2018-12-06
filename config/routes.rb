@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'contact/new'
     # Controller Static
     
   get '/', to: 'static#home_buyer', as: 'root'
@@ -25,5 +26,8 @@ Rails.application.routes.draw do
     # Controller Cart
 
   resources :carts, only: [:show, :new, :create, :destroy]
+
+    # Controller Message
+  resources :contacts, only: [:new, :create]
 
 end

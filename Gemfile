@@ -73,3 +73,6 @@ gem "aws-sdk-s3", require: false
 gem 'image_processing', '~> 1.2'
 
 gem "simple_form", "~> 4.1"
+
+# Gem to send emails from hte contact form
+gem 'mail_form'
