@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def update
   	@user.update(user_params)
-  	redirect_to user_path(@user.id)
+  	redirect_back fallback_location: user_path(@user.id)
   end
 
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   	params[:user].permit(:email, :first_name, :last_name, :phone_number, :activity, :company_name, :company_ID_number, :company_description, :invoice_entity, :invoice_street, :invoice_street2, :invoice_postcode, :invoice_city, :invoice_country, :delivery_entity, :delivery_street, :delivery_street2, :delivery_postcode, :delivery_city, :delivery_country, :delivery_instructions)
   end
 
-  #sort of all items by status
+  #sort of all items by status to display on profile page
   def user_sales
     item_status = ['draft','published','sold']
     @french_status = {
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
   end
 
-  #sort of all orders by status
+  #sort of all orders by status to display on profile page
   def user_orders
     order_status = ['payed','being_shipped','shipped']
     @french_status = {
