@@ -11,8 +11,10 @@ class CartsController < ApplicationController
         @cart = Cart.create!(buyer_id: current_user.id)
         session[:cart] = @cart.id
 
+          # Find the item using session variable and store it in a variable
         @item = Item.find(session[:item_id])
 
+          # Update the item to tell that it is in a cart, so it is reserved
         @item.update(cart_id: @cart.id)
 
         redirect_to cart_path(@cart.id)
@@ -26,11 +28,6 @@ class CartsController < ApplicationController
       redirect_to new_user_registration_path
     end
 
-      # Find the item using session variable and store it in a variable
-    # @item = Item.find(session[:item_id])
-
-      # Update the item to tell that it is in a cart, so it is reserved
-    #@item.update(cart_id: @cart.id)
   end
 
   def show
