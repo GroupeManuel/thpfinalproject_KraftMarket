@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<body>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+<!-- Content
+================================================== -->
+
+<!-- Container / Start -->
+<div class="container">
+
+	<div class="row">
+
+		<!-- Contact Details -->
+		<div class="col-md-4">
+
+			<h4 class="headline margin-bottom-30">Nous contacter</h4>
+
+			<!-- Contact Details -->
+			<div class="sidebar-textbox">
+				<p>Recyclez vos matières premières de qualité (cuir, toile de jute, papier...). Proposez ou trouvez les matières qui vous inspireront.</p>
+
+				<ul class="contact-details">
+					<li><i class="im im-icon-Phone-2"></i> <strong>Phone:</strong> <span>(+33) 06 54 43 44 45 </span></li>
+					<li><i class="im im-icon-Globe"></i> <strong>Web:</strong> <span><a href="#">www.kraft-market.com</a></span></li>
+					<li><i class="im im-icon-Envelope"></i> <strong>E-Mail:</strong> <span><a href="#">contact@kraft-market.com</a></span></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<!-- Contact Form using gem Mail-Form and Sendgrid for Heroku -->
+		<div class="col-md-8">
+			<section id="contact">
+				<h4 class="headline margin-bottom-35">Formulaire de contact</h4>
+				<div id="contact-message"></div>
+					<%= form_for @contact do |f| %>
+						<% if flash[:error].present? %>
+							<p> flash[:error]</p>
+						<% end %>
+
+						<div class="row">
+						<div class="col-md-6">
+							<div><%= f.text_field :name, required: true, id: "name", placeholder: "Votre nom" %></div>
+						</div>
+						<div class="col-md-6">
+							<div><%= f.text_field :email, required: true, id: "email", placeholder: "Votre email" %></div>
+						</div>
+						<div><%= f.text_field :topic, id: "subject", placeholder: "Sujet du message" %></div>
+						<div><%= f.text_area :message, as: :text, cols: "40", rows:"3", id: "comments", placeholder: "Votre message" %></div>
+						
+						<%= f.submit 'Envoyer le message', class: "submit button", id: "submit" %>
+					<% end %>
+			</section>
+		</div>
+		<!-- Contact Form / End -->
+	</div>
+</div>
+<!-- Container / End -->
+
+<!-- Back To Top Button -->
+<div id="backtotop"><a href="#"></a></div>
+
+</div>
+<!-- Wrapper / End -->
+
+</body>
+</html>

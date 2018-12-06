@@ -8,12 +8,7 @@ def home_seller
 
 end
 
-def contact
-
-end
-
 def about
-
 end
 
 end
