@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_06_141050) do
+ActiveRecord::Schema.define(version: 2018_12_06_164858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_141050) do
     t.string "delivery_postcode"
     t.string "delivery_city"
     t.string "delivery_country"
-    t.string "delivery_instructions"
+    t.text "delivery_instructions"
     t.string "invoice_entity"
     t.string "invoice_street"
     t.string "invoice_street2"
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_141050) do
     t.string "company_name"
     t.string "company_ID_number"
     t.text "personal_description"
-    t.string "company_description"
+    t.text "company_description"
     t.boolean "is_buyer"
     t.boolean "is_seller"
     t.string "delivery_entity"
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_141050) do
     t.string "delivery_postcode"
     t.string "delivery_city"
     t.string "delivery_country"
-    t.string "delivery_instructions"
+    t.text "delivery_instructions"
     t.string "invoice_entity"
     t.string "invoice_street"
     t.string "invoice_street2"
