@@ -17,8 +17,12 @@ class ItemsController < ApplicationController
 
     if params[:search_form] == nil
       @items_selection = Item.all.published
+      @items_selection = @items_selection.order('created_at DESC')
+      @items_selection = @items_selection.published
     else
-      @items_selection = Item.where(category_id: params[:search_form][:category_id]).published
+      @items_selection = Item.where(category_id: params[:search_form][:category_id])
+      @items_selection = @items_selection.order('created_at DESC')
+      @items_selection = @items_selection.published
     end
 
   end

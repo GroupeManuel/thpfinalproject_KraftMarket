@@ -7,10 +7,10 @@ Order.destroy_all
 
     # Create instances of model User
 
-User.create!(email: "victor@victor.fr", password: "123456", first_name: "Victor")
-User.create!(email: "hugo@hugo.fr", password: "123456", first_name: "Hugo")
-User.create!(email: "handa@handa.fr", password: "123456", first_name: "Handa")
-User.create!(email: "damien@damien.fr", password: "123456", first_name: "Damien")
+User.create!(email: "victor@victor.fr", password: "123456", first_name: "Victor", last_name: "Martin", delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address, delivery_city: Faker::Address.city)
+User.create!(email: "hugo@hugo.fr", password: "123456", first_name: "Hugo", last_name: "Martin", delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address, delivery_city: Faker::Address.city)
+User.create!(email: "handa@handa.fr", password: "123456", first_name: "Handa", last_name: "Martin", delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address, delivery_city: Faker::Address.city)
+User.create!(email: "damien@damien.fr", password: "123456", first_name: "Damien", last_name: "Martin", delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address, delivery_city: Faker::Address.city)
 
     # Create 3 categories
 
@@ -25,10 +25,9 @@ item_status = ["draft", "published", "sold", "deleted"]
 order_status = ["payed", "being_shipped", "shipped"]
 
 
-100.times do 
+100.times do
 
     # Create instances of model Item
-
     item = Item.create!(
         title: Faker::StarWars.character, 
         description: Faker::StarWars.quote, 
@@ -38,8 +37,8 @@ order_status = ["payed", "being_shipped", "shipped"]
         seller_id: rand(User.first.id..User.last.id)
         )
 
-    # Create order if item sold
 
+    # Create order if item sold
     if Item.last.status == "sold"
         Order.create!(
             buyer_id: rand(User.first.id..User.last.id),
@@ -59,8 +58,7 @@ order_status = ["payed", "being_shipped", "shipped"]
             invoice_city: Faker::Address.city,
             invoice_country: Faker::Address.country
             )
-
         item.order_id = Order.last.id
         item.save
     end
-end
+ end

@@ -76,3 +76,4 @@ gem "simple_form", "~> 4.1"
 
 # Gem to send emails from hte contact form
 gem 'mail_form'
+gem "country_select", "~> 3.1"

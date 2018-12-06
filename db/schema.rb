@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(version: 2018_12_06_141050) do
     t.string "delivery_postcode"
     t.string "delivery_city"
     t.string "delivery_country"
-    t.string "delivery_state"
     t.string "delivery_instructions"
     t.string "invoice_entity"
     t.string "invoice_street"
@@ -85,7 +84,6 @@ ActiveRecord::Schema.define(version: 2018_12_06_141050) do
     t.string "invoice_postcode"
     t.string "invoice_city"
     t.string "invoice_country"
-    t.string "invoice_state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
@@ -122,7 +120,6 @@ ActiveRecord::Schema.define(version: 2018_12_06_141050) do
     t.string "delivery_postcode"
     t.string "delivery_city"
     t.string "delivery_country"
-    t.string "delivery_state"
     t.string "delivery_instructions"
     t.string "invoice_entity"
     t.string "invoice_street"
@@ -130,7 +127,6 @@ ActiveRecord::Schema.define(version: 2018_12_06_141050) do
     t.string "invoice_postcode"
     t.string "invoice_city"
     t.string "invoice_country"
-    t.string "invoice_state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
