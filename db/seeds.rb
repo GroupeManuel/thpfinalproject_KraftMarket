@@ -7,10 +7,10 @@ Order.destroy_all
 
     # Create instances of model User
 
-User.create!(email: "victor@victor.fr", password: "123456", first_name: "Victor")
-User.create!(email: "hugo@hugo.fr", password: "123456", first_name: "Hugo")
-User.create!(email: "handa@handa.fr", password: "123456", first_name: "Handa")
-User.create!(email: "damien@damien.fr", password: "123456", first_name: "Damien")
+User.create!(email: "victor@victor.fr", password: "123456", first_name: "Victor", last_name: "Martin", delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address, delivery_city: Faker::Address.city)
+User.create!(email: "hugo@hugo.fr", password: "123456", first_name: "Hugo", last_name: "Martin", delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address, delivery_city: Faker::Address.city)
+User.create!(email: "handa@handa.fr", password: "123456", first_name: "Handa", last_name: "Martin", delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address, delivery_city: Faker::Address.city)
+User.create!(email: "damien@damien.fr", password: "123456", first_name: "Damien", last_name: "Martin", delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address, delivery_city: Faker::Address.city)
 
     # Create 3 categories
 
@@ -52,7 +52,6 @@ order_status = ["payed", "being_shipped", "shipped"]
             delivery_postcode: Faker::Address.postcode,
             delivery_city: Faker::Address.city,
             delivery_country: Faker::Address.country,
-            delivery_state: Faker::Address.state,
             delivery_instructions: Faker::StarWars.quote,
             invoice_entity: Faker::Name.name,
             invoice_street: Faker::Address.street_address,
@@ -60,7 +59,6 @@ order_status = ["payed", "being_shipped", "shipped"]
             invoice_postcode: Faker::Address.postcode,
             invoice_city: Faker::Address.city,
             invoice_country: Faker::Address.country,
-            invoice_state: Faker::Address.state,
             )
     end
 end
