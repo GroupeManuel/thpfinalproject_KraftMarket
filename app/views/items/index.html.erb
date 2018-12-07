@@ -1,19 +1,14 @@
-<div class="main-search-input-item">
-    <%= form_for :search_form, url: items_path, method: :get do |f| %>
-        <%= f.collection_select(:category_id, Category.all, :id, :category_name) %>
-        <%= f.submit "Recherche", class:"btn btn-primary" %>
-    <% end %>
-</div>
+<div class="row margin-bottom-25">
 
-<% @items_selection.each do |item| %>
-    <p>Produit: <%= item.title %></p>
-    <p>Catégorie: <%= Category.find(item.category_id).category_name %></p>
-    <p>Description: <%= item.description %></p>
-    <p><%= item.status %></p>
-    <% if item.item_images.attached? %>
-        <p><%= image_tag item.item_images[0] %></p>
-    <% end %>
-    <p><%= item.created_at %></p>
-    <p><%= link_to 'Voir plus', item_path(item.id) %></p>
-    <p>_____________________</p>
-<% end %>
+    <!-- Rendering filters in a sidebar -->
+    <%= render 'items/index/sidebar_index' %>
+
+    <div class="col-lg-10 col-md-9 padding-left-30">
+        <% @items_selection.each_with_index do |item, i| %>
+
+            <!-- Rendering each item in a card -->
+            <%= render 'items/index/item_index', item:item, i:i %>
+
+        <% end %>
+    </div>
+</div>
