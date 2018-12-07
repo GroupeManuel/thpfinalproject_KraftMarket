@@ -23,6 +23,25 @@ class OrdersController < ApplicationController
       # Update the item to make appear the order 
     Item.find(session[:item_id]).update(order_id: @new_order.id)
 
+     # Amount in cents
+     @amount = session[:item_price]
+    
+     customer = Stripe::Customer.create(
+       :email => params[:stripeEmail],
+       :source  => params[:stripeToken]
+     )
+   
+     charge = Stripe::Charge.create(
+       :customer    => customer.id,
+       :amount      => @amount,
+       :description => 'Rails Stripe customer',
+       :currency    => 'eur'
+     )
+
+   rescue Stripe::CardError => e
+     flash[:error] = e.message
+     redirect_to cart_path(current_user.cart.id) and return
+
     flash[:notice] = "Votre commande est bien passé"
     redirect_to root_path
   end

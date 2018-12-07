@@ -6,7 +6,10 @@
 
 <!-- Use simple_form gem for radio button choice -->
 <%= simple_form_for Order.new do |f| %>
+
+  <!-- Radio button to choice between pickup and bike delivery -->
   <%= f.input :delivery_method, as: :radio_buttons, collection: [["Remise en mains propres", "pickup"], ["Livraison à domicile", "bike"]], label: false %><br>
+  
   <div id="delivery_form">
     <p>Informations de livraison</p>
     <%= f.input :delivery_entity, label: 'Identité', input_html: { value: current_user.delivery_entity }  %>
@@ -31,8 +34,18 @@
     <%= f.label :pays %>
     <%= f.country_select :invoice_country, priority_countries: ["FR"] %>
   </div>
-  <%= f.button :submit, "Payer" %>
+
+    <!-- Stripe script permitting payment and creating order -->
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Commande de l'article n°<%= @cart_item.id %>"
+          data-amount="<%= (@cart_item.price) * 100 %>"
+          data-currency="eur"   
+          data-locale="auto"
+          data-label="Confirmer ma commande">
+    </script>
+  
 <% end %><br> 
 
 <!-- Delete the cart -->
-<%= link_to 'Annuler', cart_path(@cart_item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Annuler', cart_path(@cart_item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>

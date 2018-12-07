@@ -29,5 +29,5 @@ Rails.application.routes.draw do
 
     # Controller Message
   resources :contacts, only: [:new, :create]
-
+  
 end

@@ -32,6 +32,9 @@ class ItemsController < ApplicationController
 
       # Create a session variable for use the item in page cart#show
     session[:item_id] = @item.id
+
+      # Session variable for the stripe payment in the charges controller
+    session[:item_price] = (@item.price.to_i) * 100
   end
 
   def edit
