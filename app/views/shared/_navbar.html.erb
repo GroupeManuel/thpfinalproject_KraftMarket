@@ -1,4 +1,3 @@
-
 <div id="wrapper">
 <!-- Header Container
 ================================================== -->
@@ -13,7 +12,9 @@
 				
 				<!-- Logo -->
 				<div id="logo">
-					<a href="index.html"><img src="images/logo.png" alt=""></a>
+					<%= link_to root_path do %>
+   					<%= image_tag "airbnb_logo" %>
+					<% end %>				
 				</div>
 
 				<!-- Mobile Navigation -->
@@ -30,7 +31,7 @@
 					<ul id="responsive">
 						<% if user_signed_in? %>
                            <li><%= link_to "Acceuil", root_path %></li>
-                           <li><%= link_to "Mon compte", edit_user_registration_path %></li>
+                           <li><%= link_to "Mon compte", user_path(current_user.id) %></li>
                            <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></li>
                        <% else %>	 
                            <li><%= link_to "Acceuil", root_path %></li>
@@ -40,10 +41,11 @@
 					</ul>
 				</nav>
 				<div class="clearfix"></div>
+		
 			
 				<!-- Main Navigation / End -->
-
-				</div>
+	 		</div>
+		
 			<!-- Left Side Content / End -->
 
 
