@@ -7,17 +7,25 @@ Order.delete_all
 
     # Create instances of model User
 
-User.create!(email: "victor@victor.fr", password: "123456", first_name: "Victor", last_name: "Martin", delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address, delivery_city: Faker::Address.city)
-User.create!(email: "hugo@hugo.fr", password: "123456", first_name: "Hugo", last_name: "Martin", delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address, delivery_city: Faker::Address.city)
-User.create!(email: "handa@handa.fr", password: "123456", first_name: "Handa", last_name: "Martin", delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address, delivery_city: Faker::Address.city)
-User.create!(email: "damien@damien.fr", password: "123456", first_name: "Damien", last_name: "Martin", delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address, delivery_city: Faker::Address.city)
+User.create!(email: "victor@victor.fr", password: "123456", first_name: "Victor", last_name: "Martin",
+            delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address,
+            delivery_city: Faker::Address.city, company_name: Faker::Company.name)
+User.create!(email: "hugo@hugo.fr", password: "123456", first_name: "Hugo", last_name: "Martin",
+            delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address,
+            delivery_city: Faker::Address.city, company_name: Faker::Company.name)
+User.create!(email: "handa@handa.fr", password: "123456", first_name: "Handa", last_name: "Martin",
+            delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address,
+            delivery_city: Faker::Address.city, company_name: Faker::Company.name)
+User.create!(email: "damien@damien.fr", password: "123456", first_name: "Damien", last_name: "Martin",
+            delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address,
+            delivery_city: Faker::Address.city, company_name: Faker::Company.name)
 
     # Create 3 categories
 
 Category.create!(category_name: "Bois")
 Category.create!(category_name: "Papier")
 Category.create!(category_name: "Tissu")
-
+ 
 
     # Possible item and order status
 
