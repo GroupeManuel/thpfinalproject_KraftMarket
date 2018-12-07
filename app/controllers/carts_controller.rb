@@ -11,7 +11,7 @@ class CartsController < ApplicationController
         @cart = Cart.create!(buyer_id: current_user.id)
         session[:cart] = @cart.id
 
-          # Find the item using session variable and store it in a variable
+        # Find the item using session variable and store it in a variable
         @item = Item.find(session[:item_id])
 
           # Update the item to tell that it is in a cart, so it is reserved
@@ -21,7 +21,7 @@ class CartsController < ApplicationController
       else
         @cart = Cart.find_by(buyer_id: current_user.id)
         flash[:notice] = "Votre panier est déjà rempli"
-        redirect_to item_path(session[:item_id])
+        redirect_back fallback_location: cart_path(@cart.id)
       end
     else
       flash[:notice] = "Vous devez être connecté pour commander un article"
