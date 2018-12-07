@@ -1,0 +1,65 @@
+<!-- Partial rendered for each item -->
+
+<div class='col-lg-4 col-md-6 col-sm-12'>
+    <%= link_to item_path(item.id) do %>
+    <div class="listing-item-container" >
+        
+        <div class="listing-item">
+
+            <!-- Product image to be put from activerecort -->
+            <%= image_tag '/assets/test-images/listing-item-0'+(i%6).to_s+'.jpg' %>
+
+            <!-- badge in case item is reserved -->
+            <% if item.cart %>
+                <% if item.cart.buyer == current_user %>
+                    <div class="listing-badge now-open">
+                        Ma réservation 
+                    </div>
+                <% else %>
+                    <div class="listing-badge now-closed">
+                        Déjà réservé
+                    </div>
+                <% end %>
+            <% end %>
+
+
+            <!-- Content in the item card -->
+            <div class="listing-item-content">
+                <span class="tag"><%= item.category.category_name %></span>
+                <h3><%= item.title %></h3>
+                <span>Posté il y a 
+                    <!-- Ruby script to calculate the delay since item post, to be put in a decorator -->
+                	<% diff_in_days = (Time.now - item.created_at)/(3600*24) %>
+					<% if diff_in_days < 1 %>
+						<%= pluralize(((Time.now - item.created_at)/3600).to_i, 'heure') %>
+					<% else %>
+						<%= pluralize(((Time.now - item.created_at)/(3600*24)).to_i, 'jour') %>
+					<% end%>							
+				</span>
+            </div>
+        </div>
+        <% end %>
+
+        <!-- Card footer -->
+        <div class='star-rating'>
+            <h4 class='row justify-content-between mb-4'>
+                <% if item.seller.company_name %>
+                    <%= link_to 'Vendu par '+item.seller.company_name, user_path(item.seller.id) %>
+                <% else %>
+                    <%= link_to 'Vendu par '+item.seller.first_name, user_path(item.seller.id) %>
+                <% end %>
+            </h4>
+
+            <!-- icon to book the item if possible -->
+            <% unless item.cart %>
+                <%= link_to carts_path, method: :post, class:'button fullwidth' do %>
+                    <div class='' >
+                        <i class="fa fa-cart-arrow-down"></i>  <%= item.price %> €
+
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+
+    </div>
+</div>
