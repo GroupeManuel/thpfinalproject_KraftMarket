@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     #creation of the new item
     Item.create!(item_params)
     #TO BE CHANGED WHEN WE HAVE A INDEX VIEW OR A SHOW VIEW READY 
-    redirect_to root_path
+    redirect_to root_path, notice: "Merci d'avoir créé cet article"
   end
 
   def index

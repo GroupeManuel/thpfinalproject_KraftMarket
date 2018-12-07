@@ -16,13 +16,9 @@
 //= require turbolinks
 
 
-
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-
-//= require_tree .
-
 
 
 //= require jquery-2.2.0.min
@@ -39,3 +35,5 @@
 
 //= require themepunch.tools.min
 //= require themepunch.revolution.min
+
+//= require_tree .
