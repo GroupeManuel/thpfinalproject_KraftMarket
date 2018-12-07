@@ -1747,7 +1747,7 @@ em.mm-counter+a.mm-fullsubopen+span {
 	height: 100%;
 	width: 100%;
 	display: block;
-	background: ;
+	background: #fff;
 }
 
 .main-search-container h2 {
@@ -4872,11 +4872,6 @@ input#date-picker:hover {
     font-weight: normal;
     transition: transform 0.3s;
     transform: translate3d(0,0,0) rotate(0deg);
-}
-
-#booking-date-range i {
-	color: #999;
-	background-color: 
 }
 
 /* Booking Requests Filter / End */
