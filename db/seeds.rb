@@ -1,9 +1,9 @@
 # Cleaning database
 
-User.destroy_all
-Category.destroy_all
-Item.destroy_all
-Order.destroy_all
+User.delete_all
+Category.delete_all
+Item.delete_all
+Order.delete_all
 
     # Create instances of model User
 
