@@ -1,7 +1,9 @@
 SHOW PRODUIT<br>
 
 <p>Produit: <%= @item.title %></p>
-<p><%= image_tag @item.item_images[0] %></p>
+<% if @item.item_images.attached? %>
+    <p><%= image_tag @item.item_images[0] %></p>
+ <% end %>
 <p>Description: <%= @item.description%></p>
 <p>Prix: <%= @item.price%> €</p>
 <p>Vendeur: <%= User.find(@item.seller_id).first_name %></p>
