@@ -33,11 +33,16 @@
     <!-- Partial Navbar -->
     <%= render "shared/navbar"%>
 
-    <!-- Message d'alerte lié l'authentifation Devise 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    -->
-
+    <!-- Message d'alerte lié l'authentifation Devise -->
+    <% unless flash.empty? %>
+      <div id="notice">
+        <% flash.each do |key, value| %>
+          <div class="flash <%= key %>">
+            <%= value %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
     <%= yield %>
     <%= render "shared/footer"%>
