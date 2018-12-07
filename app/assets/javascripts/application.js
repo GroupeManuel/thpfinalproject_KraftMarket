@@ -30,6 +30,10 @@
 //= require tooltips.min
 //= require custom
 
-//= require themepunch.tools.min
-//= require themepunch.revolution.min
 
+//= require quantityButtons
+//= require rangeslider.min
+//= require sticky-kit.min
+//= require switcher
+//= require themepunch.revolution.min
+//= require themepunch.tools.min
