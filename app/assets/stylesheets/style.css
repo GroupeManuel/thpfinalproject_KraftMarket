@@ -85,7 +85,7 @@
 @import url("icons.css");							/* Webfont Icons: FontAwesome, Line, Simple Line */
 @import url("plugins/revolutionslider.css");		/* Revolution Slider Style Sheets */
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:5 JA00,600,700');
 
 
 
@@ -1751,7 +1751,7 @@ em.mm-counter+a.mm-fullsubopen+span {
 	height: 100%;
 	width: 100%;
 	display: block;
-	background: #fff;
+
 }
 
 .main-search-container h2 {
@@ -1786,7 +1786,6 @@ em.mm-counter+a.mm-fullsubopen+span {
 	height: 100%;
 	width: 100%;
 	display: block;
-	background: ;
 }
 
 .seller-search-container h2 {
@@ -9721,6 +9720,27 @@ span.like-icon {
 	border-radius: 50%;
 	transition: all 0.4s;
 }
+
+/* avatar */
+span.testimony-avatar {
+	color: #fff;
+	font-size: 19px;
+	position: absolute;
+	z-index: 101;
+	right: 30px;
+	bottom: 30px;
+	cursor: normal;
+	background-color: rgba(24,24,24,0.4);
+	display: block;
+	height: 44px;
+	width: 44px;
+	border-radius: 50%;
+	transition: all 0.4s;
+	background-image: url('https://bit.ly/2L3un5Z');
+    background-size: 100% auto;
+	}
+
+
 
 .like-icon:before,
 .like-icon:after {
