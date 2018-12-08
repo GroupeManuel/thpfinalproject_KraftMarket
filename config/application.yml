@@ -11,7 +11,7 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
 
-stripe_publishable_key: "sk_live_dSqzdUq80sw9GWmuoI0qJ9rL"
+stripe_publishable_key: "pk_test_Bdi56WLemN3kuj61vr8JqqKK"
 stripe_secret_key: "sk_test_LGKkMMLHNthdZ51oR4TFp1WG"
 
 aws_access_key : "AKIAI45ROBBUYGJPU6UQ"
