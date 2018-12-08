@@ -1,15 +1,42 @@
-SHOW PRODUIT<br>
+<div id="wrapper">
+    <div id="titlebar" class="gradient">
+    	<div class="container">
+    	    <div class="row">
+    	    	<div class="col-md-12">
+    	    		<!-- Breadcrumbs -->
+    	    		<nav id="breadcrumbs">
+    	    			<ul>
+    	    				<li><%= link_to "Accueil", root_path %></li>
+    	    				<li>Ajouter un article</li>
+    	    			</ul>
+    	    		</nav>
+    	    	</div>
+    	    </div>
+    	</div>
+    </div>
 
-<p>Produit: <%= @item.title %></p>
-<% if @item.item_images.attached? %>
-    <p><%= image_tag @item.item_images[0] %></p>
- <% end %>
-<p>Description: <%= @item.description%></p>
-<p>Prix: <%= @item.price%> €</p>
-<p>Vendeur: <%= User.find(@item.seller_id).first_name %></p>
+    <div class="container">
+        <div class="row">
+        	<div class="col-lg-12">
+        		<div id="add-listing" class="separated-form">
+                    <div class="add-listing-section">
+        				<div class="add-listing-headline">
+        					<h3><%= @item.title %></h3>
+        				</div>
+                        <% if @item.item_images.attached? %>
+                            <%= image_tag @item.item_images[0] %>
+                        <% end %>
+                        <p><h5>Vendeur:</h5> <%= User.find(@item.seller_id).first_name %>
+                        <i class="tip" data-tip-content="<%= User.find(@item.seller_id).first_name %> a déjà vendu sur Kraft Market"></i></p>
+                        <p><h5>Description:</h5> <%= @item.description%></p>
+                        <p><h5>Prix:</h5> <%= @item.price%> €</p>
 
-<%= link_to 'Retour', :back %><br><br> 
+                        <%= link_to 'Retour', :back, class:"btn btn-primary" %><br><br> 
 
-<%= form_for :create_cart, url: carts_path, method: :post do |f| %>
-    <%= f.submit "Acheter", class:"btn btn-primary" %>
-<% end %><br>
+                        <%= button_to 'Réserver', carts_path(item_id:@item.id), method: :post, class:"btn btn-primary" %>
+        			</div>
+                </div>
+        	</div>
+        </div>
+    </div>
+</div>
