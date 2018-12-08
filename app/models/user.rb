@@ -8,4 +8,12 @@ class User < ApplicationRecord
   has_many :items, :class_name => 'Item', :foreign_key => 'seller_id'
   has_many :orders, :class_name => 'Order', :foreign_key => 'buyer_id'
   has_one :cart, :class_name => 'Cart', :foreign_key => 'buyer_id'
+
+  after_create :init_cart
+
+  def init_cart
+    Cart.create(buyer_id:self.id)
+  end
+
+
 end

@@ -6,19 +6,24 @@ Item.delete_all
 Order.delete_all
 
     # Create instances of model User
+first_names = [victor, hugo, handa, damien]
 
-User.create!(email: "victor@victor.fr", password: "123456", first_name: "Victor", last_name: "Martin",
-            delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address,
-            delivery_city: Faker::Address.city, company_name: Faker::Company.name)
-User.create!(email: "hugo@hugo.fr", password: "123456", first_name: "Hugo", last_name: "Martin",
-            delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address,
-            delivery_city: Faker::Address.city, company_name: Faker::Company.name)
-User.create!(email: "handa@handa.fr", password: "123456", first_name: "Handa", last_name: "Martin",
-            delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address,
-            delivery_city: Faker::Address.city, company_name: Faker::Company.name)
-User.create!(email: "damien@damien.fr", password: "123456", first_name: "Damien", last_name: "Martin",
-            delivery_street: Faker::Address.street_address, delivery_street2: Faker::Address.secondary_address,
-            delivery_city: Faker::Address.city, company_name: Faker::Company.name)
+first_names.each do |prenom|
+    User.create(
+        email: "#{prenom}@#{prenom}.fr", 
+        password: "123456", 
+        first_name: prenom.capitalize, 
+        last_name: Faker::Name.last_name,
+        delivery_street: Faker::Address.street_address, 
+        delivery_street2: Faker::Address.secondary_address,
+        delivery_city: Faker::Address.city, 
+        company_name: Faker::Company.name,
+        company_description:Faker::StarWars.quote, 
+
+        )
+
+    Cart.create(buyer_id: User.last.id)
+end
 
     # Create 3 categories
 
