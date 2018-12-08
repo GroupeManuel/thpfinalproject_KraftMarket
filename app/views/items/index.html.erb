@@ -1,14 +1,16 @@
-<div class="row margin-bottom-25">
+<div class='container'>
+	<div class="row margin-bottom-25">
 
-    <!-- Rendering filters in a sidebar -->
-    <%= render 'items/index/sidebar_index' %>
+	    <!-- Rendering filters in a sidebar -->
+	    <%= render 'items/index/sidebar_index' %>
 
-    <div class="col-lg-10 col-md-9 padding-left-30">
-        <% @items_selection.each_with_index do |item, i| %>
+	    <div class="col-lg-10 col-md-9 padding-left-30">
+	        <% @items_selection.each_with_index do |item, i| %>
 
-            <!-- Rendering each item in a card -->
-            <%= render 'items/index/item_index', item:item, i:i %>
+	            <!-- Rendering each item in a card -->
+	            <%= render 'items/index/item_index', item:item, i:i %>
 
-        <% end %>
-    </div>
+	        <% end %>
+	    </div>
+	</div>
 </div>
