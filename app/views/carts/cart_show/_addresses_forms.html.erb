@@ -1,0 +1,29 @@
+<div class='row'>
+
+  <div id="delivery_form" class='col-md-6 col-sm-12'>
+    <h4>Adresse d'expédition</h4>
+    Entité de livraison<%= f.text_field :delivery_entity, value: current_user.delivery_entity %>
+    Adresse<%= f.text_field :delivery_street, value: current_user.delivery_street %>
+    Adresse (suite)<%= f.text_field :delivery_street2, value: current_user.delivery_street2 %>
+    <div class='row with-forms'>
+      Code postal <%= f.text_field :delivery_postcode, value: current_user.delivery_postcode %>
+      Ville <%= f.text_field :delivery_city, value: current_user.delivery_city %>
+    </div>
+    Pays<%= f.country_select :delivery_country, priority_countries: ["FR"] %>
+    Précisions<%= f.text_area :delivery_instructions, value: current_user.delivery_instructions %>
+  </div>
+
+  <% button_to method: :update do %>Recopier <% end %>
+
+  <div id="invoice_form" class='col-md-6 col-sm-12'>
+    <h4>Adresse de facturation</h4>
+    Entité de facturation<%= f.text_field :invoice_entity, value: current_user.invoice_entity %>
+    Adresse<%= f.text_field :invoice_street, value: current_user.invoice_street %>
+    Adresse (suite)<%= f.text_field :invoice_street2, value: current_user.invoice_street2 %>
+    <div class='row with-forms'>
+      Code postal <%= f.text_field :invoice_postcode, value: current_user.invoice_postcode %>
+      Ville <%= f.text_field :invoice_city, value: current_user.invoice_city %>
+    </div>
+    Pays<%= f.country_select :invoice_country, priority_countries: ["FR"] %>
+    </div>
+</div>
