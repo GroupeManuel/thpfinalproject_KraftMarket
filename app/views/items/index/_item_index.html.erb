@@ -52,7 +52,7 @@
 
             <!-- icon to book the item if possible -->
             <% unless item.cart %>
-                <%= link_to carts_path, method: :post, class:'button fullwidth' do %>
+                <%= button_to carts_path(item_id:item.id), method: :post, class:'button fullwidth' do %>
                     <div class='' >
                         <i class="fa fa-cart-arrow-down"></i>  <%= item.price %> €
 
