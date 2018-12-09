@@ -1,3 +1,5 @@
+<!--
+
 SHOW PRODUIT<br>
 
 <p>Produit: <%= @item.title %></p>
@@ -13,3 +15,43 @@ SHOW PRODUIT<br>
 <%= form_for :create_cart, url: carts_path, method: :post do |f| %>
     <%= f.submit "Acheter", class:"btn btn-primary" %>
 <% end %><br>
+
+-->
+
+
+<!--<div class="test" style="background: url('<%= image_path('origami.jpg') %>'); background-repeat: no-repeat; background-size: cover; background-position: 50%;">-->
+
+
+<% if @item.item_images.attached? %>
+	<div class="test" style="background-image: url(<%= rails_blob_url(@item.item_images[0]) %>)"; background-repeat: no-repeat; background-size: cover; background-position: 50%;">
+
+	</div>
+ <% end %>
+
+<div class="main-search-container" style="background-image: url('<%= image_path('photo-1517840545241-b491010a8af4.jpg') %>')"; background-repeat: no-repeat; background-size: cover; background-position: 50%;">
+	<div class="main-search-inner">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Développez votre activité</h2>
+					<h4>Trouvez des matières uniques pour vos créations</h4>
+					<div class="main-search-input">
+						<div class="main-search-input-item">
+							<input type="text" placeholder="Que recherchez-vous ?" value="">
+						</div>
+						<div class="main-search-input-item">
+							<select data-placeholder="All Categories" class="chosen-select" style="display: none;">
+								<option>Toutes les catégories</option>	
+								<option>Papier</option>
+								<option>Tissu</option>
+								<option>Bois</option>
+							</select>
+						</div>
+						<button class="button" onclick="window.location.href='listings-half-screen-map-list.html'">Rechercher</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

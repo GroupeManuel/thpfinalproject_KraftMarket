@@ -1737,7 +1737,7 @@ em.mm-counter+a.mm-fullsubopen+span {
 .main-search-container {
 	display: block;
 	width: 100%;
-	position: relative;
+	/* position: relative; */
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: 50%;
@@ -1745,14 +1745,14 @@ em.mm-counter+a.mm-fullsubopen+span {
 	z-index: 9;
 }
 
-.main-search-container:before {
+/* .main-search-container:before {
 	content: "";
 	position: absolute;
 	height: 100%;
 	width: 100%;
 	display: block;
 	background: #fff;
-}
+} */
 
 .main-search-container h2 {
 	font-size: 42px;
