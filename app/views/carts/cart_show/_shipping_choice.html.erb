@@ -1,6 +1,31 @@
+<div class="add-listing-section payment">
 
+	<div class="add-listing-headline">
+		<h3><i class="fa fa-box-open"></i>Choix de livraison</h3>
+	</div>
 
-<div class='row'>
-    <%= f.radio_button  :delivery_method, 'pickup' %>Remise en main propre
-    <%= f.radio_button  :delivery_method, 'bike' %>Livraison à domicile
+	<div>
+	    <div class='payment-tab-trigger padding-left-0'>
+			<%= f.radio_button :delivery_method, 'pickup', id:'order_pickup' %>
+	    	<%= f.label 'pickup', class:'padding-bottom-0' do %>Remise en main propre<% end %>
+	    </div>
+	</div>
+	<div>
+	    <div class='payment-tab-trigger padding-left-0' id='shipping_selection'>
+	    	<%= f.radio_button :delivery_method, 'bike', id:'order_bike' %>
+    		<%= f.label 'bike' do %>Livraison en vélo<% end %>    
+	    </div>
+
+		<div class='margin-top-10' id="delivery_form">
+		    <h4 class='padding-bottom-5'><i class="fa fa-map-marker-alt"></i>    Adresse d'expédition</h4>
+		    Entité de livraison<%= f.text_field :delivery_entity, value: current_user.delivery_entity %>
+		    Adresse<%= f.text_field :delivery_street, value: current_user.delivery_street %>
+		    Adresse (suite)<%= f.text_field :delivery_street2, value: current_user.delivery_street2 %>
+		    Code postal <%= f.text_field :delivery_postcode, value: current_user.delivery_postcode %>
+		    Ville <%= f.text_field :delivery_city, value: current_user.delivery_city %>
+		    Pays<%= f.country_select :delivery_country, priority_countries: ["FR"] %>
+		    Précisions<%= f.text_area :delivery_instructions, value: current_user.delivery_instructions %>
+		</div>
+
+	</div>
 </div>
