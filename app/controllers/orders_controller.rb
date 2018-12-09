@@ -46,9 +46,6 @@ class OrdersController < ApplicationController
       flash[:error] = e.message
       redirect_back fallback_location:cart_path(cart.id) and return
 
-    rescue Stripe::ValidationError => e
-       flash[:error] = e.message
-     # Too many requests made to the API too quickly
     end
 
     #If payment succeeded, create the order with external parameters     
