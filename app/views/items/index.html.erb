@@ -5,7 +5,7 @@
 	    <%= render 'items/item_index/sidebar_index' %>
 
 	    <div class="col-lg-10 col-md-9 padding-left-30">
-	        <% @items_selection.each_with_index do |item, i| %>
+	        <% @item_selection.each_with_index do |item, i| %>
 
 	            <!-- Rendering each item in a card -->
 	            <%= render 'items/item_index/item_card', item:item, i:i %>

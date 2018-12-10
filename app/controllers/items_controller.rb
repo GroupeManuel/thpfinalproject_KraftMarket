@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_action :def_filters, only: [:index]
+
   def new
     @item = Item.new
   end
@@ -12,18 +14,8 @@ class ItemsController < ApplicationController
   end
 
   def index
-
-      # Select items with category in the form 
-
-    if params[:search_form] == nil
-      @items_selection = Item.all.published
-      @items_selection = @items_selection.order('created_at DESC')
-      @items_selection = @items_selection.published
-    else
-      @items_selection = Item.where(category_id: params[:search_form][:category_id])
-      @items_selection = @items_selection.order('created_at DESC')
-      @items_selection = @items_selection.published
-    end
+    # Filter items according to the form parameters
+    @item_selection = Item.where(@filters).order('created_at DESC')
 
   end
 
@@ -48,6 +40,15 @@ class ItemsController < ApplicationController
 
   def status
     @status = ['draft', 'published', 'sold', 'deleted']
+  end
+
+  def def_filters
+    begin
+      @filters = params.require(:item_filter).permit(:category_id, :status, :seller_id)
+      puts @filters
+    rescue
+      @filters = {status:'published'}
+    end
   end
 
 end
