@@ -1,0 +1,40 @@
+<!-- Partial to recall the item booked -->
+
+<div class='col-md-4 col-sm-12 margin-top-0 margin-bottom-60'>
+
+    <%= link_to item_path(@cart_item.id) do %>
+    <div class="listing-item-container h-auto compact order-summary-widget">
+    
+        <div class="listing-item">
+
+            <!-- Product image to be put from activerecort -->
+            <%= image_tag '/assets/test-images/listing-item-01.jpg' %>
+
+            <!-- Content in the item card -->
+            <div class="listing-item-content">
+                <span class="tag"><%= @cart_item.category.category_name %></span>
+                <h3><%= @cart_item.title %></h3>
+                <span>
+                    <% if @cart_item.seller.company_name %>
+                        <%= link_to 'Vendu par '+@cart_item.seller.company_name, user_path(@cart_item.seller.id) %>
+                    <% else %>
+                        <%= link_to 'Vendu par '+@cart_item.seller.first_name, user_path(@cart_item.seller.id) %>
+                    <% end %>
+                </span>
+            </div>
+        </div>
+    </div>
+    <% end %>
+
+    <div class="boxed-widget opening-hours summary margin-top-0">
+        <ul>
+            <li class="margin-top-0"><h4>Total à régler <span><%= @cart_item.price %> €</span></h4></li>
+        </ul>
+    </div>
+
+    <!-- Remove the item from the cart -->
+    <div class="margin-top-10 justify-content-center d-flex">
+      <%= button_to 'Supprimer du panier', cart_path(id:@cart.id, item_id:@cart_item.id), method: :patch, data: { confirm: 'Voulez-vous annuler votre réservation ?' } %>
+    </div>
+
+</div>

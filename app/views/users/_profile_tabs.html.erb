@@ -1,13 +1,47 @@
-<aside class="" id='profile-tabs'>
-  <ul class="nav nav-tabs flex-column">
+<!-- Dashboard -->
+<div id="dashboard" class='padding-top-0'>
 
-	    <!-- Tab to display user items -->
-	    <li class="nav-item" ><a class="nav-link tab-link active" role='tab' data-toggle="tab" href='#seller' id='seller-tab' aria-controls="seller" aria-selected="true" >Annonces</a></li>
+	<!-- Navigation
+	================================================== -->
 
-	    <!-- Tab to display user orders -->
-      	<li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" href='#buyer' id='buyer-tab' aria-controls="buyer" aria-selected="false" >Achats</a></li>
+	<!-- Responsive Navigation Trigger -->
+	<%= link_to '#', class:"dashboard-responsive-nav-trigger" do %>
+		<i class="fa fa-reorder"></i> Mon profil
+	<% end %>
 
-	    <!-- Tab to display user info and modification forms -->
-      	<li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" href='#profile-info' id='profile-info-tab' aria-controls="profile-info" aria-selected="false" >Infos personnelles</a></li>
-  </ul>
-</aside>
+	<div class="dashboard-nav" id='profile-tabs'>
+		<div class="dashboard-nav-inner">
+
+			<ul data-submenu-title="Activité" class="nav nav-tabs flex-column">
+
+			    <li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" href='#public-dashboard' id='public-dashboard-tab' aria-controls="public-dashboard" >
+					<i class="fa fa-tachometer-alt"></i> Tableau de bord</a>
+				</li>
+		
+			    <!-- Tab to display user items -->
+			    <li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" href='#seller' id='seller-tab' aria-controls="seller" >
+			    	<i class="fa fa-folder-open"></i> Annonces
+			    </a></li>
+
+			    <!-- Tab to display user orders -->
+		      	<li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" href='#buyer' id='buyer-tab' aria-controls="buyer" >
+		      		<i class="fa fa-shopping-cart"></i> Achats</a>
+		      	</li>
+
+			    <!-- Tab to display user messages -->
+				<!-- <li><a href="dashboard-messages.html"><i class="fa fa-comment"></i> Questions<span class="nav-tag messages">2</span></a></li> -->
+			</ul>
+
+			<ul data-submenu-title="Compte" class='nav nav-tabs flex-column'>
+		      	<li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" href='#profile-info' id='profile-info-tab' aria-controls="profile-info">
+		      		<i class="fa fa-user"></i> Infos personnelles
+		      	</a></li>
+
+				<li><%= link_to destroy_user_session_path, method: :delete do %>
+					<i class="fa fa-sign-out-alt"></i> Déconnexion
+				<% end %></li>
+			</ul>
+			
+		</div>
+	</div>
+</div>
