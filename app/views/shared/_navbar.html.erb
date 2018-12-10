@@ -51,13 +51,14 @@
 
 <!-- Right Side Content / End -->
 			<div class="right-side">								
-				<div class="header-widget">
-				<!--	<a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"></i> S'inscrire</a> -->
-				<div class = "sign-in popup-with-zoom-anim>
-				<%= link_to root_path do %>
-				<i class="fas fa-shopping-cart"></i>
-				<% end %>	
-				</div>	
+				<div class="header-widget row">
+				<% if current_user %>
+					<div>
+						<%= link_to cart_path(current_user.cart.id), class:"button border with-icon" do %>
+							<i class="fas fa-shopping-cart"></i>
+						<% end %>	
+					</div>	
+				<% end %>
 				<%= link_to "Devenir ravitailleur", home_seller_path, :class => "button border with-icon" %>
 	 			</div>		
 			</div>
