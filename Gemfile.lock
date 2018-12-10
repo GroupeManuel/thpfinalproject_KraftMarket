@@ -293,6 +293,7 @@ DEPENDENCIES
   jquery-turbolinks
   listen (>= 3.0.5, < 3.2)
   mail_form
+  mini_magick
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.2.rc1, >= 5.2.2.rc1)
