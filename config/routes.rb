@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
     # Controller Cart
 
-  resources :carts, only: [:show, :new, :create, :destroy]
+  resources :carts, only: [:show, :create, :update]
 
     # Controller Message
   resources :contacts, only: [:new, :create]

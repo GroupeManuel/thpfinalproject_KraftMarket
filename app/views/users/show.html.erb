@@ -1,3 +1,5 @@
+<% title('Mon profil - KraftMarket') %>
+
 <div class='row'>
 
 	<!-- Tabs to display profile section -->
@@ -7,6 +9,10 @@
 
   	<div class="tab-content col-9">
 	
+		<div class='tab-pane fade show active' role='tabpanel' id="public-dashboard" aria-labelledby="public-dashboard-tab" >
+	  		<%= render 'public_dashboard' %>
+	  	</div>
+
 		<!-- Tab-content displaying items owned by the user -->
 		<div class='tab-pane fade' role='tabpanel' id="seller" aria-labelledby="seller-tab" >
 	  		<%= render 'seller_profile' %>
@@ -14,7 +20,7 @@
 
 
 		<!-- Tab-content displaying orders done by the user -->
-		<div class='tab-pane fade show active' role='tabpanel' id="buyer" aria-labelledby="buyer-tab" >
+		<div class='tab-pane fade' role='tabpanel' id="buyer" aria-labelledby="buyer-tab" >
 	  		<%= render 'buyer_profile' %>
 	  	</div>
 

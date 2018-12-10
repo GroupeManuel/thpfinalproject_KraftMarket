@@ -1,51 +1,55 @@
-<p>Détail de votre panier</p><br>
+<!-- Template page: http://www.vasterad.com/themes/listeo_latest/pages-booking.html -->
 
-<p>Nom du produit: <%= @cart_item.title %></p>
-<p>Quantité: 1</p>
-<p>Prix: <%= @cart_item.price %></p>
+<%= render 'carts/cart_show/titlebar' %>
 
-<!-- Use simple_form gem for radio button choice -->
-<%= simple_form_for Order.new do |f| %>
+<div class='container'>
 
-  <!-- Radio button to choice between pickup and bike delivery -->
-  <%= f.input :delivery_method, as: :radio_buttons, collection: [["Remise en mains propres", "pickup"], ["Livraison à domicile", "bike"]], label: false %><br>
-  
-  <div id="delivery_form">
-    <p>Informations de livraison</p>
-    <%= f.input :delivery_entity, label: 'Identité', input_html: { value: current_user.delivery_entity }  %>
-    <%= f.input :delivery_street, label: 'Adresse', input_html: { value: current_user.delivery_street } %>
-    <%= f.input :delivery_street2, label: 'Adresse (suite)', input_html: { value: current_user.delivery_street2 } %>
-    <%= f.input :delivery_postcode, label: 'Code postal', input_html: { value: current_user.delivery_postcode } %>
-    <%= f.input :delivery_city, label: 'Ville', input_html: { value: current_user.delivery_city } %>
-    <%= f.label :pays %>
-    <%= f.country_select :delivery_country, priority_countries: ["FR"] %>
-    <%= f.input :delivery_instructions, label: 'Instructions' %>
+<% if @cart_item == nil %>
+    <h4> Vous n'avez aucun objet réservé</h4>
   </div>
 
-  <p>_______________________________________</p>  
+<% else %>
+  
+  <div class='row'>
 
-  <div id="invoice_form">
-    <p>Informations de facturation</p>
-    <%= f.input :invoice_entity, label: 'Identité', input_html: { value: current_user.invoice_entity } %>
-    <%= f.input :invoice_street, label: 'Adresse', input_html: { value: current_user.invoice_street } %>
-    <%= f.input :invoice_street2, label: 'Adresse (suite)', input_html: { value: current_user.invoice_street2 } %>
-    <%= f.input :invoice_postcode, label: 'Code postal', input_html: { value: current_user.invoice_postcode } %>
-    <%= f.input :invoice_city, label: 'Ville', input_html: { value: current_user.invoice_city } %>
-    <%= f.label :pays %>
-    <%= f.country_select :invoice_country, priority_countries: ["FR"] %>
+    <%= render 'carts/cart_show/order_summary' %>
+
+    <div class='col-md-8 col-sm-12'>
+
+    <!-- Use simple_form gem for radio button choice -->
+    <%= form_with model: @order, method:'create', class:'form' do |f| %>
+      <%= f.hidden_field :item_id, value: @cart_item.id %>
+
+      <!-- Radio button to choose between pickup and bike delivery -->
+      <%= render 'carts/cart_show/shipping_choice', f:f %>
+
+      <!-- Form to choose address and invoice address -->
+      <%= render 'carts/cart_show/invoice_form', f:f %>
+
+      <%= render 'carts/cart_show/payment_button', f:f %>
+    
+    <% end %>
+    </div>
   </div>
 
-    <!-- Stripe script permitting payment and creating order -->
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Commande de l'article n°<%= @cart_item.id %>"
-          data-amount="<%= (@cart_item.price) * 100 %>"
-          data-currency="eur"   
-          data-locale="auto"
-          data-label="Confirmer ma commande">
-    </script>
-  
-<% end %><br> 
+<% end %>
+</div>
 
-<!-- Delete the cart -->
-<%= link_to 'Annuler', cart_path(@cart_item.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+      // Hide delivery_form by default
+    $('#delivery_form').hide();
+
+    //Display the delivery form if shipping is required
+    $('#shipping_selection').on('click',function(e) {
+      $("#delivery_form").show(); 
+    })
+
+    //Hide the delivery form if shipping isn't required
+    $('#order_pickup').on('click',function(e) {
+      $("#delivery_form").hide();
+    })
+  });
+</script>

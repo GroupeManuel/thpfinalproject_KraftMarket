@@ -26,5 +26,5 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# Ignore Figaro key 
-config/application.yml
+# Ignore application configuration
+/config/application.yml

@@ -1,23 +1,10 @@
+<!-- DropZone | Documentation: http://dropzonejs.com -->
+<script type="text/javascript" src="scripts/dropzone.js"></script>
+
+
 <div id="wrapper">
 
-	<!-- Titlebar -->
-	<div id="titlebar" class="gradient">
-		<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h2><i class="sl sl-icon-plus"></i>Ajouter un article</h2>
-				<!-- Breadcrumbs -->
-				<nav id="breadcrumbs">
-					<ul>
-						<li><%= link_to "Accueil", root_path %></li>
-						<li><%= link_to "Mon compte", user_path(current_user.id) %></li>
-						<li>Ajouter un article</li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-		</div>
-	</div>
+<%= render 'items/item_new/titlebar' %>
 
 <div class="container">
 
@@ -25,67 +12,24 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<div id="add-listing" class="separated-form">
+				
+				<%= form_with model: @item, class:'form' do |f| %>
 
-			<%= form_with model: @item, class:'form' do |f| %>
+					<% if user_signed_in? %>
+						<%= f.hidden_field :seller_id, value: current_user.id %>
+					<% end %>
 
-				<% if user_signed_in? %>
-					<%= f.hidden_field :seller_id, value: current_user.id %>
+					<%= f.hidden_field :status, value:'published' %>
+
+					<!-- Section Informations essentielles -->
+					<%= render 'items/item_new/main_attributes_form', f:f %>
+					
+					<!-- Section Photos -->
+					<%= render 'items/item_new/add_photos', f:f %>
+				  	
+				  	<%= f.submit class:'button preview' %>
 				<% end %>
-				<%= f.hidden_field :status, value:'published' %>
-
-				<!-- Section Informations essentielles -->
-				<div class="add-listing-section">
-
-					<div class="add-listing-headline">
-						<h3><i class="sl sl-icon-doc"></i>Informations essentielles</h3>
-					</div>
-
-					<div class="row with-forms">
-						<div class="col-md-8">
-							<h5>Nom de l'article<i class="tip" data-tip-content="Soyez concis avec 2-3 mots dans le titre"></i></h5>
-							<div class="search-field"><%= f.text_field :title, required:true %></div>
-						</div>
-
-						<div class="col-md-4">
-							<h5>Catégorie</h5>
-							<%= f.collection_select :category_id, Category.all, :id, :category_name, include_blank: true %>
-						</div>
-					</div>
-
-					<div class="row with-forms">
-						<div class="col-md-12">
-							<h5>Description<i class="tip" data-tip-content="Décrivez précisément l'article: provenance et utilisation de la matière première, taille, nombre de pièces, dimensions principales : épaisseur, longueur..."></i></h5>
-							<span class="WYSIWYG"><%= f.text_area :description, required:true, rows:"3" %></span>
-							<p class='font-weight-light'>
-								Donnez le maximum de détails pour maximiser la confiance des artisans et vous éviter des questions de leur part.</p>
-						</div>
-					</div>
-
-					<div class="row with-forms">
-						<div class="col-md-4">
-						<h5>Prix de vente</h5>
-						<div class="search-field"><%= f.text_field :price, required:true %></div>	
-						</div>
-					</div>
-				</div>
-
-				<!-- Section Photos -->
-				<div class="add-listing-section margin-top-45">
-					<div class="add-listing-headline">
-						<h3><i class="sl sl-icon-picture"></i> Galerie photos</h3>
-					</div>
-
-					<!-- Dropzone -->
-					<div class="submit-section">
-						<span class="dropzone" ><%= f.file_field :item_images, multiple: true %></span>
-						<p class='font-weight-light'>
-								Téléchargez une ou plusieurs photos, pour donner confiance aux artisans qui réutiliseront ces matières premières.</p>
-					</div>
-				</div>
-			  	
-			  	<%= f.submit class:'button preview' %>
-			<% end %>
+			</div>
 		</div>
 	</div>
-</div>
 </div>
