@@ -1,127 +1,139 @@
-<header id="header" class='padding-top-10 padding-bottom-5' >
+<div id="wrapper">
+<!-- Header Container
+================================================== -->
+<header id="header-container">
 
 	<!-- Header -->
-	<div class="container d-flex justify-content-between">			
-
-		<!-- Left Side Content -->
-			<!-- Logo -->
-			<div id="logo">
-				<%= link_to root_path do %>
-					<%= image_tag "logo_kraftmarket" %>
-				<% end %>				
-			</div>
-		<!-- Left Side Content / End -->
-
-
-		<div class='d-flex ml-auto'>
-			<!-- Mobile Navigation -->
-			<div class="menu-trigger">
-				<button class="hamburger hamburger--collapse" type="button">
-					<span class="hamburger-box">
-						<span class="hamburger-inner"></span>
-					</span>
-				</button>
-			</div>
-
+	<div id="header">
+		<div class="container">
 			
-			<nav id="navigation" class="style-1">
-				<ul id="responsive">
-					<% if user_signed_in? %>
-                       <li><%= link_to "Mon compte", user_path(current_user.id) %></li>
-                       <li><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></li>
-                   <% else %>	 
-                       <li><%= link_to "Connexion", new_user_session_path %></li>
-                       <li><%= link_to "Inscription", new_user_registration_path %></li>
-                   <% end %>
-				</ul>
-			</nav>
-
-				<div class="">
-   				   <%= link_to "Devenir ravitailleur",  home_seller_path, :class => "button border with-icon" %>
-				<!--	<a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"></i> S'inscrire</a> -->
+			<!-- Left Side Content -->
+			<div class="left-side">
+				
+				<!-- Logo -->
+				<div id="logo">
+					<%= link_to root_path do %>
+   					<%= image_tag "airbnb_logo" %>
+					<% end %>				
 				</div>
-	
 
-			<!-- Main Navigation / End -->
- 		</div>
-	
+				<!-- Mobile Navigation -->
+				<div class="mmenu-trigger">
+					<button class="hamburger hamburger--collapse" type="button">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</button>
+				</div>
+
+				
+				<nav id="navigation" class="style-1">
+					<ul id="responsive">
+						<% if user_signed_in? %>
+                           <li><%= link_to "Mon profil", user_path(current_user.id) %></li>
+                           <li><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></li>
+                       <% else %>	 
+                           <li><%= link_to "Connexion", new_user_session_path %></li>
+                           <li><%= link_to "Inscrition", new_user_registration_path %></li>
+                       <% end %> 		
+					</ul>
+				</nav>
+				<div class="clearfix"></div>
+		
+			
+				<!-- Main Navigation / End -->
+	 		</div>
+		
+			<!-- Left Side Content / End -->
 
 
 	
 
 <!-- Right Side Content / End -->
-		<!-- Right Side Content / End -->
-
-		<!-- Sign In Popup -->
-		<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
-
-			<div class="small-dialog-header">
-				<h3>S'inscrire</h3>
+			<div class="right-side">
+				
+				
+				<div class="header-widget">
+				<!--	<a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"></i> S'inscrire</a> -->
+				   <%= link_to "Devenir ravitailleur", home_seller_path, :class => "button border with-icon" %>
+				</div>
+		
 			</div>
+			<!-- Right Side Content / End -->
 
-			<!--Tabs -->
-			<div class="sign-in-form style-1">
+			<!-- Sign In Popup -->
+			<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
 
-				<ul class="tabs-nav">
-					<li class=""><a href="#tab1">Log In</a></li>
-					<li><a href="#tab2">Register</a></li>
-				</ul>
+				<div class="small-dialog-header">
+					<h3>Inscription</h3>
+				</div>
 
-				<div class="tabs-container alt">
+				<!--Tabs -->
+				<div class="sign-in-form style-1">
 
-					<!-- Login -->
-					<div class="tab-content" id="tab1" style="">
-						  <%= form_for(:user, :url => session_path(:user)) do |f| %>
- 							    <%= f.label :email %>                        
-                                <%= f.text_field :email, class: "input-text" %>
+					<ul class="tabs-nav">
+						<li class=""><a href="#tab1">Connexion</a></li>
+						<li><a href="#tab2">Register</a></li>
+					</ul>
 
-								<%= f.label :password %>
-								<%= f.password_field :password, autocomplete: "current-password" %>
+					<div class="tabs-container alt">
 
-								<span class="lost_password">
-                                  <%= link_to "Forgot your password?", new_password_path(:user) ,class: "lost_password" %>
-								</span>
+						<!-- Login -->
+						<div class="tab-content" id="tab1" style="">
+							  <%= form_for(:user, :url => session_path(:user)) do |f| %>
+     							    <%= f.label :email %>                        
+                                    <%= f.text_field :email, class: "input-text" %>
 
-							<div class="form-row">
-								<div class="checkboxes margin-top-10">
-									  <%= f.check_box :remember_me %>
-                                      <%= f.label :remember_me %>
-								</div>
-								
-								<%= f.submit 'Sign in', class: "button border margin-top-5"  %>
-						  <% end %>
-						  </div>
-						
+									<%= f.label :password %>
+									<%= f.password_field :password, autocomplete: "current-password" %>
+
+									<span class="lost_password">
+                                      <%= link_to "Mot de passe oublié ?", new_password_path(:user) ,class: "lost_password" %>
+									</span>
+
+								<div class="form-row">
+									<div class="checkboxes margin-top-10">
+										  <%= f.check_box :remember_me %>
+                                          <%= f.label :remember_me %>
+									</div>
+									
+									<%= f.submit 'Connexion', class: "button border margin-top-5"  %>
+							  <% end %>
+							  </div>
+							
+						</div>
+
+						<!-- Register -->
+						<div class="tab-content" id="tab2" style="display: none;">
+                          
+                          <%= form_for(:user, :url => registration_path(:user)) do |f| %>
+							
+							<%= f.label :email %>                        
+                            <%= f.text_field :email, class: "input-text" %>
+
+							<%= f.label :password %>
+                            <% if @minimum_password_length %>
+                              <em>(<%= @minimum_password_length %> characters minimum)</em>
+                            <% end %>
+                            <%= f.password_field :password, autocomplete: "new-password", class: "input-text"%>
+
+                            <%= f.label :password_confirmation %>
+                            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input-text" %>
+
+							<%= f.submit 'Connexion', class: "button border margin-top-5"  %>
+
+							<% end %>
+						</div>
+
 					</div>
-
-					<!-- Register -->
-					<div class="tab-content" id="tab2" style="display: none;">
-                      
-                      <%= form_for(:user, :url => registration_path(:user)) do |f| %>
-						
-						<%= f.label :email %>                        
-                        <%= f.text_field :email, class: "input-text" %>
-
-						<%= f.label :password %>
-                        <% if @minimum_password_length %>
-                          <em>(<%= @minimum_password_length %> characters minimum)</em>
-                        <% end %>
-                        <%= f.password_field :password, autocomplete: "new-password", class: "input-text"%>
-
-                        <%= f.label :password_confirmation %>
-                        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input-text" %>
-
-						<%= f.submit 'Sign in', class: "button border margin-top-5"  %>
-
-						<% end %>
-					</div>
-
 				</div>
 			</div>
+			<!-- Sign In Popup / End -->
+
 		</div>
-		<!-- Sign In Popup / End -->
+	</div>
 	<!-- Header / End -->
 
 </header>
+<div class="clearfix"></div>
 <!-- Header Container / End --
-
