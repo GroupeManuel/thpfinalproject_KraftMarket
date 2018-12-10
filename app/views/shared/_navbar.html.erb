@@ -13,7 +13,7 @@
 				<!-- Logo -->
 				<div id="logo">
 					<%= link_to root_path do %>
-   					<%= image_tag "Logo_KraftMarket" %>
+   					<%= image_tag "kraft_logo" %>
 					<% end %>				
 				</div>
 
@@ -50,14 +50,16 @@
 	
 
 <!-- Right Side Content / End -->
-			<div class="right-side">
-				
-				
+			<div class="right-side">								
 				<div class="header-widget">
 				<!--	<a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"></i> S'inscrire</a> -->
-				   <%= link_to "Devenir ravitailleur", home_seller_path, :class => "button border with-icon" %>
-				</div>
-		
+				<div class = "sign-in popup-with-zoom-anim>
+				<%= link_to root_path do %>
+				<i class="fas fa-shopping-cart"></i>
+				<% end %>	
+				</div>	
+				<%= link_to "Devenir ravitailleur", home_seller_path, :class => "button border with-icon" %>
+	 			</div>		
 			</div>
 			<!-- Right Side Content / End -->
 
@@ -136,4 +138,4 @@
 
 </header>
 <div class="clearfix"></div>
-<!-- Header Container / End --
+<!-- Header Container / End -->

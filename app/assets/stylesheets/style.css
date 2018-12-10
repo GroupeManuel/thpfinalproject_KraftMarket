@@ -231,11 +231,11 @@ img { max-width: 100%; }
 ------------------------------------- */
 #logo { display: inline-block; margin-top: 3px; }
 
-#logo img { max-height: 38px; width: auto; transform: translate3d(0,0,0); }
+#logo img { max-height: 48px; width: auto; transform: translate3d(0,0,0); }
 img.footer-logo { max-height: 38px; width: auto; }
 
 #header {
-	position: relative;
+	position: relative;	
 	z-index: 999;
 	padding: 18px 0 8px 0;
 	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12);
@@ -1473,9 +1473,9 @@ html.mm-blocking #mm-blocker {
 }
 
 .mm-menu.mm-offcanvas {
-    width: 100%;
+    width: 80%;
     min-width: 140px;
-    max-width: 240px
+    max-width: 40px
 }
 
 html.mm-opening .mm-menu.mm-opened~.mm-slideout {
