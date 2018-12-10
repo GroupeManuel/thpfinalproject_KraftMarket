@@ -81,3 +81,5 @@ gem "country_select", "~> 3.1"
 gem "stripe", "~> 4.2"
 
 gem "figaro", "~> 1.1"
+gem "gibbon"
+
