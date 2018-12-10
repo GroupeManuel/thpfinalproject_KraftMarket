@@ -1,0 +1,28 @@
+<section class="fullwidth fullwidth-carousel-container margin-top-65 padding-top-75 padding-bottom-70" data-background-color="#f8f8f8">
+			<div class="col-md-12">
+				<h3 class="headline centered margin-bottom-45">
+					Découvrez nos types de matériaux...
+				</h3>
+			</div>
+			<div class="fullwidth-slick-carousel category-carousel">
+				<!-- Item -->
+				<%2.times do %>
+					<% Category.all.each_with_index do |category,i| %>
+						<div class="fw-carousel-item">
+							<div class="category-box-container">
+								<div class="category-box" data-background-image="<%= asset_path('artisan/photo2'+(i+rand(0..4)).to_s+'.jpg') %>">
+									<%= link_to(items_path) do %>
+										<div class="category-box-content">
+											<h3><%= category.category_name %></h3>
+											<span>67 listings</span>
+										</div>
+										<span class="category-box-btn">Voir</span>
+									<% end %>
+								</div>
+							</div>
+						</div>	
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+</section>
