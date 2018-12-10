@@ -1787,7 +1787,7 @@ em.mm-counter+a.mm-fullsubopen+span {
 	height: 100%;
 	width: 100%;
 	display: block;
-	background: #fff;
+	/*background: #fff;*/
 }
 
 .seller-search-container h2 {
