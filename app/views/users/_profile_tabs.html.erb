@@ -1,47 +1,66 @@
-<!-- Dashboard -->
-<div id="dashboard" class='padding-top-0'>
+<!-- Navigation
+================================================== -->
 
-	<!-- Navigation
-	================================================== -->
+<!-- Responsive Navigation Trigger -->
+<%= link_to '#', class:"dashboard-responsive-nav-trigger" do %>
+	<i class="fa fa-reorder"></i> Mon profil
+<% end %>
 
-	<!-- Responsive Navigation Trigger -->
-	<%= link_to '#', class:"dashboard-responsive-nav-trigger" do %>
-		<i class="fa fa-reorder"></i> Mon profil
-	<% end %>
+<div class="dashboard-nav">
+	<div class="dashboard-nav-inner">
 
-	<div class="dashboard-nav" id='profile-tabs'>
-		<div class="dashboard-nav-inner">
+		<ul data-submenu-title="Activité">
 
-			<ul data-submenu-title="Activité" class="nav nav-tabs flex-column">
+		    <li class="profile-tab" ><a href='#public-dashboard' id='public-dashboard' >
+				<i class="fa fa-tachometer-alt"></i> Tableau de bord</a>
+			</li>
+	
+		    <!-- Tab to display user items -->
+		    <li class="profile-tab" ><a id='seller' >
+		    	<i class="fa fa-folder-open"></i> Annonces </a>
+			    	<!-- Tabs corresponding to each item status -->
+					<ul>
+						<% @item_status.each do |status, french_status| %>
+						  	<li class="profile-section-tabs"><a id=<%= 'item-'+status %> href=<%= '#item-'+status %> >
+						  		<%= french_status %>
+					  		</a></li>
+						<% end %>
+					</ul>
+		    </li>
 
-			    <li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" href='#public-dashboard' id='public-dashboard-tab' aria-controls="public-dashboard" >
-					<i class="fa fa-tachometer-alt"></i> Tableau de bord</a>
-				</li>
+		    <!-- Tab to display user orders -->
+	      	<li class="profile-tab" ><a id='buyer' >
+	      		<i class="fa fa-shopping-cart"></i> Achats</a>
+			    	<!-- Tabs corresponding to each order status -->
+					<ul>
+						<% @order_status.each do |status, french_status| %>
+						  	<li class="profile-section-tabs"><a id=<%= 'order-'+status %> href=<%= '#order-'+status %> >
+						  		<%= french_status %>
+					  		</a></li>
+						<% end %>
+					</ul>
+	      	</li>
+
+		    <!-- Tab to display user messages -->
+			<!-- <li><a href="dashboard-messages.html"><i class="fa fa-comment"></i> Questions<span class="nav-tag messages">2</span></a></li> -->
+		</ul>
+
+		<ul data-submenu-title="Compte">
+	      	<li class="profile-tab" ><a id="profile-info">
+	      		<i class="fa fa-user-edit"></i> Détails du profil
+	      	</a>
+		      	<!-- Tabs that display separately profile information -->
+				<ul>
+				  	<li class="profile-section-tabs" ><a href='#personal' id='personal-info' >Coordonnées</a></li>
+					<li class="profile-section-tabs" ><a href='#company' id='company-info' >Entreprise</a></li>
+				  	<li class="profile-section-tabs" ><a href='#password' id='password-info' >Mot de passe</a></li>
+				</ul>
+			</li>
+
+			<li class='profile-tab'><%= link_to destroy_user_session_path, method: :delete do %>
+				<i class="fa fa-sign-out-alt"></i> Déconnexion
+			<% end %></li>
+		</ul>
 		
-			    <!-- Tab to display user items -->
-			    <li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" href='#seller' id='seller-tab' aria-controls="seller" >
-			    	<i class="fa fa-folder-open"></i> Annonces
-			    </a></li>
-
-			    <!-- Tab to display user orders -->
-		      	<li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" href='#buyer' id='buyer-tab' aria-controls="buyer" >
-		      		<i class="fa fa-shopping-cart"></i> Achats</a>
-		      	</li>
-
-			    <!-- Tab to display user messages -->
-				<!-- <li><a href="dashboard-messages.html"><i class="fa fa-comment"></i> Questions<span class="nav-tag messages">2</span></a></li> -->
-			</ul>
-
-			<ul data-submenu-title="Compte" class='nav nav-tabs flex-column'>
-		      	<li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" href='#profile-info' id='profile-info-tab' aria-controls="profile-info">
-		      		<i class="fa fa-user"></i> Infos personnelles
-		      	</a></li>
-
-				<li><%= link_to destroy_user_session_path, method: :delete do %>
-					<i class="fa fa-sign-out-alt"></i> Déconnexion
-				<% end %></li>
-			</ul>
-			
-		</div>
 	</div>
 </div>

@@ -26,8 +26,8 @@ class UsersController < ApplicationController
   #sort of all items by status to display on profile page
   def user_sales
     @item_status = {
-      'draft' => 'Objets en attente de parution',
-      'published' => 'Annonces en ligne',
+      'draft' => 'Brouillons',
+      'published' => 'En ligne',
       'sold' => 'Objets vendus'
     }
 
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   def user_orders
     @order_status = {
       'payed' => 'Objets payés',
-      'being_shipped' => 'Objets en cours de livraison',
+      'being_shipped' => 'En cours de livraison',
       'shipped' => 'Objets reçus'
     }
 
