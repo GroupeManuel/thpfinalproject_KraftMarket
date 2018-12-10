@@ -1,33 +1,63 @@
 <% title('Mon profil - KraftMarket') %>
 
-<div class='row'>
+<%= render 'profile_header' %>
+
+<div class='padding-top-0' id='dashboard'>
 
 	<!-- Tabs to display profile section -->
-	<div class='col-3'>
-  		<%= render 'profile_tabs' %>
-  	</div>
+	<%= render 'profile_tabs' %>
 
-  	<div class="tab-content col-9">
+  	<div class="dashboard-content">
 	
-		<div class='tab-pane fade show active' role='tabpanel' id="public-dashboard" aria-labelledby="public-dashboard-tab" >
+		<div class='profile-tab-content' id="public-dashboard" >
 	  		<%= render 'public_dashboard' %>
 	  	</div>
 
 		<!-- Tab-content displaying items owned by the user -->
-		<div class='tab-pane fade' role='tabpanel' id="seller" aria-labelledby="seller-tab" >
+		<div class='profile-tab-content' id="seller" >
 	  		<%= render 'seller_profile' %>
 	  	</div>
 
 
 		<!-- Tab-content displaying orders done by the user -->
-		<div class='tab-pane fade' role='tabpanel' id="buyer" aria-labelledby="buyer-tab" >
+		<div class='profile-tab-content' id="buyer" >
 	  		<%= render 'buyer_profile' %>
 	  	</div>
 
 		<!-- Tab-content displaying forms to modify personal info from the user -->
-		<div class='tab-pane fade' role='tabpanel' id="profile-info" aria-labelledby="profile-info-tab" >
+		<div class='profile-tab-content' id="profile-info"  >
 	  		<%= render 'profile_info' %>
 	  	</div>
 
 	</div>
 </div>
+
+<%= render 'profile_footer' %>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+      // Hide delivery_form by default
+    $('.profile-tab-content').hide();
+    $('.dashboard-nav li:first').addClass('active')
+    $('.profile-tab-content:first').show();
+
+    //Display the delivery form if shipping is required
+    $('li.profile-tab').on('click',function(e) {
+    	e.preventDefault();
+		$('.active').removeClass('active'); //Desactivate the previous tab
+ 		$(this).addClass('active'); //Activate the right tab
+		$('.profile-tab-content').hide(); //Hide all tabs
+	 	$(".profile-tab-content#"+e.target.id).show(); //Display the right category
+    })
+
+	$('li.profile-section-tab').on('click',function(e) {
+    	e.preventDefault();
+		$('.profile-section-content').hide(); //Hide all tabs
+		console.log(e);
+	 	$(".profile-section-content#"+e.target.id).show(); //Display the right category
+    })    
+
+  });
+</script>
