@@ -62,6 +62,10 @@ class OrdersController < ApplicationController
     # Update the item to empty the cart and make it sold
     Item.find(purchased_item.id).update(cart_id: nil, order_id: new_order.id)
 
+    #Envoi email confirmation : récupère email puis active le mailing.rb
+    buyer_email = User.find(Order.last.user_id).email
+    Mailing.new.new_buyer(buyer_email)
+
     flash[:notice] = "Votre commande est confirmée. Vous avez reçu un email de confirmation"
     redirect_to user_path(current_user.id)
 

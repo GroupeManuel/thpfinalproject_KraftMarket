@@ -4,7 +4,11 @@
 	<div id="titlebar">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Bienvenue<%= ' '+ current_user.first_name %>,</h2>
+				<h2>Bienvenue
+					<% if current_user.first_name? %>
+                    	<%= ' '+ current_user.first_name %>
+					<% end %> !
+                </h2>
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs">
 					<ul>

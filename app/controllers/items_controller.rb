@@ -8,9 +8,9 @@ class ItemsController < ApplicationController
 
   def create
     #creation of the new item
-    Item.create!(item_params)
-    #TO BE CHANGED WHEN WE HAVE A INDEX VIEW OR A SHOW VIEW READY 
-    redirect_to root_path, notice: "Merci d'avoir créé cet article"
+    new_item = Item.create!(item_params)
+
+    redirect_to item_path(new_item.id), notice: "Merci d'avoir créé cet article"
   end
 
   def index
@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-      params.require(:item).permit(:title, :category_id, :description, :seller_id, :status, item_images: [])
+      params.require(:item).permit(:title, :category_id, :description, :price, :seller_id, :status, item_images: [])
   end
 
   def status
