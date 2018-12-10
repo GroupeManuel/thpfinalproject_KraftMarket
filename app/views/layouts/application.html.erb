@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>KraftMarket</title>
+
+    <title> <%= content_for?(:title) ? yield(:title) :'KraftMarket' %> </title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -34,8 +36,8 @@
     <p class="alert"><%= alert %></p>
     -->
 
-
     <%= yield %>
+
     <%= render "shared/footer"%>
 
   </body>
