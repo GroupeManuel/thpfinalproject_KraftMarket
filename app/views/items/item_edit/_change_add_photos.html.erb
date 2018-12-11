@@ -1,0 +1,24 @@
+<!-- Section Photos -->
+<div class="add-listing-section margin-top-45">
+	<div class="add-listing-headline">
+		<h3><i class="far fa-image"></i>Galerie photos</h3>
+	</div>
+
+	<!-- Photos already uploaded and that can be removed -->
+	<div class="row with-forms">
+		<div class="col-md-12">
+		<h5>Photos déjà ajoutées</h5>
+		<p class='font-weight-light'><i>Fonctionnalité de suppression de photos en cours de construction.</i></p>		
+		</div>
+	</div>
+
+	<!-- Dropzone for new uploads -->
+	<div class="submit-section">
+		<h5>Ajouter des photos supplémentaires</h5>
+		<span><%= f.file_field :item_images, multiple: true %></span>
+		<p class='font-weight-light'>
+			Ajouter une ou plusieurs photos à votre annonce, pour donner confiance aux artisans qui réutiliseront ces matières premières.
+		</p>
+	</div>
+</div>
+

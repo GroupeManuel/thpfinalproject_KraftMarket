@@ -273,3 +273,19 @@ body #navigation ul ul {
 	margin-right: 20px;
 
 }
+
+.row-nav{
+	display:grid;
+	grid-template-columns: 100px 200px;
+	list-style: none;
+	text-decoration: none;
+	text-align: right;
+}
+
+.button_cart{
+	padding-top:10px;
+}
+
+.ravitailleur{
+	
+}

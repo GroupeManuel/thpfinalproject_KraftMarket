@@ -11,6 +11,9 @@
 // about supported directives.
 //
 
+// Gem added to put modal in the app
+//= require data-confirm-modal
+
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -24,7 +27,7 @@
 //= require magnific-popup.min
 //= require waypoints.min
 //= require counterup.min
-//= require jquery-ui.min
+
 //= require tooltips.min
 //= require custom
 
@@ -34,4 +37,7 @@
 //= require themepunch.revolution.min
 //= require themepunch.tools.min
 
+
+
 //= require_tree .
+

@@ -7,15 +7,14 @@
         <div class="listing-item">
 
             <!-- Product image to be put from activerecort -->
-            <%= image_tag '/assets/test-images/listing-item-0'+(i%6).to_s+'.jpg' %>
+            
+            <% if item.item_images.attached? %>
+                <%= image_tag item.item_images[0] %>
+            <% end %>
 
             <!-- badge in case item is reserved -->
             <% if item.cart %>
-                <% if item.cart.buyer == current_user %>
-                    <div class="listing-badge now-open">
-                        Ma réservation 
-                    </div>
-                <% else %>
+                <% if item.cart.buyer != current_user %>
                     <div class="listing-badge now-closed">
                         Déjà réservé
                     </div>
@@ -40,6 +39,7 @@
         </div>
         <% end %>
 
+
         <!-- Card footer -->
         <div class='star-rating'>
             <h4 class='row justify-content-between mb-4'>
@@ -51,11 +51,20 @@
             </h4>
 
             <!-- icon to book the item if possible -->
-            <% unless item.cart %>
+            <% if item.cart %>
+                <% if item.cart.buyer == current_user %>
+                    <%= link_to cart_path(current_user.cart.id), {style: "background: orange;  text-decoration: none;", class:'button fullwidth'} do %>
+                        Ma réservation
+                    <% end %>   
+                <% else %>
+                    <button class="button fullwidth" style="background: red">
+                        Déjà réservé
+                    </button>
+                <% end %>
+            <% else %>
                 <%= button_to carts_path(item_id:item.id), method: :post, class:'button fullwidth' do %>
                     <div class='' >
                         <i class="fa fa-cart-arrow-down"></i>  <%= item.price %> €
-
                     </div>
                 <% end %>
             <% end %>

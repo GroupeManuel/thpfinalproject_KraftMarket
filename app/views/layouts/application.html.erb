@@ -33,7 +33,7 @@
     <% unless flash.empty? %>
       <div id="notice">
         <% flash.each do |key, value| %>
-          <div class="flash <%= key %>">
+          <div class="<%= flash_class(key) %> flash-message">
             <%= value %>
           </div>
         <% end %>
@@ -46,3 +46,7 @@
 
   </body>
 </html> 
+
+
+      
+    

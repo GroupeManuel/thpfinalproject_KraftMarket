@@ -8,7 +8,7 @@
 				<!-- Item -->
 				<%2.times do %>
 					<% Category.all.each_with_index do |category,i| %>
-						<div class="fw-carousel-item">
+						<div >
 							<div class="category-box-container">
 								<div class="category-box" data-background-image="<%= asset_path('artisan/photo2'+(i+rand(0..4)).to_s+'.jpg') %>">
 									<%= link_to(items_path) do %>

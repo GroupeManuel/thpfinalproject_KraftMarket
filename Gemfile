@@ -83,3 +83,5 @@ gem "stripe", "~> 4.2"
 gem "figaro", "~> 1.1"
 gem "gibbon"
 gem 'mini_magick'
+
+gem "data-confirm-modal", "~> 1.6"

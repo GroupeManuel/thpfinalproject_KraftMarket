@@ -51,16 +51,17 @@
 
 <!-- Right Side Content / End -->
 			<div class="right-side">								
-				<div class="header-widget row">
+				<ul class="row-nav"
 				<% if current_user %>
-					<div>
-						<%= link_to cart_path(current_user.cart.id), class:"button border with-icon" do %>
-							<i class="fas fa-shopping-cart"></i>
+					<li class ="cart">
+						<%= link_to cart_path(current_user.cart.id), class:"button_cart" do %>
+							<i class="fas fa-shopping-cart fa-lg"></i>
 						<% end %>	
-					</div>	
+					</li>	
 				<% end %>
-				<%= link_to "Devenir ravitailleur", home_seller_path, :class => "button border with-icon" %>
-	 			</div>		
+				<li class ="ravitailleur"><%= link_to "Devenir ravitailleur", home_seller_path, :class => "button border with-icon" %></li>	
+					</ul>
+	 			</div>
 			</div>
 			<!-- Right Side Content / End -->
 

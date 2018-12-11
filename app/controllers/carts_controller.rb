@@ -15,12 +15,12 @@ class CartsController < ApplicationController
 
         redirect_to cart_path(cart.id)
       else
-        flash[:notice] = "Vous avez déjà un objet réservé"
-        redirect_back fallback_location: cart_path(cart.id)
+        flash[:error] = "Vous avez déjà un objet réservé ! Veuillez finaliser votre commande ou l'annuler."
+        redirect_to cart_path(cart.id)
       end
     else
       flash[:notice] = "Vous devez être connecté pour commander un article"
-      redirect_to new_user_registration_path
+      redirect_to new_user_session_path
     end
 
   end
@@ -37,6 +37,7 @@ class CartsController < ApplicationController
   def update
     Item.find(params[:item_id]).update(cart_id: nil)
 
-    redirect_back fallback_location: item_path(params[:item_id])
+    flash[:notice] = "Votre commande a bien été annulée."
+    redirect_to items_path
   end
 end
