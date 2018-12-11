@@ -1,13 +1,20 @@
 class UsersController < ApplicationController
 
+  include UsersHelper
+
   before_action :set_user
   before_action :user_sales, :user_orders, :user_section, only:[:show]
 
   def show
+    unless user_checked
+      redirect_to public_profile_path(params[:id])
+    end
   end
 
   def edit
-
+    unless user_checked
+      redirect_to public_profile_path(params[:id])
+    end
   end
 
   def update
@@ -15,6 +22,8 @@ class UsersController < ApplicationController
   	redirect_back fallback_location: user_path(@user.id)
   end
 
+  def public_profile
+  end
 
   private
 

@@ -1,4 +1,7 @@
 class CartsController < ApplicationController
+
+  include UsersHelper
+
   def new
   end
 
@@ -26,6 +29,10 @@ class CartsController < ApplicationController
   end
 
   def show
+
+    unless user_checked
+      redirect_back fallback_location: user_path(current_user.id)
+    end
     # Find the item corresponding the the cart 
     @cart_item = current_user.cart.item
     @cart = Cart.find(params[:id])
