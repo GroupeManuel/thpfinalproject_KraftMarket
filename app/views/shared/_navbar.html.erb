@@ -51,17 +51,16 @@
 
 <!-- Right Side Content / End -->
 			<div class="right-side">								
-				<ul class="row-nav"
-				<% if current_user %>
+				<ul class="row-nav">
+					<li class ="ravitailleur"><%= link_to "Devenir ravitailleur", home_seller_path, :class => "button border with-icon" %></li>	
+					<% if current_user %>
 					<li class ="cart">
 						<%= link_to cart_path(current_user.cart.id), class:"button_cart" do %>
 							<i class="fas fa-shopping-cart fa-lg"></i>
 						<% end %>	
 					</li>	
-				<% end %>
-				<li class ="ravitailleur"><%= link_to "Devenir ravitailleur", home_seller_path, :class => "button border with-icon" %></li>	
-					</ul>
-	 			</div>
+					<% end %>				
+				</ul>	 			
 			</div>
 			<!-- Right Side Content / End -->
 
