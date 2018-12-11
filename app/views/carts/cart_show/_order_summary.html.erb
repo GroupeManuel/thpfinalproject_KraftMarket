@@ -8,7 +8,11 @@
         <div class="listing-item">
 
             <!-- Product image to be put from activerecort -->
-            <%= image_tag '/assets/test-images/listing-item-01.jpg' %>
+            <% if @cart_item.item_images.attached? %>
+                <%= image_tag @cart_item.item_images[0] %>
+                <% else %> 
+                <%= image_tag '/assets/generique/no-image.jpg' %>
+            <% end %>
 
             <!-- Content in the item card -->
             <div class="listing-item-content">
