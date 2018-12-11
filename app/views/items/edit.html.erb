@@ -1,2 +1,33 @@
-<h1>Items#edit</h1>
-<p>Find me in app/views/items/edit.html.erb</p>
+<div id="wrapper">
+
+	<%= render 'items/item_edit/titlebar' %>
+
+	<div class="container">
+
+		<!-- Form start -->
+		<div class="row">
+			<div class="col-lg-12">
+				<div id="add-listing" class="separated-form">
+
+					<%= form_with model: @item, class:'form' do |f| %>
+
+						<% if user_signed_in? %>
+							<%= f.hidden_field :seller_id, value: current_user.id %>
+						<% end %>
+
+						<%= f.hidden_field :status, value:'published' %>
+
+						<!-- Section Informations essentielles -->
+						<%= render 'items/item_edit/main_attributes_form', f:f %>
+
+						<!-- Section Photos -->
+						<%= render 'items/item_edit/change_add_photos', f:f %>
+
+					  	<%= f.submit class:'button preview' %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
