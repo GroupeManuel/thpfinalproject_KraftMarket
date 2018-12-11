@@ -11,8 +11,6 @@
 // about supported directives.
 //
 
-// Gem added to put modal in the app
-//= require data-confirm-modal
 
 //= require rails-ujs
 //= require activestorage

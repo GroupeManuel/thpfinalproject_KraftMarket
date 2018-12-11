@@ -267,23 +267,20 @@ body #navigation ul ul {
 	transform: translate3d(0,0,0);
 }
 
-.nav_cart{	
-	position: absolute;
-    margin-top: 20px;
-	margin-right: 20px;
-
-}
 
 .row-nav{
 	display:grid;
-	grid-template-columns: 100px 200px;
+	grid-template-columns: 200px 100px ;
 	list-style: none;
-	text-decoration: none;
-	text-align: right;
+	text-decoration: none;	
+	justify-items: right;
+	align-items: center;
 }
 
 .button_cart{
-	padding-top:10px;
+	justify-items: center;
+
+	
 }
 
 .ravitailleur{
