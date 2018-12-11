@@ -11,17 +11,17 @@
 // about supported directives.
 //
 
+// Gem added to put modal in the app
+//= require data-confirm-modal
+
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 
 
-//= require jquery
-//= require jquery.turbolinks
-//= require jquery_ujs
+//= require jquery3
 
 
-//= require jquery-2.2.0.min
 //= require mmenu.min
 //= require chosen.min
 //= require slick.min
@@ -40,11 +40,7 @@
 //= require themepunch.revolution.min
 //= require themepunch.tools.min
 
+
+
 //= require_tree .
 
-$(window).resize(function(){
-
-      if($(window).width() <= 1024){
-        $('.ravitailleur').removeClass('.ravitailleur');
-      }
-    });
