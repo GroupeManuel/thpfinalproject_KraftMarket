@@ -1,38 +1,44 @@
-<!-- Form section to modify default invoice address -->
+<!-- Form section to modify default delivery address -->
+<div class='form col-md-6 col-sm-12'>
+  <div class='dashboard-list-box margin-top-0'>
 
-<h4 class='gray'>Adresse de facturation</h4>
+    <h4 class='gray'>Adresse de facturation</h4>
 
-<div class='col-md-6 col-lg-12'>
-  <div class="form-group form-inline row">
-    <div class='col-3'>Nom</div>
-    <%= f.text_field :invoice_entity, value: @user.invoice_entity, class:'form-control' %>
-  </div>
+    <div class='dashboard-list-box-static'>
+      <div class='my-profile'>
 
-  <div class="form-group form-inline row">
-    <div class='col-3'>Rue</div>
-    <div>
-      <%= f.text_field :invoice_street, value: @user.invoice_street, class:'form-control' %><br/>
-      <%= f.text_field :invoice_street2, value: @user.invoice_street2, class:'form-control' %>
+        <div class="form-group form-inline row mb-4">
+          <%= f.label :invoice_entity, 'Raison sociale', class:'col-3 text-left' %>
+          <%= f.text_field :invoice_entity, value: @user.invoice_entity, class:'form-control col-8 mb-0' %>
+        </div>
+
+        <div class="form-group form-inline row mb-4">
+          <%= f.label :invoice_street, 'Rue', class:'col-3 text-left' %>
+          <%= f.text_field :invoice_street, value: @user.invoice_street, class:'form-control col-8 mb-0' %>
+        </div>
+
+        <div class="form-group form-inline row mb-4">
+          <%= f.label :invoice_street, 'Rue (ligne 2)', class:'col-3 text-left' %>
+          <%= f.text_field :invoice_street2, value: @user.invoice_street2, class:'form-control col-8 mb-0' %>
+        </div>
+
+        <div class="form-group form-inline row mb-4">
+          <%= f.label :invoice_postcode, 'Code postal', class:'col-3 text-left' %>
+          <%= f.text_field :invoice_postcode, value: @user.invoice_postcode, class:'form-control col-8 mb-0' %>
+        </div>
+
+        <div class="form-group form-inline row mb-4">
+          <%= f.label :invoice_city, 'Ville', class:'col-3 text-left' %>
+          <%= f.text_field :invoice_city, value: @user.invoice_city, class:'form-control col-8 mb-0' %>
+        </div>
+
+        <div class="form-group form-inline row mb-4">
+          <%= f.label :invoice_country, 'Pays', class:'col-3 text-left' %>
+          <%= f.text_field :invoice_country, value: @user.invoice_country, class:'form-control col-8 mb-0' %>
+        </div>
+        
+      </div>
+
     </div>
-  </div>
-
-  <div class="form-group form-inline row">
-    <div class='col-3'>Code postal</div>
-    <%= f.text_field :invoice_postcode, value: @user.invoice_postcode, class:'form-control col-2' %>
-  </div>
-
-  <div class="form-group form-inline row">
-    <div class='col-3'>Ville</div>
-    <%= f.text_field :invoice_city, value: @user.invoice_city, class:'form-control' %>
-  </div>
-
-  <div class="form-group form-inline row">
-    <div class='col-3'>Pays</div>
-    <%= f.text_field :invoice_country, value: @user.invoice_country, class:'form-control' %>
-  </div>
-
-  <div class="form-group form-inline row">
-    <div class='col-3'>SIRET</div>
-    <%= f.text_field :company_ID_number, value: @user.company_ID_number, class:'form-control' %>
   </div>
 </div>

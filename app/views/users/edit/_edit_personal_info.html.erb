@@ -1,27 +1,28 @@
 <!-- Form section to modify personal info -->
-<div class='form col-md-6 col-sm-12'>
+<div class='col-md-6 col-sm-12'>
   <div class='dashboard-list-box margin-top-0'>
 
-    <h4 class='gray'>Information Personnelles</h4>
-    <div class='dashboard-list-box-static'>
-      
-      <div class="form-group form-inline row">
-        <div class='col-3'>Prénom</div>
-        <%= f.text_field :first_name, value: @user.first_name, class:'form-control' %>
+    <h4 class='gray'>Informations personnelles</h4>
+      <div class='dashboard-list-box-static'>
+        <div class='my-profile'>
+        
+        <div class="form-group form-inline row mb-4">
+          <%= f.label :first_name, 'Prénom', class:'col-3 margin-top-0' %>
+          <%= f.text_field :first_name, value: @user.first_name, class:'col-8 form-control mb-0' %>
+        </div>
+        <div class="form-group form-inline row mb-4">
+          <%= f.label :last_name, 'Nom', class:'col-3 margin-top-0' %>
+          <%= f.text_field :last_name, value: @user.last_name, class:'col-8 form-control mb-0' %>
+        </div>
+        <div class="form-group form-inline row mb-4">
+          <%= f.label :email, 'Email', class:'col-3 margin-top-0' %>
+          <%= f.email_field :email, value: @user.email, class:'col-8 form-control mb-0' %>
+        </div>
+        <div class="form-group form-inline row mb-4">
+          <%= f.label :phone_number, 'Téléphone', class:'col-3 margin-top-0' %>
+          <%= f.text_field :phone_number, value: @user.phone_number, class:'col-8 form-control mb-0' %>
+        </div>
       </div>
-      <div class="form-group form-inline row">
-        <div class='col-3'>Nom</div>
-        <%= f.text_field :last_name, value: @user.last_name, class:'form-control' %>
-      </div>
-      <div class="form-group form-inline row">
-        <div class='col-3'>Email</div>
-        <%= f.email_field :email, value: @user.email, class:'form-control' %>
-      </div>
-      <div class="form-group form-inline row">
-        <div class='col-3'>Téléphone</div>
-        <%= f.phone_field :phone_number, value: @user.phone_number, class:'form-control' %>
-      </div>
-
     </div>
   </div>
 </div>
