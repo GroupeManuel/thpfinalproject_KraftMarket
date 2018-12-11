@@ -3,6 +3,7 @@
 
     <!-- Stripe script permitting payment and creating order -->
     <script src="https://checkout.stripe.com/checkout.js" 
+      class="stripe-button"
       data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
       data-description="Commande de <%= @cart_item.title %>"
       data-amount="<%= (@cart_item.price) * 100 %>"
@@ -13,8 +14,6 @@
 
     </script>
     <br>
-
-    <%= f.submit 'Confirmer ma commande', method:'create', class:'stripe-button' %>
 
   </div>
 </div>
