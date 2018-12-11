@@ -11,6 +11,9 @@
 // about supported directives.
 //
 
+// Gem added to put modal in the app
+//= require data-confirm-modal
+
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -37,4 +40,7 @@
 //= require themepunch.revolution.min
 //= require themepunch.tools.min
 
+
+
 //= require_tree .
+

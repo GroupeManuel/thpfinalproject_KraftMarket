@@ -99,6 +99,8 @@ GEM
       countries (~> 2.0)
       sort_alphabetical (~> 1.0)
     crass (1.0.4)
+    data-confirm-modal (1.6.2)
+      railties (>= 3.0)
     devise (4.5.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -282,6 +284,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   country_select (~> 3.1)
+  data-confirm-modal (~> 1.6)
   devise (~> 4.5)
   faker (~> 1.9)
   figaro (~> 1.1)
