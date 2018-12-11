@@ -16,12 +16,9 @@
 //= require turbolinks
 
 
-//= require jquery
-//= require jquery.turbolinks
-//= require jquery_ujs
+//= require jquery3
 
 
-//= require jquery-2.2.0.min
 //= require mmenu.min
 //= require chosen.min
 //= require slick.min

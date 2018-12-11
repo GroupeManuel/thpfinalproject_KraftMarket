@@ -37,6 +37,7 @@ class CartsController < ApplicationController
   def update
     Item.find(params[:item_id]).update(cart_id: nil)
 
-    redirect_back fallback_location: item_path(params[:item_id])
+    flash[:notice] = "Votre commande a bien été annulée."
+    redirect_to items_path
   end
 end
