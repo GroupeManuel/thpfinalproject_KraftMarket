@@ -15,8 +15,8 @@ class CartsController < ApplicationController
 
         redirect_to cart_path(cart.id)
       else
-        flash[:notice] = "Vous avez déjà un objet réservé"
-        redirect_back fallback_location: cart_path(cart.id)
+        flash[:error] = "Vous avez déjà un objet réservé ! Veuillez finaliser votre commande ou l'annuler."
+        redirect_to cart_path(cart.id)
       end
     else
       flash[:notice] = "Vous devez être connecté pour commander un article"
