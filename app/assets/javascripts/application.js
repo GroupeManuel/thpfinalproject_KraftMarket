@@ -41,3 +41,10 @@
 //= require themepunch.tools.min
 
 //= require_tree .
+
+$(window).resize(function(){
+
+      if($(window).width() <= 1024){
+        $('.ravitailleur').removeClass('.ravitailleur');
+      }
+    });

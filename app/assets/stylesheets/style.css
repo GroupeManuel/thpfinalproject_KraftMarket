@@ -1675,7 +1675,17 @@ em.mm-counter+a.mm-fullsubopen+span {
 
 .mmenu-trigger { display: none; }
 
+
+@media only screen and (max-width: 860px) {
+	.ravitailleur{
+		visibility:hidden;
+	}
+	
+}
+
 @media only screen and (max-width: 1024px) {
+
+
 
 	/* Header Responsive Styles */
 	#responsive { display: none; }
@@ -1716,7 +1726,7 @@ em.mm-counter+a.mm-fullsubopen+span {
 	#header-container.header-style-2 .left-side,
 	#header-container.header-style-2 .right-side,
 	.right-side,
-	.left-side { width: 100%; }
+	
 
 	#top-bar .right-side .social-icons { float: left; position: relative; z-index: 9; }
 
@@ -15623,6 +15633,7 @@ span.blog-item-tag ,
 a.button.border {
     color: #00C486;
     border-color: #00C486;
+    text-decoration: none;
 }
 
 .trigger.active a,
@@ -15718,6 +15729,10 @@ a.button.border {
     background-color: #00C486;
     border-color: #00C486;
 } 
+
+.button_cart{
+	color:  #00C486;
+}
 
 .message-bubble.me .message-text {
     color:  #00C486;
