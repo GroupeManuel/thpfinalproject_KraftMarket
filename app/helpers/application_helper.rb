@@ -9,7 +9,7 @@ module ApplicationHelper
 
 	def flash_class(level)
 		case level
-			when 'notice' then "notification notice closeable"
+			when 'notice' then "notification success closeable"
 			when 'success' then "notification success closeable"
 			when 'error' then "notification error closeable"
 			when 'alert' then "notification warning closeable"

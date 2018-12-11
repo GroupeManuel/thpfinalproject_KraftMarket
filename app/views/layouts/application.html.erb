@@ -39,7 +39,7 @@
     <% unless flash.empty? %>
       <div id="notice">
         <% flash.each do |key, value| %>
-          <div class="<%= flash_class(key) %>">
+          <div class="<%= flash_class(key) %> flash-message">
             <%= value %>
           </div>
         <% end %>
@@ -53,7 +53,6 @@
   </body>
 </html> 
 
-<div class="notification error closeable">
-				<p><span>Error!</span> Please fill in all the fields required.</p>
-				<a class="close"></a>
-			</div>
+
+      
+    
