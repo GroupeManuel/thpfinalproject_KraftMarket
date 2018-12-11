@@ -30,7 +30,9 @@
                         <div class="col-md-4">
                             <h5>Image principale de l'article:</h5>
                             <% if @item.item_images.attached? %>
-                                <%= image_tag @item.item_images[0] %>
+                                <%= image_tag @item.item_images[0].variant(resize: "300x300") %>
+                                <% else %> 
+                                <%= image_tag '/assets/generique/no-image.jpg' %>
                             <% end %>
                         </div>
                         <div class="col-md-8">                        
