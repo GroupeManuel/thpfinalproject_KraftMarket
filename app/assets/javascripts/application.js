@@ -15,13 +15,8 @@
 //= require activestorage
 //= require turbolinks
 
+//= require jquery3
 
-//= require jquery
-//= require jquery.turbolinks
-//= require jquery_ujs
-
-
-//= require jquery-2.2.0.min
 //= require mmenu.min
 //= require chosen.min
 //= require slick.min
@@ -33,7 +28,6 @@
 //= require tooltips.min
 //= require custom
 
-//= require quantityButtons
 //= require rangeslider.min
 //= require sticky-kit.min
 //= require switcher

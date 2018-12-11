@@ -871,7 +871,7 @@ $(document).ready(function(){
 					}, 300);	
 
 					// Plus - Minus Init
-	  				newTimeSlot.find('.plusminus').numberPicker();
+//	  				newTimeSlot.find('.plusminus').numberPicker();
 
 					// Check if there's am/pm dropdown
 				    var $twelve_hr = $('.add-slot-inputs select.twelve-hr');
