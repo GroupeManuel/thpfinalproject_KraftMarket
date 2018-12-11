@@ -1,0 +1,38 @@
+<% title('Mon profil - KraftMarket') %>
+
+<%= render 'profile_header' %>
+
+<div class='padding-top-0' id='dashboard'>
+
+	<%= render 'profile_tabs' %>
+
+  	<div class="dashboard-content">
+		<!-- Tab-content displaying forms to modify personal info from the user -->
+		<div class='profile-tab-content' id="profile-info"  >
+	  		<%= render 'profile_info' %>
+	  	</div>
+  	</div>
+</div>
+
+<%= render 'profile_footer' %>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $('li.profile-tab#profile-info').addClass('active');
+    $('.profile-section-content').hide(); //Hide all tabs
+    $('.profile-section-content#personal-info').show(); //Hide all tabs
+
+    $('li.profile-tab#profile-info').on('click',function(e){
+    	e.preventDefault();
+    });
+
+    $('li.profile-section-tab').on('click', function(e) {
+      e.preventDefault();
+      $('.profile-section-content').hide(); //Hide all tabs
+      $('.profile-section-content#'+e.target.id).show(); //Hide all tabs
+    })
+  });
+
+</script>
