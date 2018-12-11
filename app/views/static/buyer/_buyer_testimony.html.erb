@@ -11,7 +11,7 @@
 						<div >
 							<div class="category-box-container">
 								<div class="category-box" data-background-image="<%= asset_path('artisan/photo2'+(i+rand(0..4)).to_s+'.jpg') %>">
-									<%= link_to(items_path) do %>
+									<%= link_to items_path() do %>
 										<div class="category-box-content">
 											<h3><%= category.category_name %></h3>
 											<span>67 listings</span>
