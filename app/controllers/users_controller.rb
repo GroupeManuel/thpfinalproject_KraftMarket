@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
 
   before_action :set_user
-  before_action :user_sales, :user_orders, only:[:show]
+  before_action :user_sales, :user_orders, :user_section, only:[:show]
 
   def show
+  end
+
+  def edit
+
   end
 
   def update
@@ -50,6 +54,15 @@ class UsersController < ApplicationController
     @order_status.each do |status,translation|
       @user_orders[status] = @user.orders.where(status:status)
     end
+  end
+
+  def user_section
+    begin 
+      @section = params[:user].permit(:user_section)
+    rescue
+      @section = 'dashboard'
+    end
+    puts @section
   end
 
 end

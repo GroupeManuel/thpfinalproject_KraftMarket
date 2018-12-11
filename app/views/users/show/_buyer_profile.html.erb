@@ -15,6 +15,22 @@
 	</div>
 </div>
 
+<div class="row">
+	<div class="col-md-12">
+
+		<!-- Filters -->
+		<div id="filters">
+			<ul class="option-set margin-bottom-30">
+				<% @order_status.each do |status_filter, french_status| %>
+					<li><a href="#filter" class="selected" data-filter=".status_filter"><%= french_status %> </a></li>
+				<% end %>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+
+	</div>
+</div>
+
 <!-- Tab contents -->
 <div class='row'>
 	<div class='col-md-12'>
