@@ -362,10 +362,10 @@ header.fullwidth .container {
 /* Footer
 ------------------------------------- */
 #footer {
-	padding: 60px 0 60px 0;
+	padding: 50px 0 20px 0;
 	background-color: #fff;
 	border-top: 1px solid rgba(0,0,0,0.09);
-	font-size: 12px;
+	font-size: 14px;
 }
 
 #footer.sticky-footer { box-shadow: none; }
@@ -373,7 +373,7 @@ header.fullwidth .container {
 
 #footer h4 {
 	color: #333;
-	font-size: 14px;
+	font-size: 16px;
 	margin-bottom: 20px;
 }
 
@@ -399,7 +399,7 @@ header.fullwidth .container {
 #footer ul.footer-links {
 	margin: 0 0 15px 0;
 	padding: 0;
-	width: 50%;
+	width: 100%;
 	box-sizing: border-box;
 	display: inline-block;
 	float: left;
@@ -14197,7 +14197,7 @@ img.mfp-img {
 		background-color: #fff;
 	}
 
-	body p { font-size: 16px; line-height: 29px; }
+	body p { font-size: 14px; line-height: 22px; }
 
 	#wrapper { background-color: #fff; }
 
