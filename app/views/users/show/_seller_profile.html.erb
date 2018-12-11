@@ -15,6 +15,17 @@
 	</div>
 </div>
 
+
+
+<!-- Tabs corresponding to each item status -->
+<ul>
+	<% @item_status.each do |status, french_status| %>
+	  	<li class="profile-section-tabs"><a id=<%= 'item-'+status %> href=<%= '#item-'+status %> >
+	  		<%= french_status %>
+  		</a></li>
+	<% end %>
+</ul>
+
 <!-- Tab contents -->
 <div class='tab-content'>
 	<!-- Tabs content corresponding to each status for the items owned by the current user -->

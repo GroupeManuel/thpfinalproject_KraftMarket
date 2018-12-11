@@ -11,34 +11,21 @@
 
 		<ul data-submenu-title="Activité">
 
-		    <li class="profile-tab" ><a href='#public-dashboard' id='public-dashboard' >
+		    <li class="profile-tab" id='personal-dashboard' ><%= link_to user_path(@user.id, user_section:'personal-dashboard') do %>
 				<i class="fa fa-tachometer-alt"></i> Tableau de bord</a>
+				<% end %>
 			</li>
 	
 		    <!-- Tab to display user items -->
-		    <li class="profile-tab" ><a id='seller' >
+		    <li class="profile-tab" id='seller' ><%= link_to user_path(@user.id, user_section:'seller') do %>
 		    	<i class="fa fa-folder-open"></i> Annonces </a>
-			    	<!-- Tabs corresponding to each item status -->
-					<ul>
-						<% @item_status.each do |status, french_status| %>
-						  	<li class="profile-section-tabs"><a id=<%= 'item-'+status %> href=<%= '#item-'+status %> >
-						  		<%= french_status %>
-					  		</a></li>
-						<% end %>
-					</ul>
+				<% end %>
 		    </li>
 
 		    <!-- Tab to display user orders -->
-	      	<li class="profile-tab" ><a id='buyer' >
+	      	<li class="profile-tab" id='buyer' ><%= link_to user_path(@user.id, user_section:'buyer') do %>
 	      		<i class="fa fa-shopping-cart"></i> Achats</a>
-			    	<!-- Tabs corresponding to each order status -->
-					<ul>
-						<% @order_status.each do |status, french_status| %>
-						  	<li class="profile-section-tabs"><a id=<%= 'order-'+status %> href=<%= '#order-'+status %> >
-						  		<%= french_status %>
-					  		</a></li>
-						<% end %>
-					</ul>
+				<% end %>
 	      	</li>
 
 		    <!-- Tab to display user messages -->
@@ -46,14 +33,14 @@
 		</ul>
 
 		<ul data-submenu-title="Compte">
-	      	<li class="profile-tab" ><a id="profile-info">
+	      	<li class="profile-tab" id="profile-info" ><%= link_to edit_user_path(@user.id), id:"profile-info" do %>
 	      		<i class="fa fa-user-edit"></i> Détails du profil
-	      	</a>
+	      	<% end %>
 		      	<!-- Tabs that display separately profile information -->
 				<ul>
-				  	<li class="profile-section-tabs" ><a href='#personal' id='personal-info' >Coordonnées</a></li>
-					<li class="profile-section-tabs" ><a href='#company' id='company-info' >Entreprise</a></li>
-				  	<li class="profile-section-tabs" ><a href='#password' id='password-info' >Mot de passe</a></li>
+				  	<li class="profile-section-tab" id='personal-info' ><a href='#personal' id='personal-info' >Coordonnées</a></li>
+					<li class="profile-section-tab" id='company-info' ><a href='#company' id='company-info' >Entreprise</a></li>
+				  	<li class="profile-section-tab" id='password-info' ><a href='#password' id='password-info' >Mot de passe</a></li>
 				</ul>
 			</li>
 
@@ -61,6 +48,6 @@
 				<i class="fa fa-sign-out-alt"></i> Déconnexion
 			<% end %></li>
 		</ul>
-		
+
 	</div>
 </div>
