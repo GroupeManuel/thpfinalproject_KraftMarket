@@ -56,7 +56,12 @@
 					<% if current_user %>
 					<li class ="cart">
 						<%= link_to cart_path(current_user.cart.id), class:"button_cart" do %>
-							<i class="fas fa-shopping-cart fa-lg"></i>
+							<% if Item.find_by(cart_id: current_user.cart.id) == nil %>
+								<i class="fas fa-shopping-cart" style="font-size: 1.5em;"></i>
+							<%else%>
+								<!-- Esthétique du panier quand une réservation est faite ! -->
+								<i class="fas fa-shopping-cart" style="font-size: 1.5em;"></i>
+							<%end%>
 						<% end %>	
 					</li>	
 					<% end %>				

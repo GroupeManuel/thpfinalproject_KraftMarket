@@ -6,7 +6,7 @@ Item.delete_all
 Order.delete_all
 
     # Create instances of model User
-first_names = ["victor", "hugo", "handa", "damien"]
+first_names = ["marc", "thierry", "guillaume", "arthur"]
 
 first_names.each do |prenom|
     User.create(
