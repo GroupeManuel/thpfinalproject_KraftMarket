@@ -16,7 +16,7 @@ module UsersHelper
   	def user_checked
   		requested_user = User.find(params[:id])
   
-  		if user_signed_in? && requested_user == current_user.id
+  		if user_signed_in? && requested_user == current_user
         true
   		else
         false

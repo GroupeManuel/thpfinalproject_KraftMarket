@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
 
-  include UsersHelper
+  include CartsHelper
 
   def new
   end
@@ -30,7 +30,7 @@ class CartsController < ApplicationController
 
   def show
 
-    unless user_checked
+    unless cart_owner_checked
       redirect_back fallback_location: user_path(current_user.id)
     end
     # Find the item corresponding the the cart 
