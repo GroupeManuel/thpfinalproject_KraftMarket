@@ -1,16 +1,44 @@
-<h2>Mot de passe oublié ?</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+<% title('Mot de passe oublié ? - KraftMarket') %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+<div id="wrapper">
+  <!-- Titlebar -->
+  <div id="titlebar" class='gradient'>
+    <div class='container'>
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Mot de passe oublié ?</h2>
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs">
+            <ul>
+              <li><%= link_to "Accueil", root_path %></li>
+              <li><%= link_to "Mot de passe oublié ?", new_registration_path(resource_name) %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Recevoir les instructions pour recréer un mot de passe" %>
-  </div>
-<% end %>
+  <div class='container'>
+    <div class='d-flex align-items-center flex-column add-listing-section padding-bottom-0 margin-bottom-15'>
+      <div class="devise_signup with_forms">
 
-<%= render "devise/shared/links" %>
+			<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+			  <%= devise_error_messages! %>
+
+			  <div class="field form-inline">
+			    <%= f.label :email, "Email d'inscription" %><br />
+			    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+			  </div>
+
+			  <div class="actions  d-flex justify-content-center ">
+			    <%= f.submit "Réinitialiser le mot de passe" %>
+			  </div>
+			<% end %>
+		</div>
+	</div>
+	</div>
+</div>
+

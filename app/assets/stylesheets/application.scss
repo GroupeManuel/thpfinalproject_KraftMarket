@@ -15,7 +15,6 @@
  *= require bootstrap-grid
  *= require icons
  *= require style
- *= require colors/green
  *= require plugins/revolutionslider
  *= require font-awesome
 
@@ -24,12 +23,12 @@
 
 
 .devise_signin{
-	margin: 30px 50px;
+	margin: 80px auto;
 	max-width: 400px;
 }
 
 .devise_signup{
-	margin: 30px 50px;
+	margin: 80px auto;
 	max-width: 400px;
 }
 
@@ -48,3 +47,26 @@ a:hover {
 	font-size: 1.4em;
 }
 
+
+
+#footer.green-footer {
+	background: #368f62;
+	color: #fff;
+}
+
+#footer.green-footer a,
+#footer.green-footer h4,
+#footer.green-footer a:hover {
+	color: #fff;
+	font-weight: bold;
+}
+
+#footer.green-footer .text-widget,
+#footer.green-footer .text-widget span,
+#footer.green-footer .footer-links li a {
+	color: #fff;
+}
+
+html, body {
+	height:100%;
+}
