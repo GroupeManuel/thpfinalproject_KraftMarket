@@ -23,7 +23,7 @@ Toute l'équipe a `codé`, aussi bien du `front` que du `back`.
 Hugo | Victor | Handa | Damien
 ------ | ------ | ------ | ------
 *Mr recyclage* | *Mr shuffleboard* | *Mr sappeur* | *Mr j'ai un déj*
-:rugby_football: | 🥌 | :panda_face: | :argentina:
+:rugby_football: | 🥌 :fu: | :panda_face: | :argentina:
 
 
 #### Specs techniques
