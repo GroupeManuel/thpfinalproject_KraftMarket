@@ -4,15 +4,17 @@
 -----------
 ## Marketplace permettant le recyclage de matières premières (cuir, toile de jute, papier...) par des artisans ou artistes
 ```
-* site en ligne : https://kraftmarket.herokuapp.com/
-[www.kraftmarket.com](https://kraftmarket.herokuapp.com/)
+* site en ligne : [www.kraftmarket.com](https://kraftmarket.herokuapp.com/)
 * features clefs : créations de comptes utilisateurs, création d'annonces, achat des annonces, paiement en ligne
 ```
 
 ## Premières réactions d'utilisateurs
 > J'attendais ce moment depuis des années
+
 		Maria, fondateur du torréfacteur "Beans on Fire"
+
 > Nous supplions l'équipe de rejoindre notre prochain batch
+
 		Paul Graham, Y Combinator founder
 
 ## Equipe
