@@ -1,32 +1,70 @@
-<div class="devise_signin">
+<% title('Connexion - KraftMarket') %>
 
-<h2>Se connecter</h2> </br>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br/>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :"mot de passe" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
- <div class="checkobox_row">
-     <% if devise_mapping.rememberable? -%>
-    <div class="checkboxes margin-top-10">
-      <%= check_box_tag(:remember_me) %>
-      <%= f.label :"se souvenir de moi" %>      
+<div id="wrapper" >
+  <!-- Titlebar -->
+  <div id="titlebar" class='gradient'>
+    <div class='container'>
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Connexion</h2>
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs">
+            <ul>
+              <li><%= link_to "Accueil", root_path %></li>
+              <li><%= link_to "Connexion", new_session_path(resource_name) %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div>
-      <% end -%>
   </div>
-  
 
-  <div class="actions">
-    <%= f.submit "Se connecter" %>
+  <div class='container'>
+    <div class='d-flex align-items-center flex-column add-listing-section padding-bottom-0 margin-bottom-15'>
+      <div class="devise_signin">
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field form-inline">
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="field form-inline">
+            <%= f.label :"mot de passe" %>
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
+
+          <span class='lost_password'>
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+              <%= link_to "Mot de passe oublié ?", new_password_path(resource_name) %><br />
+            <% end -%>
+          </span>
+
+
+          <div class="actions d-flex justify-content-center mt-4">
+            <%= f.submit "Connexion" %>
+          </div>
+
+           <div class="checkboxes">
+             <% if devise_mapping.rememberable? -%>
+            <div class="checkboxes margin-top-10 margin-bottom-10">
+              <%= check_box_tag(:remember_me) %>
+              <%= f.label :"se souvenir de moi" %>      
+            </div>
+              <% end -%>
+          </div>
+          
+        <% end %>
+
+        <span class='lost_password'>
+          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+              <%= link_to "Pas encore inscrit ?", new_registration_path(resource_name) %><br />
+          <% end -%>
+        </span>
+
+      </div>
+    </div>
   </div>
-<% end %>
-</br>
-<%= render "devise/shared/links" %>
+
 </div>

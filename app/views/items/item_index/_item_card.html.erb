@@ -41,15 +41,7 @@
 
 
         <!-- Card footer -->
-        <div class='star-rating'>
-            <h4 class='row justify-content-between mb-4'>
-                <% if item.seller.company_name %>
-                    <%= link_to 'Vendu par '+item.seller.company_name, user_path(item.seller.id) %>
-                <% else %>
-                    <%= link_to 'Vendu par '+item.seller.first_name, user_path(item.seller.id) %>
-                <% end %>
-            </h4>
-
+        <div class='star-rating'>   
             <!-- icon to book the item if possible -->
             <% if item.cart %>
                 <% if item.cart.buyer == current_user %>

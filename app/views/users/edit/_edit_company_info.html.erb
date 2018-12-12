@@ -1,32 +1,30 @@
 <!-- Form section to modify company info -->
-<div class='col-md-6 col-sm-12'>
-  <div class='dashboard-list-box margin-top-0'>
+<div class='dashboard-list-box margin-top-0'>
 
-    <h4 class='gray'>Votre entreprise</h4>
-    
-      <div class='dashboard-list-box-static'>
-        <div class='my-profile'>
-        
+  <h4 class='gray'>Votre entreprise</h4>
+  
+    <div class='dashboard-list-box-static'>
+      <div class='my-profile'>
+      
 
-        <div class="form-group form-inline row mb-4">
-          <%= f.label :company_name, 'Nom commercial', class:'col-3 margin-top-0' %>
-          <%= f.text_field :company_name, value: @user.company_name, class:'col-8 form-control mb-0' %>
-        </div>
+      <div class="form-group form-inline row mb-4">
+        <%= f.label :company_name, 'Nom commercial', class:'col-3 margin-top-0' %>
+        <%= f.text_field :company_name, value: @user.company_name, class:'col-8 form-control mb-0' %>
+      </div>
 
-        <div class="form-group form-inline row mb-4">
-          <%= f.label :company_ID_number, "SIRET", class:'col-3 margin-top-0' %>
-          <%= f.text_field :company_ID_number, value: @user.company_ID_number, class:'col-8 form-control mb-0' %>
-        </div>
+      <div class="form-group form-inline row mb-4">
+        <%= f.label :company_ID_number, "SIRET", class:'col-3 margin-top-0' %>
+        <%= f.text_field :company_ID_number, value: @user.company_ID_number, class:'col-8 form-control mb-0' %>
+      </div>
 
-        <div class="form-group form-inline row mb-4">
-          <%= f.label :activity, "Type d'activité", class:'col-3 margin-top-0' %>
-          <%= f.text_field :activity, value: @user.activity, class:'col-8 form-control mb-0' %>
-        </div>
+      <div class="form-group form-inline row mb-4">
+        <%= f.label :activity, "Type d'activité", class:'col-3 margin-top-0' %>
+        <%= f.text_field :activity, value: @user.activity, class:'col-8 form-control mb-0' %>
+      </div>
 
-        <div class="form-group form-inline row mb-4">
-          <%= f.label :company_description, 'Description', class:'col-3 margin-top-0' %>
-          <%= f.text_area :company_description, value: @user.company_description, class:'col-8 form-control mb-0' %>
-        </div>
+      <div class="form-group form-inline row mb-4">
+        <%= f.label :company_description, 'Description', class:'col-3 margin-top-0' %>
+        <%= f.text_area :company_description, value: @user.company_description, class:'col-8 form-control mb-0' %>
       </div>
     </div>
   </div>

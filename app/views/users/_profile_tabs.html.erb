@@ -1,12 +1,9 @@
-<!-- Navigation
-================================================== -->
-
 <!-- Responsive Navigation Trigger -->
 <%= link_to '#', class:"dashboard-responsive-nav-trigger" do %>
 	<i class="fa fa-reorder"></i> Mon profil
 <% end %>
 
-<div class="dashboard-nav">
+<aside class="dashboard-nav">
 	<div class="dashboard-nav-inner">
 
 		<ul data-submenu-title="Activité">
@@ -24,7 +21,7 @@
 
 		    <!-- Tab to display user orders -->
 	      	<li class="profile-tab" id='buyer' ><%= link_to user_path(@user.id, user_section:'buyer') do %>
-	      		<i class="fa fa-shopping-cart"></i> Achats</a>
+	      		<i class="fa fa-shopping-cart"></i> Commandes</a>
 				<% end %>
 	      	</li>
 
@@ -50,4 +47,4 @@
 		</ul>
 
 	</div>
-</div>
+</aside>

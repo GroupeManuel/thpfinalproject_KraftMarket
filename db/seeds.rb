@@ -6,7 +6,7 @@ Item.delete_all
 Order.delete_all
 
     # Create instances of model User
-first_names = ["victor", "hugo", "handa", "damien"]
+first_names = ["marc", "thierry", "guillaume", "arthur"]
 
 first_names.each do |prenom|
     User.create(
@@ -30,6 +30,7 @@ end
 Category.create!(category_name: "Bois")
 Category.create!(category_name: "Papier")
 Category.create!(category_name: "Tissu")
+Category.create!(category_name: "Autre")
  
 
     # Possible item and order status
