@@ -359,7 +359,7 @@ header.fullwidth .container {
 /* Footer
 ------------------------------------- */
 #footer {
-	padding: 50px 0 20px 0;
+	padding: 35px 0 5px 0;
 	background-color: #fff;
 	border-top: 1px solid rgba(0,0,0,0.09);
 	font-size: 14px;
@@ -9653,7 +9653,7 @@ section.fullwidth .listing-item-container.list-layout,
 
 
 /* Star Rating */
-.star-rating { display: block; font-size: 17px; }
+.star-rating { display: block; font-size: 17px; height: 74px; }
 
 .listing-item-container .star-rating {
 	padding: 15px 32px;
@@ -9900,8 +9900,8 @@ span.testimony-avatar {
 #titlebar {
 	background-color: #f8f8f8;
 	position: relative;
-	padding: 70px 0;
-	margin-bottom: 65px;
+	padding: 45px 0;
+	margin-bottom: 40px;
 }
 
 #titlebar.gradient {
@@ -14042,6 +14042,11 @@ img.mfp-img {
 	height: 100%;
 }
 
+.category-box-container:hover .category-box-btn {
+	background-color: #378F62;
+	border-color: #378F62;
+}
+
 .category-box-container.half {
 	height: calc(50% - 15px);
 	margin-bottom: 30px;
@@ -15175,7 +15180,7 @@ img.mfp-img {
 	#breadcrumbs {
 	    position: relative;
 	    display: block;
-	    margin-top: 30px;
+	    margin-left: auto;
 	}
 
 	#breadcrumbs ul li { margin: 0 10px 0 0; }
