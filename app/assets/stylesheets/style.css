@@ -359,7 +359,7 @@ header.fullwidth .container {
 /* Footer
 ------------------------------------- */
 #footer {
-	padding: 50px 0 20px 0;
+	padding: 35px 0 5px 0;
 	background-color: #fff;
 	border-top: 1px solid rgba(0,0,0,0.09);
 	font-size: 14px;
@@ -9900,8 +9900,8 @@ span.testimony-avatar {
 #titlebar {
 	background-color: #f8f8f8;
 	position: relative;
-	padding: 70px 0;
-	margin-bottom: 65px;
+	padding: 45px 0;
+	margin-bottom: 40px;
 }
 
 #titlebar.gradient {
@@ -15175,7 +15175,7 @@ img.mfp-img {
 	#breadcrumbs {
 	    position: relative;
 	    display: block;
-	    margin-top: 30px;
+	    margin-left: auto;
 	}
 
 	#breadcrumbs ul li { margin: 0 10px 0 0; }

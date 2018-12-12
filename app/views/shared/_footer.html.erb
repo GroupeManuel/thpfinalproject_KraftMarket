@@ -1,39 +1,34 @@
-<!-- Footer
-================================================== -->
-<div id="footer" class="dark">
+<footer id="footer" class="green-footer">
 	<!-- Main -->
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-5 col-sm-6">
-				<h4> A propos de KraftMarket </h4>
-				<p>Faire rencontrer les déchets et l'artisanat, c'est avec ce défi un peu fou qu'on a lancé KraftMarket. Notre volonté est de redonner une seconde vie à des matières premières originales et locales. </p>
-			</div>
-
-			<div class="col-md-4 col-sm-6 ">
-				<h4>Des questions ? </h4>
-				<ul class="footer-links">					
-				<li> Posez-nous toutes vos <b><%= link_to "questions ici", new_contact_path %>.</b></li>
-				<li> Faites un coucou à <b><%= link_to "l'équipe ", about_path %>.</b></li>		
+			<div class="col-md-4 col-sm-12">
+				<h4>Artisans,</h4>
+				<ul class="footer-links">
+					<li>Sourcez des matières premières uniques et originales pour vos créations</li>
+					<li><%= link_to "En détail...", about_path %></li>
 				</ul>
 			</div>
 
-			<div class="col-md-3  col-sm-12">
-				<h4>Paiement</h4>
-				<div class="text-widget">
-					<span>Vos transactions sont sécurisées grâce à la technologie Stripe.</span> 	
-				</div>		
-				</br>		
-				<ul class="row_footer">
-					<li><i class="fab fa-stripe fa-2x"></i></li>
-					<li><i class="fab fa-cc-visa fa-2x"></i></li>
-					<li><i class="fab fa-cc-mastercard fa-2x"></i></li>
-					<li><i class="fab fa-cc-amex fa-2x"></i></li>
+			<div class="col-md-4 col-sm-12">
+				<h4>Commerçants locaux,</h4>
+				<ul class="footer-links">
+					<li>Valorisez vos déchets et le savoir-faire des artisans en redécorant votre boutique</li>
+					<li><%= link_to "En détail...", about_path %></li>
+				</ul>
+			</div>
+
+			<div class="col-md-4 col-sm-12">
+				<h4>En savoir plus</h4>
+				<ul class="footer-links">
+					<li>Posez-nous vos <%= link_to "questions ici", new_contact_path %></li>
+					<li>Paiements sécurisés via <i class="fab fa-stripe fa-2x"></i></li>
 				</ul>
 			</div>
 		</div>
 	</div>
-</div>		
+</footer>		
 
 
 
