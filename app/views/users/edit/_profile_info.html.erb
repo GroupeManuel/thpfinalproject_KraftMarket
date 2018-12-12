@@ -21,8 +21,8 @@
 	<!-- Form to update id information -->
 	<div class='profile-section-content w-100' id="personal-info" >
 		<div class='row'>
-			<%= render 'users/edit/edit_personal_info', f:f %>
-			<%= render 'users/edit/edit_delivery_address', f:f %>
+			<div class='col-md-12'><%= render 'users/edit/edit_personal_info', f:f %></div>
+			<div class='col-md-12'><%= render 'users/edit/edit_delivery_address', f:f %></div>
 		</div>
 	    <div class="d-flex justify-content-center row">
 				<%= f.submit "Sauvegarder", class:'button margin-top-15' %>
@@ -32,8 +32,8 @@
 	<!-- Form to update company information -->
 	<div class='profile-section-content w-100'  id="company-info" >
 		<div class='row'>
-			<%= render 'users/edit/edit_company_info', f:f %>
-			<%= render 'users/edit/edit_invoice_address', f:f %>
+			<div class='col-md-12'><%= render 'users/edit/edit_company_info', f:f %></div>
+			<div class='col-md-12'><%= render 'users/edit/edit_invoice_address', f:f %></div>
 		</div>
 	    <div class="d-flex justify-content-center row">
 	  		<%= f.submit "Sauvegarder", class:'button margin-top-15 mx-auto' %>
