@@ -4,7 +4,7 @@
 -----------
 ## Marketplace permettant le recyclage de belles matières premières (cuir, toile de jute, papier...) par des artisans ou artistes
 ```
-* site en ligne : [www.kraftmarket.com](https://kraftmarket.herokuapp.com/)
+* site en ligne : https://kraftmarket.herokuapp.com
 * features clefs : créations de comptes utilisateurs, création d'annonces, achat des annonces, paiement en ligne
 ```
 
