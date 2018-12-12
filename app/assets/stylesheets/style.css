@@ -14042,6 +14042,11 @@ img.mfp-img {
 	height: 100%;
 }
 
+.category-box-container:hover .category-box-btn {
+	background-color: #378F62;
+	border-color: #378F62;
+}
+
 .category-box-container.half {
 	height: calc(50% - 15px);
 	margin-bottom: 30px;
