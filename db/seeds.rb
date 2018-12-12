@@ -30,6 +30,7 @@ end
 Category.create!(category_name: "Bois")
 Category.create!(category_name: "Papier")
 Category.create!(category_name: "Tissu")
+Category.create!(category_name: "Autre")
  
 
     # Possible item and order status
