@@ -13919,8 +13919,8 @@ img.mfp-img {
 .slick-prev { left: 3px; transform: translate3d(-90px,-50%,0); }
 .slick-next { right: 3px; transform: translate3d(90px,-50%,0); }
 
-.slick-prev:before { content: '\e605'; }
-.slick-next:before { content: '\e606'; }
+.slick-prev:before { content: '<'; }
+.slick-next:before { content: '>'; }
 
 
 /* Dots */
