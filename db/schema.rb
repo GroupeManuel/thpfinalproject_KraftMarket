@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_06_164858) do
+ActiveRecord::Schema.define(version: 2018_12_12_165858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_164858) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "Faker_image"
     t.index ["cart_id"], name: "index_items_on_cart_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["order_id"], name: "index_items_on_order_id"
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_164858) do
     t.string "invoice_country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "payment_id"
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
   end
 
@@ -129,6 +131,7 @@ ActiveRecord::Schema.define(version: 2018_12_06_164858) do
     t.string "invoice_country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "stripe_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

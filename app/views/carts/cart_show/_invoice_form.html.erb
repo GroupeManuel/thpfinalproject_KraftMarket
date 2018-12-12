@@ -1,0 +1,20 @@
+<div class="add-listing-section" style="margin-bottom: 25px">
+
+  <div class="add-listing-headline">
+    <h3><i class="fa fa-file-invoice"></i>Facturation</h3>
+  </div>
+
+  <% button_to method: :update do %>Copier l'adresse de livraison<% end %>
+
+  <div id="invoice_form">
+    Entité de facturation<%= f.text_field :invoice_entity, value: current_user.invoice_entity %>
+    Adresse<%= f.text_field :invoice_street, value: current_user.invoice_street %>
+    Adresse (suite)<%= f.text_field :invoice_street2, value: current_user.invoice_street2 %>
+    Code postal <%= f.text_field :invoice_postcode, value: current_user.invoice_postcode %>
+    Ville <%= f.text_field :invoice_city, value: current_user.invoice_city %>
+    Pays<%= f.country_select :invoice_country, priority_countries: ["FR"] %>
+  </div>
+
+  <% button_to method: :update do %>Enregistrer comme adresse par défaut<% end %>
+
+</div>

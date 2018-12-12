@@ -1,0 +1,22 @@
+<!-- Titlebar -->
+<div id="titlebar" class="gradient">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>	Ajouter un article</h2>
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs">
+					<ul>
+						<% if user_signed_in? %>
+						<li><%= link_to "Accueil", root_path %></li>
+					    <li><%= link_to "Mon compte", user_path(current_user.id) %></li>
+						<% else %>
+						<li><%= link_to "Accueil", root_path %></li>
+						<li><%= link_to "Mon compte", user_session_path %></li>						
+						<% end %> 
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>

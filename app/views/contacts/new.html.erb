@@ -11,7 +11,7 @@
 <div class="container">
 
 	<div class="row">
-
+		<div class="col-md-12"><p></p></div>
 		<!-- Contact Details -->
 		<div class="col-md-4">
 
@@ -22,9 +22,9 @@
 				<p>Recyclez vos matières premières de qualité (cuir, toile de jute, papier...). Proposez ou trouvez les matières qui vous inspireront.</p>
 
 				<ul class="contact-details">
-					<li><i class="im im-icon-Phone-2"></i> <strong>Phone:</strong> <span>(+33) 06 54 43 44 45 </span></li>
-					<li><i class="im im-icon-Globe"></i> <strong>Web:</strong> <span><a href="#">www.kraft-market.com</a></span></li>
-					<li><i class="im im-icon-Envelope"></i> <strong>E-Mail:</strong> <span><a href="#">contact@kraft-market.com</a></span></li>
+					<li><i class="fas fa-phone"></i> <strong>Phone:</strong> <span>(+33) 06 54 43 44 45 </span></li>
+					<li><i class="fas fa-globe"></i> <strong>Web:</strong> <span><a href="#">www.kraft-market.com</a></span></li>
+					<li><i class="far fa-envelope"></i> <strong>E-Mail:</strong> <span><a href="#">contact@kraft-market.com</a></span></li>
 				</ul>
 			</div>
 
@@ -47,8 +47,8 @@
 						<div class="col-md-6">
 							<div><%= f.text_field :email, required: true, id: "email", placeholder: "Votre email" %></div>
 						</div>
-						<div><%= f.text_field :topic, id: "subject", placeholder: "Sujet du message" %></div>
-						<div><%= f.text_area :message, as: :text, cols: "40", rows:"3", id: "comments", placeholder: "Votre message" %></div>
+						<div class="col-md-12"><%= f.text_field :topic, id: "subject", placeholder: "Sujet du message" %></div>
+						<div class="col-md-12"><%= f.text_area :message, as: :text, cols: "40", rows:"3", id: "comments", placeholder: "Votre message" %></div>
 						
 						<%= f.submit 'Envoyer le message', class: "submit button", id: "submit" %>
 					<% end %>

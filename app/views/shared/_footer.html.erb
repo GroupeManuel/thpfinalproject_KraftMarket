@@ -1,49 +1,39 @@
-<!-- Footer
-================================================== -->
-<div id="footer" class="dark">
+<footer id="footer" class="green-footer">
 	<!-- Main -->
+
 	<div class="container">
 		<div class="row">
-			<div class="col-md-5 col-sm-6">
-				<img class="footer-logo" src="images/logo2.png" alt="">
-				
-				<h4>Our story</h4>			
-				<p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies	 laoreet ullamcorper phasellus semper.</p>
+			<div class="col-md-4 col-sm-12">
+				<h4>Artisans,</h4>
+				<ul class="footer-links">
+					<li>Sourcez des matières premières uniques et originales pour vos créations</li>
+					<li><%= link_to "En détail...", about_path %></li>
+				</ul>
 			</div>
 
-			<div class="col-md-4 col-sm-6 ">
-				<h4>About us</h4>
+			<div class="col-md-4 col-sm-12">
+				<h4>Commerçants locaux,</h4>
 				<ul class="footer-links">
-					<li><%= link_to "Team", about_path %></li>
-					<li><%= link_to "Contact us", about_path %></li>
+					<li>Valorisez vos déchets et le savoir-faire des artisans en redécorant votre boutique</li>
+					<li><%= link_to "En détail...", about_path %></li>
 				</ul>
+			</div>
 
-				<div class="clearfix"></div>
-			</div>		
-
-			<div class="col-md-3  col-sm-12">
-				<h4>Find us</h4>
-				<div class="text-widget">
-					<span> Felicita, 75013 Paris </span> <br>
-					Call us: <span>(123) 123-456 </span><br>
-					Email us : <span> <a href="#">office@example.com</a> </span><br>
-				</div>
-
-				<ul class="social-icons margin-top-20">
-					<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
-					<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
-					<li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
-					<li><a class="vimeo" href="#"><i class="icon-vimeo"></i></a></li>
+			<div class="col-md-4 col-sm-12">
+				<h4>En savoir plus</h4>
+				<ul class="footer-links">
+					<li>Posez-nous vos <%= link_to "questions ici", new_contact_path %></li>
+					<li>Paiements sécurisés via <i class="fab fa-stripe fa-2x"></i></li>
 				</ul>
 			</div>
 		</div>
 	</div>
+</footer>		
 
-		
-		<!-- Copyright -->
-		<div class="row">
-			<div class="col-md-12">
-				<div class="copyrights">Made in love with Paris. </br> No, kidding. Outsourced to some indians folks like everyone.</div>
-			</div>
-		</div>
-</div>
+
+
+
+
+
+
+	

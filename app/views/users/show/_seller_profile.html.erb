@@ -1,0 +1,62 @@
+<!-- Titlebar -->
+<div id="titlebar">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Mes annonces</h2>
+			<!-- Breadcrumbs -->
+			<nav id="breadcrumbs">
+				<ul>
+    				<li><%= link_to "Accueil", root_path %></li>
+					<li><%= link_to "Mon profil", user_path(current_user.id) %></li>
+					<li><%= link_to "Mes annonces" %></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+
+
+
+<!-- Tabs corresponding to each item status -->
+<ul>
+	<% @item_status.each do |status, french_status| %>
+	  	<li class="profile-section-tabs"><a id=<%= 'item-'+status %> href=<%= '#item-'+status %> >
+	  		<%= french_status %>
+  		</a></li>
+	<% end %>
+</ul>
+
+<!-- Tab contents -->
+<div class='tab-content'>
+	<!-- Tabs content corresponding to each status for the items owned by the current user -->
+	<% @user_sales.each do |status, items| %>
+	<div id=<%= 'items-'+status %> >
+		<table class="table">
+			<thead class="thead-light"><tr>
+				<th>Nom de l'annonce</th>
+				<th>Catégorie</th>
+				<th>Prix</th>
+				<th></th>
+			</tr></thead>
+
+			<!-- Tab-content : table showing sales information -->
+
+			<tbody>
+				<% items.each do |item| %>
+				<tr>
+					<td><%= item.title %></td>
+					<td><%= item.category.category_name %></td>
+					<td><%= item.price %> €</td>
+					<td class="buttons-to-right">
+						<%= link_to edit_item_path(item.id), class:'button gray' do %><i class="fa fa-edit"></i> Editer<% end %>
+						<%= link_to new_item_path, class:'button gray' do %><i class="fa fa-clone"></i> Dupliquer<% end %>
+					</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+
+	<% end %>
+
+</div>

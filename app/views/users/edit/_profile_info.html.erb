@@ -1,0 +1,49 @@
+<!-- Titlebar -->
+<div id="titlebar">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Détails du profil</h2>
+			<!-- Breadcrumbs -->
+			<nav id="breadcrumbs">
+				<ul>
+    				<li><%= link_to "Accueil", root_path %></li>
+					<li><%= link_to "Mon profil", user_path(current_user.id) %></li>
+					<li><%= link_to "Détails du profil" %></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+
+<div>
+	<%= form_for(current_user, url: user_path(current_user.id), html: { method: :put, class:'row'}) do |f| %>
+
+	<!-- Form to update id information -->
+	<div class='profile-section-content w-100' id="personal-info" >
+		<div class='row'>
+			<div class='col-md-12'><%= render 'users/edit/edit_personal_info', f:f %></div>
+			<div class='col-md-12'><%= render 'users/edit/edit_delivery_address', f:f %></div>
+		</div>
+	    <div class="d-flex justify-content-center row">
+				<%= f.submit "Sauvegarder", class:'button margin-top-15' %>
+		</div>
+	</div>
+
+	<!-- Form to update company information -->
+	<div class='profile-section-content w-100'  id="company-info" >
+		<div class='row'>
+			<div class='col-md-12'><%= render 'users/edit/edit_company_info', f:f %></div>
+			<div class='col-md-12'><%= render 'users/edit/edit_invoice_address', f:f %></div>
+		</div>
+	    <div class="d-flex justify-content-center row">
+	  		<%= f.submit "Sauvegarder", class:'button margin-top-15 mx-auto' %>
+		</div>
+	</div>
+
+<% end %></div>
+
+
+<!-- Form to update password with devise, using UsersHelper -->
+<div class='profile-section-content w-100 d-flex justify-content-center' id="password-info">
+	<%= render 'devise/registrations/edit_password' %>
+</div>

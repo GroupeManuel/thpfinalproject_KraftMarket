@@ -1,0 +1,24 @@
+<section class="fullwidth fullwidth-carousel-container margin-top-65 padding-top-75 padding-bottom-70" data-background-color="#f8f8f8">
+			<div class="col-md-12">
+				<h3 class="headline centered margin-bottom-45">
+					Découvrez nos types de matériaux...
+				</h3>
+			</div>
+			<div class="fullwidth-slick-carousel category-carousel">
+				<!-- Item -->
+					<% Category.all.each_with_index do |category,i| %>
+					<% image_category = category.category_name.downcase + ".jpg"%>
+						<%= link_to items_path(item_filter:{category_id:category.id, status:"published"}) do %>
+							<div class="category-box-container">
+								<div class="category-box" data-background-image="<%= asset_path('image-category/' +image_category) %>">
+									<div class="category-box-content">
+										<h3><%= category.category_name %></h3>
+										<span><%= Item.where(category_id: category.id, status: "published").count %> articles</span>
+									</div>
+									<span class="category-box-btn">Voir</span>
+								</div>
+							</div>
+						<% end %>
+					<% end %>
+			</div>
+</section>

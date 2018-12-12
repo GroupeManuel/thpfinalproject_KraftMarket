@@ -1,70 +1,62 @@
-<!DOCTYPE html>
-<body>
+
 <!-- Wrapper -->
 <div id="wrapper">
 
-<!-- Content
-================================================== -->
-
-<!-- Info Section -->
-<div class="container">
-
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<h2 class="headline centered margin-top-80">
-				Rien ne se perd, si l'on créé, tout se transforme ! 
-				<span class="margin-top-25">C'est avec la maxime de Lavoisier en tête qu'Hugo a lancé Kraft Market avec des amis. Après avoir vu un sac à café venant du Brésil traîner dans le coin d'une boutique, il l'a récupéré et donné à des tapissiers qui en ont fait de magnifiques objets : sacs, miroirs, coussins... Kraft Market est né ! Pourquoi ne pas aider les boutiques ou ateliers qui ne font rien de belles matières premières (cuir, toile de jute, tissu...) à les fournir à des artisans ou artistes pour leurs créations ?</span>
-			</h2>
-		</div>
+	<div class="listing-slider mfp-gallery-container margin-bottom-0">
+		<div href="images/single-listing-01.jpg" data-background-image="<%= asset_path('matiere/matiere11.jpg') %>" class="item mfp-gallery" title="Title 1"></div>
+		<div href="images/single-listing-03.jpg" data-background-image="<%= asset_path('matiere/matiere03.jpg') %>" class="item mfp-gallery" title="Title 2"></div>
+		<div href="images/single-listing-04.jpg" data-background-image="<%= asset_path('matiere/matiere09.jpg') %>" class="item mfp-gallery" title="Title 4"></div>
+		<div href="images/single-listing-02.jpg" data-background-image="<%= asset_path('matiere/matiere05.jpg') %>" class="item mfp-gallery" title="Title 3"></div>
+		<div href="images/single-listing-04.jpg" data-background-image="<%= asset_path('matiere/matiere10.jpg') %>" class="item mfp-gallery" title="Title 4"></div>
+		<div href="images/single-listing-04.jpg" data-background-image="<%= asset_path('matiere/matiere13.jpg') %>" class="item mfp-gallery" title="Title 4"></div>
 	</div>
 
-	<div class="row icons-container">
-		<!-- Stage -->
-		<div class="col-md-4">
-			<div class="icon-box-2 with-line">
-				<i class="im im-icon-Map2"></i>
-				<h3>Recycler de belles matières</h3>
-				<p>Nous trouvions dommage que de belles matières premières soient jetées au lieu d'avoir la deuxième qu'elles méritaient.</p>
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<h2 class="headline centered margin-top-80">
+					Rien ne se perd, si l'on créé, tout se transforme ! 
+					<span class="margin-top-25">C'est avec la maxime de Lavoisier en tête qu'Hugo a lancé Kraft Market avec des amis. Après avoir vu un sac à café venant du Brésil traîner dans le coin d'une boutique, il l'a récupéré et donné à des tapissiers qui en ont fait de magnifiques objets : sacs, miroirs, coussins... Kraft Market est né ! Pourquoi ne pas aider les boutiques ou ateliers qui ne font rien de belles matières premières (cuir, toile de jute, tissu...) à les fournir à des artisans ou artistes pour leurs créations ?</span>
+				</h2>
 			</div>
 		</div>
 
-		<!-- Stage -->
-		<div class="col-md-4">
-			<div class="icon-box-2 with-line">
-				<i class="im im-icon-Mail-withAtSign"></i>
-				<h3>Mettre en contact</h3>
-				<p>Nous mettons donc en contact les boutiques et ateliers de votre quartier avec les artistes et artisans.</p>
+		<div class="row icons-container" style="margin-top: 50px; margin-bottom: 80px">
+			<!-- Stage -->
+			<div class="col-md-4">
+				<div class="icon-box-2 with-line">
+					<i class="fas fa-recycle"></i>
+					<h3>Recycler de belles matières</h3>
+					<p>Nous trouvions dommage que de belles matières premières soient jetées au lieu d'avoir la deuxième qu'elles méritaient.</p>
+				</div>
+			</div>
+
+			<!-- Stage -->
+			<div class="col-md-4">
+				<div class="icon-box-2 with-line">
+					<i class="fas fa-hands-helping"></i>
+					<h3>Mettre en contact</h3>
+					<p>Nous mettons donc en contact les boutiques et ateliers de votre quartier avec les artistes et artisans.</p>
+				</div>
+			</div>
+
+			<!-- Stage -->
+			<div class="col-md-4">
+				<div class="icon-box-2">
+					<i class="fas fa-bicycle"></i>
+					<h3>Réserver et se faire livrer</h3>
+					<p>Vous pouvez vendre et acheter en ligne ces belles matières premières, puis choisir le mode de livraison.</p>
+				</div>
 			</div>
 		</div>
-
-		<!-- Stage -->
-		<div class="col-md-4">
-			<div class="icon-box-2">
-				<i class="im im-icon-Checked-User"></i>
-				<h3>Réserver et se faire livrer</h3>
-				<p>Vous pouvez vendre et acheter en ligne ces belles matières premières, puis choisir le mode de livraison.</p>
-			</div>
-		</div>
-	</div>
-
-</div>
-<!-- Info Section / End -->
-
-<!-- Slider -->
-<div class="listing-slider mfp-gallery-container margin-bottom-0">
-	<%= image_tag('/assets/_about/coffee-shop.jpg', size: "140x100", class: "item mfp-gallery")%> 
-	<%= image_tag('/assets/_about/jute-coussin.jpg',  size: "140x100", class: "item mfp-gallery")%>
-	<%= image_tag('/assets/_about/papeterie.jpg',  size: "140x100", class: "item mfp-gallery")%>
-	<%= image_tag('/assets/_about/origami.jpg', size: "140x100", class: "item mfp-gallery")%>
-	<%= image_tag('/assets/_about/cave_caisse_bois.jpg', size: "140x100", class: "item mfp-gallery")%>
-</div>
-<!-- Slider / End -->
-
-<!-- Back To Top Button -->
-<div id="backtotop"><a href="#"></a></div>
 
 </div>
 <!-- Wrapper / End -->
 
-</body>
-</html>
+<!-- Back To Top Button -->
+<div id="backtotop"><a href="#"></a></div>
+
+
+
+

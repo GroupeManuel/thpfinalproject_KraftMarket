@@ -1,13 +1,50 @@
-<aside class="" id='profile-tabs'>
-  <ul class="nav nav-tabs flex-column">
+<!-- Responsive Navigation Trigger -->
+<%= link_to '#', class:"dashboard-responsive-nav-trigger" do %>
+	<i class="fa fa-reorder"></i> Mon profil
+<% end %>
 
-	    <!-- Tab to display user items -->
-	    <li class="nav-item" ><a class="nav-link tab-link active" role='tab' data-toggle="tab" href='#seller' id='seller-tab' aria-controls="seller" aria-selected="true" >Annonces</a></li>
+<aside class="dashboard-nav">
+	<div class="dashboard-nav-inner">
 
-	    <!-- Tab to display user orders -->
-      	<li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" href='#buyer' id='buyer-tab' aria-controls="buyer" aria-selected="false" >Achats</a></li>
+		<ul data-submenu-title="Activité">
 
-	    <!-- Tab to display user info and modification forms -->
-      	<li class="nav-item" ><a class="nav-link tab-link" role='tab' data-toggle="tab" href='#profile-info' id='profile-info-tab' aria-controls="profile-info" aria-selected="false" >Infos personnelles</a></li>
-  </ul>
+		    <li class="profile-tab" id='personal-dashboard' ><%= link_to user_path(@user.id, user_section:'personal-dashboard') do %>
+				<i class="fa fa-tachometer-alt"></i> Tableau de bord</a>
+				<% end %>
+			</li>
+	
+		    <!-- Tab to display user items -->
+		    <li class="profile-tab" id='seller' ><%= link_to user_path(@user.id, user_section:'seller') do %>
+		    	<i class="fa fa-folder-open"></i> Annonces </a>
+				<% end %>
+		    </li>
+
+		    <!-- Tab to display user orders -->
+	      	<li class="profile-tab" id='buyer' ><%= link_to user_path(@user.id, user_section:'buyer') do %>
+	      		<i class="fa fa-shopping-cart"></i> Commandes</a>
+				<% end %>
+	      	</li>
+
+		    <!-- Tab to display user messages -->
+			<!-- <li><a href="dashboard-messages.html"><i class="fa fa-comment"></i> Questions<span class="nav-tag messages">2</span></a></li> -->
+		</ul>
+
+		<ul data-submenu-title="Compte">
+	      	<li class="profile-tab" id="profile-info" ><%= link_to edit_user_path(@user.id), id:"profile-info" do %>
+	      		<i class="fa fa-user-edit"></i> Détails du profil
+	      	<% end %>
+		      	<!-- Tabs that display separately profile information -->
+				<ul>
+				  	<li class="profile-section-tab" id='personal-info' ><a href='#personal' id='personal-info' >Coordonnées</a></li>
+					<li class="profile-section-tab" id='company-info' ><a href='#company' id='company-info' >Entreprise</a></li>
+				  	<li class="profile-section-tab" id='password-info' ><a href='#password' id='password-info' >Mot de passe</a></li>
+				</ul>
+			</li>
+
+			<li class='profile-tab'><%= link_to destroy_user_session_path, method: :delete do %>
+				<i class="fa fa-sign-out-alt"></i> Déconnexion
+			<% end %></li>
+		</ul>
+
+	</div>
 </aside>

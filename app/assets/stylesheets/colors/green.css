@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------------- */
-/* Color #00a948
+/* Color red
 ---------------------------------------------------------------------- */
 #booking-date-range span:after,
 .time-slot label:hover span,
@@ -7,7 +7,7 @@
 .time-slot input ~ label:hover,
 .booking-estimated-cost span,
 .time-slot label:hover span {
-    color: #00a948;
+    color: red;
 }
 
 .daterangepicker td.in-range,
@@ -22,7 +22,7 @@
 .time-slot input:checked ~ label,
 .daterangepicker td.active, .daterangepicker td.active:hover,
 .daterangepicker .drp-buttons button.applyBtn {
-    background-color: #00a948;
+    background-color: red;
 }
 
 .comment-by-listing a:hover,
@@ -78,7 +78,7 @@ a.button.border,
 .agent .social-icons li a:hover i,
 #footer .social-icons li a:hover i,
 .headline span i {
-    color: #00a948;
+    color: red;
 }
 
 .qtyTotal,
@@ -121,7 +121,7 @@ input:checked + .slider,
 #mapnav-buttons a:hover,
 #sign-in-dialog .mfp-close:hover,
 #small-dialog .mfp-close:hover {
-    background-color: #00a948;
+    background-color: red;
 }
 
 
@@ -131,20 +131,20 @@ span.blog-item-tag ,
 .listing-item-container.list-layout span.tag,
 .tip,
 .mfp-arrow:hover {
-    background: #00a948;
+    background: red;
 }
 
 
-.rangeslider__handle { border-color: #00a948; }
+.rangeslider__handle { border-color: red; }
 
 .layout-switcher a.active {
-    color: #00a948;
-    border-color: #00a948;
+    color: red;
+    border-color: red;
 }
 
 #titlebar.listing-titlebar span.listing-tag {
-    border-color: #00a948;
-    color: #00a948;
+    border-color: red;
+    color: red;
 }
 
 
@@ -152,7 +152,7 @@ span.blog-item-tag ,
 .listing-slider-small .slick-prev:hover,
 .listing-slider .slick-next:hover,
 .listing-slider .slick-prev:hover {
-    background-color: #00a948;
+    background-color: red;
 }
 
 
@@ -161,118 +161,118 @@ span.blog-item-tag ,
 .listing-nav li:first-child a,
 .listing-nav li a.active,
 .listing-nav li a:hover {
-    border-color: #00a948;
-    color: #00a948;
+    border-color: red;
+    color: red;
 }
 
 .pricing-list-container h4 {
-    color: #00a948;
-    border-color: #00a948;
+    color: red;
+    border-color: red;
 }
 
-.sidebar-textbox ul.contact-details li a { color: #00a948; }
+.sidebar-textbox ul.contact-details li a { color: red; }
 
 a.button.border {
-    color: #00a948;
-    border-color: #00a948;
+    color: red;
+    border-color: red;
 }
 
 .trigger.active a,
 .ui-accordion .ui-accordion-header-active:hover,
 .ui-accordion .ui-accordion-header-active {
-    background-color: #00a948;
-    border-color: #00a948;
+    background-color: red;
+    border-color: red;
 }
 
 .numbered.color ol > li::before {
-    border-color: #00a948;;
-    color: #00a948;
+    border-color: red;;
+    color: red;
 }
 
 .numbered.color.filled ol > li::before {
-    border-color: #00a948;
-    background-color: #00a948;
+    border-color: red;
+    background-color: red;
 }
 
 .info-box {
-    border-top: 2px solid #00a948;
+    border-top: 2px solid red;
     background: linear-gradient(to bottom, rgba(255,255,255,0.98), rgba(255,255,255,0.95));
-    background-color: #00a948;
-    color: #00a948;
+    background-color: red;
+    color: red;
 }
 
 .info-box.no-border {
     background: linear-gradient(to bottom, rgba(255,255,255,0.96), rgba(255,255,255,0.93));
-    background-color: #00a948;
+    background-color: red;
 }
 
-.tabs-nav li a:hover { border-color: #00a948; }
+.tabs-nav li a:hover { border-color: red; }
 
 .tabs-nav li a:hover,
 .tabs-nav li.active a {
-    border-color: #00a948;
-    color: #00a948;
+    border-color: red;
+    color: red;
 }
 
 .style-3 .tabs-nav li a:hover,
 .style-3 .tabs-nav li.active a {
-    border-color: #00a948;
-    background-color: #00a948;
+    border-color: red;
+    background-color: red;
 }
 
 .checkboxes input[type=checkbox]:checked + label:before {
-    background-color: #00a948;
-    border-color: #00a948;
+    background-color: red;
+    border-color: red;
 }
 
-.listing-item-container.compact .listing-item-content span.tag { background-color: #00a948; }
+.listing-item-container.compact .listing-item-content span.tag { background-color: red; }
 
 .dashboard-nav ul li.active,
-.dashboard-nav ul li:hover { border-color: #00a948; }
+.dashboard-nav ul li:hover { border-color: red; }
 
-.dashboard-list-box .comment-by-listing a:hover { color: #00a948; }
+.dashboard-list-box .comment-by-listing a:hover { color: red; }
 
-.opening-day:hover h5 { color: #00a948 !important; }
+.opening-day:hover h5 { color: red !important; }
 
-.map-box h4 a:hover { color: #00a948; }
+.map-box h4 a:hover { color: red; }
 .infoBox-close:hover {
-    background-color: #00a948;
-    -webkit-text-stroke: 1px #00a948;
+    background-color: red;
+    -webkit-text-stroke: 1px red;
 }
 
 .cluster-visible {
-    background-color: #00a948;
+    background-color: red;
 }
 
 .cluster-visible:before {
-    border: 7px solid #00a948;
-    box-shadow: inset 0 0 0 4px #00a948;
+    border: 7px solid red;
+    box-shadow: inset 0 0 0 4px red;
 }
 
 .marker-arrow {
-    border-color: #00a948 transparent transparent;
+    border-color: red transparent transparent;
 }
 
 .face.front {
-    border-color: #00a948;
-    color: #00a948;
+    border-color: red;
+    color: red;
 }
 
 .face.back {
-    background: #00a948;
-    border-color: #00a948;
+    background: red;
+    border-color: red;
 }
 
 .custom-zoom-in:hover:before,
-.custom-zoom-out:hover:before  { -webkit-text-stroke: 1px #00a948;  }
+.custom-zoom-out:hover:before  { -webkit-text-stroke: 1px red;  }
 
 .category-box-btn:hover {
-    background-color: #00a948;
-    border-color: #00a948;
+    background-color: red;
+    border-color: red;
 } 
 
 .message-bubble.me .message-text {
-    color:  #00a948;
+    color:  red;
     background-color: rgba(0,169,72,0.05);
 }
 
@@ -281,6 +281,6 @@ a.button.border {
 }
 
 .opening-hours.summary li:hover,
-.opening-hours.summary li.total-costs span { color: #00a948; }
-.payment-tab-trigger > input:checked ~ label::before { border-color: #00a948; }
-.payment-tab-trigger > input:checked ~ label::after { background-color: #00a948; }
+.opening-hours.summary li.total-costs span { color: red; }
+.payment-tab-trigger > input:checked ~ label::before { border-color: red; }
+.payment-tab-trigger > input:checked ~ label::after { background-color: red; }

@@ -1,0 +1,78 @@
+
+
+<!-- Fullwidth Section -->
+<section class="fullwidth margin-top-65 padding-top-75 padding-bottom-70" data-background-color="#f8f8f8">
+
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-12">
+				<h3 class="headline centered margin-bottom-45">
+					Ils ont déjà rejoint le mouvement
+				</h3>
+			</div>
+
+			<div class="col-md-12">
+				<div class="simple-slick-carousel dots-nav">
+
+				<!-- Listing Item -->
+			<% 2.times do %>
+				<div class="carousel-item">
+						<a href="listings-single-page.html" class="listing-item-container">
+							<div class="listing-item">
+								<%= image_tag ("ravitailleur/ravitailleur0" + rand(1..5).to_s + ".jpg")%>
+								<div class="listing-item-content">
+									<span class="tag">Restaurant</span>
+									<h3>Pierre</h3>
+									<span>Clichy-la-Garenne</span>
+								</div>
+								<span class="like-icon"></span>
+							</div>
+							<div class="star-rating" data-rating="2.0">
+								<div class="rating-counter">Sounds great</div>
+							</div>
+						</a>
+				</div>
+			<% end %>
+			<% 2.times do %>
+				<div class="carousel-item">
+						<a href="listings-single-page.html" class="listing-item-container">
+							<div class="listing-item">
+								<%= image_tag ("ravitailleur/ravitailleur0" + rand(1..5).to_s + ".jpg")%>
+								<div class="listing-item-content">
+									<span class="tag">Coffee shop</span>
+									<h3>Etienne</h3>
+									<span>Paris 13</span>
+								</div>
+								<span class="like-icon"></span>
+							</div>
+							<div class="star-rating" data-rating="2.0">
+								<div class="rating-counter">Sounds great</div>
+							</div>
+						</a>
+				</div>
+			<% end %>
+			<% 2.times do %>
+				<div class="carousel-item">
+						<a href="listings-single-page.html" class="listing-item-container">
+							<div class="listing-item">
+								<%= image_tag ("ravitailleur/ravitailleur0" + rand(1..5).to_s + ".jpg")%>
+								<div class="listing-item-content">
+									<span class="tag">Caviste</span>
+									<h3>Camille</h3>
+									<span>Versailles</span>
+								</div>
+								<span class="like-icon"></span>
+							</div>
+							<div class="star-rating" data-rating="2.0">
+								<div class="rating-counter">Sounds great</div>
+							</div>
+						</a>
+				</div>
+			<% end %>
+			<!-- Listing Item / End -->
+		</div>
+	</div>
+
+</section>
+<!-- Fullwidth Section / End -->

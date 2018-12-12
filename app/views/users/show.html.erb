@@ -1,27 +1,53 @@
-<div class='row'>
+<% title('Mon profil - KraftMarket') %>
+
+<%= render 'profile_header' %>
+
+<div class='padding-top-0' id='dashboard'>
 
 	<!-- Tabs to display profile section -->
-	<div class='col-3'>
-  		<%= render 'profile_tabs' %>
-  	</div>
+	<%= render 'profile_tabs' %>
 
-  	<div class="tab-content col-9">
+  	<div class="dashboard-content">
 	
-		<!-- Tab-content displaying items owned by the user -->
-		<div class='tab-pane fade' role='tabpanel' id="seller" aria-labelledby="seller-tab" >
-	  		<%= render 'seller_profile' %>
+		<div class='profile-tab-content' id="personal-dashboard" >
+	  		<%= render 'users/show/public_dashboard' %>
 	  	</div>
 
+		<!-- Tab-content displaying items owned by the user -->
+		<div class='profile-tab-content' id="seller" >
+	  		<%= render 'users/show/seller_profile' %>
+	  	</div>
 
 		<!-- Tab-content displaying orders done by the user -->
-		<div class='tab-pane fade show active' role='tabpanel' id="buyer" aria-labelledby="buyer-tab" >
-	  		<%= render 'buyer_profile' %>
-	  	</div>
-
-		<!-- Tab-content displaying forms to modify personal info from the user -->
-		<div class='tab-pane fade' role='tabpanel' id="profile-info" aria-labelledby="profile-info-tab" >
-	  		<%= render 'profile_info' %>
+		<div class='profile-tab-content' id="buyer" >
+	  		<%= render 'users/show/buyer_profile' %>
 	  	</div>
 
 	</div>
 </div>
+
+<%= render 'profile_footer' %>
+
+
+<script type="text/javascript">
+
+
+  $(document).ready(function() {
+
+  	// Hide delivery_form by default
+    $('.profile-tab-content').hide();
+    $('.dashboard-nav li:first').addClass('active');
+    $('.profile-tab-content:first').show();
+
+    //Display the delivery form if shipping is required
+
+    $("li.profile-tab:not('#profile-info')").on('click', function(e) {
+    	e.preventDefault();
+  		$('.active').removeClass('active'); //Desactivate the previous tab
+ 		$(this).addClass('active'); //Activate the right tab
+      	$('.profile-tab-content').hide(); //Hide all tabs
+      	$('.profile-tab-content#'+e.currentTarget.id).show(); //Hide all tabs
+    })
+
+  });
+</script>

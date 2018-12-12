@@ -1,0 +1,34 @@
+<!-- Sidebar from view-source:http://www.vasterad.com/themes/listeo_latest/listings-grid-with-sidebar-1.html
+================================================== -->
+
+<div class="col-lg-2 col-md-3">
+	<div class="sidebar">
+
+		<!-- Widget -->
+		<div class="widget margin-bottom-40">
+			<h3 class="margin-top-0 margin-bottom-30">Filtres</h3>
+
+			<% unless @filters == nil %>
+		    	<%= link_to 'Effacer', items_path, method: :get, class:"btton fullwidth margin-top-10" %>
+			<% end %>
+			</br>
+
+			<div>
+			    <%= form_for :item_filter, url: items_path, method: :get do |f| %>
+			    	<div class='row with-forms'>
+			        <%= f.collection_select(:category_id, Category.all, :id, :category_name, {class:"chosen-select", prompt:'Sélectionnez une catégorie', selected:@filters['category_id']}) %>
+			    	</div>
+			        <%= f.hidden_field :status, value:'published' %>
+
+			    	<%= f.button type: :submit, class:"button fullwidth margin-top-10" do %>
+			    	Recherche
+			    	<% end %> 
+			    <% end %>
+			</div>
+
+
+		</div>
+		<!-- Widget / End -->
+	</div>
+</div>
+<!-- Sidebar / End -->

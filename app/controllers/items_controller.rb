@@ -1,43 +1,36 @@
 class ItemsController < ApplicationController
 
+  before_action :def_filters, only: [:index]
+
   def new
     @item = Item.new
   end
 
   def create
     #creation of the new item
-    Item.create!(item_params)
-    #TO BE CHANGED WHEN WE HAVE A INDEX VIEW OR A SHOW VIEW READY 
-    redirect_to root_path, notice: "Merci d'avoir créé cet article"
+    new_item = Item.create!(item_params)
+
+    redirect_to item_path(new_item.id), notice: "Merci d'avoir créé cet article"
   end
 
   def index
-
-      # Select items with category in the form 
-
-    if params[:search_form] == nil
-      @items_selection = Item.all.published
-      @items_selection = @items_selection.order('created_at DESC')
-      @items_selection = @items_selection.published
-    else
-      @items_selection = Item.where(category_id: params[:search_form][:category_id])
-      @items_selection = @items_selection.order('created_at DESC')
-      @items_selection = @items_selection.published
-    end
+    # Filter items according to the form parameters
+    @item_selection = Item.where(@filters).order('created_at DESC')
 
   end
 
   def show
     @item = Item.find(params[:id])
-
-      # Create a session variable for use the item in page cart#show
-    session[:item_id] = @item.id
-
-      # Session variable for the stripe payment in the charges controller
-    session[:item_price] = (@item.price.to_i) * 100
   end
 
   def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to item_path(@item.id), notice: "Article modifié"
   end
 
   def destroy
@@ -49,11 +42,20 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-      params.require(:item).permit(:title, :category_id, :description, :seller_id, :status, item_images: [])
+      params.require(:item).permit(:title, :category_id, :description, :price, :seller_id, :status, item_images: [])
   end
 
   def status
     @status = ['draft', 'published', 'sold', 'deleted']
+  end
+
+  def def_filters
+    begin
+      @filters = params.require(:item_filter).permit(:category_id, :status, :seller_id)
+      puts @filters
+    rescue
+      @filters = {status:'published'}
+    end
   end
 
 end

@@ -1,0 +1,62 @@
+.navbar{
+	min-height: 70px;
+	font-family: museo;
+}
+
+.nav-item{
+	font-size: 16px;
+	font-weight: 100;
+	padding-right: 10px;
+	padding-left: 10px;
+	text-decoration: none;
+	display: block;
+    position: relative;
+    opacity: 0.75;
+}		
+
+
+
+.nav-item:hover {
+  opacity: 1;
+}
+
+.nav-item::before {
+  transition: 300ms;
+  height: 3px;
+  content: "";
+  position: absolute;
+  background-color: #031D44;
+}
+
+.nav-link-ltr::before {
+  width: 0%;
+  bottom: 5px;
+}
+
+.nav-link-ltr:hover::before {
+  width: 85%;
+}
+
+
+nav .navbar-nav li a{
+  color: black !important;
+  text-decoration: none;
+  }
+
+.btn-outline-primary.custom-btn{
+  border-color: #378F62;
+  font-size: 16px;
+  border-radius: 40px;
+  padding: 5px 10px;
+}
+
+.btn-outline-primary.custom-btn:hover{
+  background-color: #378F62; 
+}
+
+
+.cart-icon{
+	color: #378F62;
+}
+
+

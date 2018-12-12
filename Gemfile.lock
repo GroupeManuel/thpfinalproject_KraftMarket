@@ -99,6 +99,8 @@ GEM
       countries (~> 2.0)
       sort_alphabetical (~> 1.0)
     crass (1.0.4)
+    data-confirm-modal (1.6.2)
+      railties (>= 3.0)
     devise (4.5.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -116,6 +118,9 @@ GEM
       thor (~> 0.14)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
+    gibbon (3.2.0)
+      faraday (>= 0.9.1)
+      multi_json (>= 1.11.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (1.1.1)
@@ -279,16 +284,19 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   country_select (~> 3.1)
+  data-confirm-modal (~> 1.6)
   devise (~> 4.5)
   faker (~> 1.9)
   figaro (~> 1.1)
   font-awesome-rails
+  gibbon
   image_processing (~> 1.2)
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks
   listen (>= 3.0.5, < 3.2)
   mail_form
+  mini_magick
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.2.rc1, >= 5.2.2.rc1)
@@ -307,4 +315,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.17.1
+   1.17.2

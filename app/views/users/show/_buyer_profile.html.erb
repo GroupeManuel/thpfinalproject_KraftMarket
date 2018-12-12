@@ -1,0 +1,69 @@
+<!-- Titlebar -->
+<div id="titlebar">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Mes commandes</h2>
+			<!-- Breadcrumbs -->
+			<nav id="breadcrumbs">
+				<ul>
+    				<li><%= link_to "Accueil", root_path %></li>
+					<li><%= link_to "Mon profil", user_path(current_user.id) %></li>
+					<li><%= link_to "Mes commandes" %></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+
+		<!-- Filters -->
+		<div id="filters">
+			<ul class="option-set margin-bottom-30">
+				<% @order_status.each do |status_filter, french_status| %>
+					<li><a href="#filter" class="selected" data-filter=".status_filter"><%= french_status %> </a></li>
+				<% end %>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+
+	</div>
+</div>
+
+<!-- Tab contents -->
+<div class='row'>
+	<div class='col-md-12'>
+		<div class="dashboard-list-box margin-top-0">
+			<% @order_status.each do |status_filter, french_status| %>
+				<h4><%= french_status %></h4>
+				<ul>
+					<% @user_orders.each do |status, orders| %>
+						<% if status = status_filter %>
+						<% orders.each do |order| %>
+
+						<li>
+							<div class='class="list-box-listing'>
+								<div class="list-box-listing-img">
+								</div>
+								<div class='list-box-listing-content'>
+									<div class='inner'>
+										<h3><%= order.item.title %></h3>
+										<span><%= order.item.category.category_name %></span><br/>
+										<span><%= order.item.price %> €</span>
+									</div>
+								</div>
+								<div class="buttons-to-right">
+									<%= link_to order_path(order.id), class:'button gray' do %><i class="fa fa-search-plus"></i> Détails
+									<% end %>
+								</div>
+							</div>
+						</li>
+						<% end %>
+						<% end %>
+					<% end %>
+				</ul>
+			<% end %>
+		</div>
+	</div>
+</div>

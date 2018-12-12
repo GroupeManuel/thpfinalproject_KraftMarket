@@ -1,15 +1,69 @@
-SHOW PRODUIT<br>
+<% title(@item.title+' - KraftMarket') %>
 
-<p>Produit: <%= @item.title %></p>
-<% if @item.item_images.attached? %>
-    <p><%= image_tag @item.item_images[0] %></p>
- <% end %>
-<p>Description: <%= @item.description%></p>
-<p>Prix: <%= @item.price%> €</p>
-<p>Vendeur: <%= User.find(@item.seller_id).first_name %></p>
+<div id="wrapper">
+    <div id="titlebar" class="gradient">
+    	<div class="container">
+    	    <div class="row">
+    	    	<div class="col-md-12">
+    	    		<!-- Breadcrumbs -->
+    	    		<nav id="breadcrumbs">
+    	    			<ul>
+    	    				<li><%= link_to "Accueil", root_path %></li>
+    	    				<li><%= link_to "Produits", items_path %></li>
+                            <li><%= link_to @item.category.category_name, items_path(item_filter:{category_id: @item.category_id}) %></li>
+                            <li><%= link_to @item.title, item_path(@item.id) %></li>
+    	    			</ul>
+    	    		</nav>
+    	    	</div>
+    	    </div>
+    	</div>
+    </div>
 
-<%= link_to 'Retour', :back %><br><br> 
-
-<%= form_for :create_cart, url: carts_path, method: :post do |f| %>
-    <%= f.submit "Acheter", class:"btn btn-primary" %>
-<% end %><br>
+    <div class="container">
+        <div class="row">
+        	<div class="col-lg-12">
+        		<div id="add-listing" class="separated-form">
+                    <div class="add-listing-section">
+        				<div class="add-listing-headline">
+        					<h3><%= @item.title %>, article vendu par <%= User.find(@item.seller_id).first_name %><i class="tip" data-tip-content="<%= User.find(@item.seller_id).first_name %> a déjà vendu sur Kraft Market"></i></h3>
+        				</div>
+                        <div class="col-md-4">
+                            <h5>Image principale</h5>
+                            <% if @item.item_images.attached? %>
+                                <%= image_tag @item.item_images[0].variant(resize: "300x300") %>
+                                <% else %> 
+                                    <% if @item.Faker_image.nil? %>
+                                        <%= image_tag '/assets/generique/no-image.jpg' %>
+                                        <% else %>
+                                            <%= image_tag ('/assets/image_seed/' + @item.Faker_image)%>
+                                    <% end %>
+                            <% end %>
+                        </div>
+                        <div class="col-md-8">
+                            <h5>Description:</h5> <p><%= @item.description%></p>
+                            <h5>Prix: <%= @item.price%> €</h5>
+                            <!-- Slider -->
+                            <h5>Toutes les images</h5>
+                            <div class="listing-slider-small mfp-gallery-container margin-bottom-0">
+                                <% if @item.item_images.attached? %>                                    
+                                    <% @item.item_images.each do |i| %>
+                                        <span class="item mfp-gallery"><%= image_tag i.variant(resize: "300x300") %></span>
+                                    <% end %>
+                                <% else %>
+                                    <% if @item.Faker_image.nil? %>
+                                        <span class="item mfp-gallery"><%= image_tag '/assets/generique/no-image.jpg' %></span>
+                                        <% else %>
+                                            <span class="item mfp-gallery"><%= image_tag ('/assets/image_seed/' + @item.Faker_image)%></span>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                        </div>
+                        <p>
+                            <%= button_to "Réserver l'article", carts_path(item_id:@item.id), method: :post, class:"btn btn-primary" %>
+                        </p>
+        			</div>
+                </div>
+        	</div>
+        </div>
+    </div>
+</div>

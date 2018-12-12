@@ -1,9 +1,20 @@
 class UsersController < ApplicationController
 
+  include UsersHelper
+
   before_action :set_user
-  before_action :user_sales, :user_orders, only:[:show]
+  before_action :user_sales, :user_orders, :user_section, only:[:show]
 
   def show
+    unless user_checked
+      redirect_to public_profile_path(params[:id])
+    end
+  end
+
+  def edit
+    unless user_checked
+      redirect_to public_profile_path(params[:id])
+    end
   end
 
   def update
@@ -11,6 +22,8 @@ class UsersController < ApplicationController
   	redirect_back fallback_location: user_path(@user.id)
   end
 
+  def public_profile
+  end
 
   private
 
@@ -26,8 +39,8 @@ class UsersController < ApplicationController
   #sort of all items by status to display on profile page
   def user_sales
     @item_status = {
-      'draft' => 'Objets en attente de parution',
-      'published' => 'Annonces en ligne',
+      'draft' => 'Brouillons',
+      'published' => 'En ligne',
       'sold' => 'Objets vendus'
     }
 
@@ -42,7 +55,7 @@ class UsersController < ApplicationController
   def user_orders
     @order_status = {
       'payed' => 'Objets payés',
-      'being_shipped' => 'Objets en cours de livraison',
+      'being_shipped' => 'En cours de livraison',
       'shipped' => 'Objets reçus'
     }
 
@@ -50,6 +63,15 @@ class UsersController < ApplicationController
     @order_status.each do |status,translation|
       @user_orders[status] = @user.orders.where(status:status)
     end
+  end
+
+  def user_section
+    begin 
+      @section = params[:user].permit(:user_section)
+    rescue
+      @section = 'dashboard'
+    end
+    puts @section
   end
 
 end
