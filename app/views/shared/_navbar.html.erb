@@ -1,59 +1,39 @@
-<div id="wrapper">
-<!-- Header Container
-================================================== -->
-<header id="header-container">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+  <% if user_signed_in? %>
 
-	<!-- Header -->
-	<div id="header">
-		<div class="container">
-			
-			<!-- Left Side Content -->
-			<div class="left-side">
-			
-				<!-- Logo -->
-				<div id="logo">
-					<%= link_to root_path do %>
-   						<%= image_tag "logo-kraft"%>
-					<% end %>				
-				</div>
+    <div class="d-flex flex-grow-1">
+      <span class="w-200 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+       <a class="navbar-brand">
+        <%= link_to root_path do %>
+        <%= image_tag "logo-kraft", size: "170x50"%>
+        <% end %>        
+      </a>
+      <div class="w-100 text-right">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
 
-				<!-- Mobile Navigation -->
-				<div class="mmenu-trigger">
-					<button class="hamburger hamburger--collapse" type="button">
-						<span class="hamburger-box">
-							<span class="hamburger-inner"></span>
-						</span>
-					</button>
-				</div>
-
-				
-				<nav id="navigation" class="style-1">
-					<ul id="responsive">
-						<% if user_signed_in? %>
-                           <li><%= link_to "Mon profil", user_path(current_user.id) %></li>
-                           <li><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></li>
-                       <% else %>	 
-                           <li><%= link_to "Connexion", new_user_session_path %></li>
-                           <li><%= link_to "Inscription", new_user_registration_path %></li>
-                       <% end %> 		
-					</ul>
-				</nav>
-				<div class="clearfix"></div>
-		
-			
-				<!-- Main Navigation / End -->
-	 		</div>
-		
-			<!-- Left Side Content / End -->
-
-
-	
-
-<!-- Right Side Content / End -->
-			<div class="right-side">								
-				<ul class="row-nav">
-					<li class ="ravitailleur"><%= link_to "Devenir ravitailleur", home_seller_path, :class => "button border with-icon" %></li>	
-					<% if current_user %>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+      <ul class="navbar-nav ml-auto flex-nowrap">
+          <li class="nav-item">
+              <%= link_to "Vendre", home_seller_path, :class => "btn btn-outline-primary custom-btn" %> 
+          </li>
+          <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Mon compte
+           </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to "Mes commandes", user_path(current_user.id), class:"dropdown-item" %>
+            <%= link_to "Mon profil", user_path(current_user.id),  class:"dropdown-item" %>
+            <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item"%>
+        
+          </div>
+          </li>
+            
+           <li class="nav-item">
+              <% if current_user %>
 					<li class ="cart">
 						<%= link_to cart_path(current_user.cart.id), class:"button_cart" do %>
 							<% if Item.find_by(cart_id: current_user.cart.id) == nil %>
@@ -64,84 +44,54 @@
 							<%end%>
 						<% end %>	
 					</li>	
-					<% end %>				
-				</ul>	 			
-			</div>
-			<!-- Right Side Content / End -->
+				<% end %>             
+          </li>
+      </ul>
+    </div>
+  
+  <% else %>
+        <div class="d-flex flex-grow-1">
+        <span class="w-200 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+       <a class="navbar-brand">
+        <%= link_to root_path do %>
+        <%= image_tag "logo-kraft", size: "170x50"%>
+        <% end %>        
+    </a>
+        <div class="w-100 text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <li class="nav-item">
+              <%= link_to "Vendre", home_seller_path, :class => "btn btn-outline-primary custom-btn" %> 
+          </li>
+          <li class="nav-item ">
+              <%= link_to "Connexion", new_user_session_path %>
+          </li>
+          <li class="nav-item">
+              <%= link_to "A propos", about_path %>
+          </li>
+            
+            <li class="nav-item">
+                <% if current_user %>
+					<li class ="cart">
+						<%= link_to cart_path(current_user.cart.id), class:"button_cart" do %>
+							<% if Item.find_by(cart_id: current_user.cart.id) == nil %>
+								<%= image_tag 'cart-icon/empty', style: "width: 45px; height: 50px" %>
+							<%else%>
+								<!-- Esthétique du panier quand une réservation est faite ! -->
+								<%= image_tag 'cart-icon/full', style: "width: 45px; height: 50px" %>
+							<%end%>
+						<% end %>	
+					</li>	
+				<% end %>             
+            </li>
+        </ul>
+    </div>
+    <% end %>
+</nav>
 
-			<!-- Sign In Popup -->
-			<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
-
-				<div class="small-dialog-header">
-					<h3>Inscription</h3>
-				</div>
-
-				<!--Tabs -->
-				<div class="sign-in-form style-1">
-
-					<ul class="tabs-nav">
-						<li class=""><a href="#tab1">Connexion</a></li>
-						<li><a href="#tab2">Register</a></li>
-					</ul>
-
-					<div class="tabs-container alt">
-
-						<!-- Login -->
-						<div class="tab-content" id="tab1" style="">
-							  <%= form_for(:user, :url => session_path(:user)) do |f| %>
-     							    <%= f.label :email %>                        
-                                    <%= f.text_field :email, class: "input-text" %>
-
-									<%= f.label :password %>
-									<%= f.password_field :password, autocomplete: "current-password" %>
-
-									<span class="lost_password">
-                                      <%= link_to "Mot de passe oublié ?", new_password_path(:user) ,class: "lost_password" %>
-									</span>
-
-								<div class="form-row">
-									<div class="checkboxes margin-top-10">
-										  <%= f.check_box :remember_me %>
-                                          <%= f.label :remember_me %>
-									</div>
-									
-									<%= f.submit 'Connexion', class: "button border margin-top-5"  %>
-							  <% end %>
-							  </div>
-							
-						</div>
-
-						<!-- Register -->
-						<div class="tab-content" id="tab2" style="display: none;">
-                          
-                          <%= form_for(:user, :url => registration_path(:user)) do |f| %>
-							
-							<%= f.label :email %>                        
-                            <%= f.text_field :email, class: "input-text" %>
-
-							<%= f.label :password %>
-                            <% if @minimum_password_length %>
-                              <em>(<%= @minimum_password_length %> characters minimum)</em>
-                            <% end %>
-                            <%= f.password_field :password, autocomplete: "new-password", class: "input-text"%>
-
-                            <%= f.label :password_confirmation %>
-                            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input-text" %>
-
-							<%= f.submit 'Connexion', class: "button border margin-top-5"  %>
-
-							<% end %>
-						</div>
-
-					</div>
-				</div>
-			</div>
-			<!-- Sign In Popup / End -->
-
-		</div>
-	</div>
-	<!-- Header / End -->
-
-</header>
-<div class="clearfix"></div>
-<!-- Header Container / End -->
+ 
