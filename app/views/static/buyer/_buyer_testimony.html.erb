@@ -25,13 +25,3 @@
 				<% end %>
 			</div>
 </section>
-
-<div class="owl-carousel">
-	<% 2.times do %>
-		<% Category.all.each_with_index do |category,i| %>
-			<div class="owl-item">
-				<%= image_tag '/assets/artisan/artisan' + rand(10..18).to_s + '.jpg' %>
-			</div>
-		<% end %>
-	<% end %>
-</div>
