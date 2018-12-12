@@ -94,9 +94,6 @@
 /*  02. Layout Components
 ---------------------------------------------------------------------- */
 
-
-
-
 /* ---------------------------------- */
 /* Forms Reset & Styles
 ------------------------------------- */
@@ -11941,7 +11938,8 @@ input[type="time"]::-webkit-clear-button{
 }
 
 .separated-form .button.preview {
-	padding: 14px 38px;
+	padding: 1px 18px;
+	margin-bottom: 30px;
 }
 
 #titlebar i.sl { margin-right: 4px; }
