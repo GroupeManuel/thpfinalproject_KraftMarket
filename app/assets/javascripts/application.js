@@ -35,5 +35,4 @@
 //= require themepunch.revolution.min
 //= require themepunch.tools.min
 
-
 //= require_tree .
