@@ -11,17 +11,17 @@
 ## Premières réactions d'utilisateurs
 > J'attendais ce moment depuis des années
 
-		Maria, fondateur du torréfacteur "Beans on Fire"
+		_Maria, fondatrice du coffee shop "Beans on Fire"_
 
 > Nous supplions l'équipe de rejoindre notre prochain batch
 
-		Paul Graham, Y Combinator founder
+		_Paul Graham, Y Combinator founder_
 
 ## Equipe
 Toute l'équipe a 'codé', aussi bien du 'front' que du 'back'. 
 
 Hugo | Victor | Handa | Damien
---- | --- | --- | ---
+------ | ------ | ------ | ------
 *Mr recyclage* | *Mr shuffleboard* | *Mr sappeur* | *Mr j'ai un déj*
 :rugby_football: | 🥌 | :panda_face: | :argentina:
 
