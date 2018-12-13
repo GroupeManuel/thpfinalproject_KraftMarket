@@ -11,10 +11,11 @@
 // about supported directives.
 //
 
-
+//= require jquery
 //= require rails-ujs
-//= require activestorage
-//= require turbolinks
+//= require_tree .
+
+
 
 //= require jquery3
 
@@ -36,3 +37,15 @@
 //= require themepunch.tools.min
 
 //= require_tree .
+
+
+/// Timeout for all flash messages on the app ///
+
+$(document).ready(function(){
+
+   setTimeout(function(){
+         $('.flash-message').remove()
+   }, 3000)
+
+})
+

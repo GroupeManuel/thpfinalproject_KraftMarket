@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 	def after_sign_in_path_for(user)
 		if session[:draft_cart_id]
 			item_path(session[:draft_cart_id])
+		else
+			items_path
 		end
 	end
 	
