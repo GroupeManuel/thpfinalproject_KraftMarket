@@ -22,7 +22,7 @@ class CartsController < ApplicationController
         redirect_to cart_path(cart.id)
       end
     else
-      flash[:notice] = "Vous devez être connecté pour commander un article"
+      flash[:error] = "Vous devez être connecté pour commander un article"
       redirect_to new_user_session_path
     end
 
