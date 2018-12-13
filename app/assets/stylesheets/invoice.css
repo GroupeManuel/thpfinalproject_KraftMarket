@@ -117,7 +117,7 @@ th span::after {
 }
 
 #footer li {
-  padding: 0 5px;
+  /*padding: 0 5px;*/
   border-right: 0px solid #ddd;
 }
 
