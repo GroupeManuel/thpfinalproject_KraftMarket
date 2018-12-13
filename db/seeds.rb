@@ -209,7 +209,7 @@ end
     item = Item.create!(
         title: "sac de café - " + Faker::Coffee.origin, 
         description: Faker::Lorem.paragraph, 
-        price: rand(5..100), 
+        price: Faker::Number.between(5, 10).to_s.gsub('.', ',').to_f
         status: item_status[rand(0..3)], 
         category_id: Category.last.id-1, 
         seller_id: rand(User.first.id..User.last.id),

@@ -32,3 +32,22 @@ a.button.border, a.button {
     border: none;
     border-radius: 50px;
 }
+
+.button-banner{
+background-color: #378F62;
+top: 0;
+padding: 20px 30px;
+color: #fff;
+position: relative;
+font-size: 24px;
+font-weight: 400;
+display: inline-block;
+transition: all 0.2s ease-in-out;
+cursor: pointer;
+margin-right: 6px;
+overflow: hidden;
+border: none;
+border-radius: 50px;
+}
+
+
