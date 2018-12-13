@@ -23,11 +23,11 @@
         <!-- Button to promote selling -->
           <li class="nav-item text-nowrap">
             <% if user_signed_in? && current_user.is_seller %>
-              <%= button_to new_item_path, method: :get, class: "button" do %>
+              <%= button_to new_item_path, method: :get, class: "button margin-right-0" do %>
                 <i class="fas fa-plus-square"></i> Nouvelle annonce
               <% end %>
             <% else %>
-              <%= button_to "Devenez ravitailleur", home_seller_path, method: :get, class: "button" %>
+              <%= button_to "Devenez ravitailleur", home_seller_path, method: :get, class: "button  margin-right-0" %>
             <% end %>
          </li>
 
@@ -45,25 +45,11 @@
           <% if user_signed_in? %>
 
             <li class="nav-item dropdown text-nowrap">
-               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Mon compte</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <%= link_to user_path(current_user.id), class:"dropdown-item" do %>
-                  <i class="fa fa-folder-open"></i> Mes annonces
-                <% end %>
-                <%= link_to user_path(current_user.id), class:"dropdown-item" do %>
-                  <i class="fa fa-shopping-cart"></i> Mes commandes
-                <% end %>
-                <%= link_to user_path(current_user.id),  class:"dropdown-item" do %>
-                  <i class="fa fa-user-edit"></i> Mon profil
-                <% end %>
-                <%= link_to destroy_user_session_path, method: :delete, class:"dropdown-item" do %>
-                  <i class="fa fa-sign-out-alt"></i> Déconnexion
-                <% end %>
-              </div>
-            </li>
+               <%= link_to 'Mon compte', user_path(current_user.id), class: "nav-link" %>
+             </li>
+
           <% else %>
-  
+
             <li class="nav-item text-nowrap">
                 <%= link_to "Le concept", about_path, :class =>"nav-link" %>
             </li>
@@ -75,7 +61,8 @@
 
       <!-- Display cart if user signed in -->
         <% if user_signed_in? %>
-          <li class="nav-item cart">
+
+          <li class="nav-item">
 						<%= link_to cart_path(current_user.cart.id), class:"button_cart" do %>
 							<% if Item.find_by(cart_id: current_user.cart.id) == nil %>
 								<%= image_tag 'cart-icon/empty', style: "width: 35px; height: 35px" %>
@@ -85,6 +72,13 @@
 							<%end%>
 						<% end %>	
 					</li>
+ 
+          <li class="nav-item">
+            <%= link_to destroy_user_session_path, method: :delete, class:"" do %>
+              <i class="fa fa-sign-out-alt" alt='Déconnexion'></i>
+            <% end %>
+          </li>
+
         <% end %>
 
       </ul>
