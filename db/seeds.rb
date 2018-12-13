@@ -1,27 +1,30 @@
-# Cleaning database
+# Cleaning database except User
 
-User.delete_all
+# User.delete_all
 Category.delete_all
 Item.delete_all
 Order.delete_all
 
     # Create instances of model User
-first_names = ["victore", "hand", "hugues", "demian"]
+first_names = ["victore", "handu", "hugou", "damian"]
 
-first_names.each do |prenom|
-    User.create(
-        email: "#{prenom}@#{prenom}.fr", 
-        password: "123456", 
-        first_name: prenom.capitalize, 
-        last_name: Faker::Name.last_name,
-        delivery_street: Faker::Address.street_address, 
-        delivery_street2: Faker::Address.secondary_address,
-        delivery_city: Faker::Address.city, 
-        company_name: Faker::Company.name,
-        company_description:Faker::StarWars.quote
-        )
+if User.count < 3
+    then 
+    first_names.each do |prenom|
+        User.create(
+            email: "#{prenom}@#{prenom}.fr", 
+            password: "123456", 
+            first_name: prenom.capitalize, 
+            last_name: Faker::Name.last_name,
+            delivery_street: Faker::Address.street_address, 
+            delivery_street2: Faker::Address.secondary_address,
+            delivery_city: Faker::Address.city, 
+            company_name: Faker::Company.name,
+            company_description:Faker::StarWars.quote
+            )
 
-    Cart.create(buyer_id: User.last.id)
+        Cart.create(buyer_id: User.last.id)
+    end
 end
 
     # Create 6 categories
