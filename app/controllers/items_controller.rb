@@ -3,12 +3,21 @@ class ItemsController < ApplicationController
   before_action :def_filters, only: [:index]
 
   def new
-    @item = Item.new
+    if current_user
+      @item = Item.new
+    else
+      flash[:error] = "Vous devez être connecté pour publier un article"
+      redirect_to new_user_session_path
+    end
+    
   end
 
   def create
     #creation of the new item
     new_item = Item.create!(item_params)
+
+    #Update the status of the user to tell he is a seller
+    current_user.is_seller = true
 
     redirect_to item_path(new_item.id), notice: "Merci d'avoir créé cet article"
   end
