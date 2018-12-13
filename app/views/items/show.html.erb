@@ -32,7 +32,11 @@
                             <% if @item.item_images.attached? %>
                                 <%= image_tag @item.item_images[0].variant(resize: "300x300") %>
                                 <% else %> 
-                                <%= image_tag '/assets/generique/no-image.jpg' %>
+                                    <% if @item.Faker_image.nil? %>
+                                        <%= image_tag '/assets/generique/no-image.jpg' %>
+                                        <% else %>
+                                            <%= image_tag ('/assets/image_seed/' + @item.Faker_image)%>
+                                    <% end %>
                             <% end %>
                         </div>
                         <div class="col-md-8">
@@ -40,10 +44,18 @@
                             <h5>Prix: <%= @item.price%> €</h5>
                             <!-- Slider -->
                             <h5>Toutes les images</h5>
-                            <div class="listing-slider-small mfp-gallery-container margin-bottom-0">                                    
+                            <div class="listing-slider-small mfp-gallery-container margin-bottom-0">
+                                <% if @item.item_images.attached? %>                                    
                                     <% @item.item_images.each do |i| %>
                                         <span class="item mfp-gallery"><%= image_tag i.variant(resize: "300x300") %></span>
                                     <% end %>
+                                <% else %>
+                                    <% if @item.Faker_image.nil? %>
+                                        <span class="item mfp-gallery"><%= image_tag '/assets/generique/no-image.jpg' %></span>
+                                        <% else %>
+                                            <span class="item mfp-gallery"><%= image_tag ('/assets/image_seed/' + @item.Faker_image)%></span>
+                                    <% end %>
+                                <% end %>
                             </div>
                         </div>
                         <p>
