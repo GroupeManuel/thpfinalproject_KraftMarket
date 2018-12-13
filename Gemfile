@@ -85,3 +85,5 @@ gem "gibbon"
 gem 'mini_magick'
 
 gem "data-confirm-modal", "~> 1.6"
+
+gem "will_paginate", "~> 3.1"

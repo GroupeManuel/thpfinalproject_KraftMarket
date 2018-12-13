@@ -23,8 +23,7 @@ class ItemsController < ApplicationController
 
   def index
     # Filter items according to the form parameters
-    @item_selection = Item.where(@filters).order('created_at DESC')
-
+    @item_selection = Item.where(@filters).order('created_at DESC').paginate(page: params[:page], per_page: 18)
   end
 
   def show

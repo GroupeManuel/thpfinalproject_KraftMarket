@@ -6,7 +6,7 @@ Item.delete_all
 Order.delete_all
 
     # Create instances of model User
-first_names = ["victore", "handu", "hugou", "damian"]
+first_names = ["Ettore", "hando", "hugue", "fabien"]
 
 if User.count < 3
     then 
