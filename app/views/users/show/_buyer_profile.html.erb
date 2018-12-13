@@ -22,7 +22,7 @@
 		<div id="filters">
 			<ul class="option-set margin-bottom-30">
 				<% @order_status.each do |status_filter, french_status| %>
-					<li><a href="#filter" class="selected" data-filter=".status_filter"><%= french_status %> </a></li>
+					<li><a href="#filter" class="selected" data-filter=<%='.'+status_filter %> ><%= french_status %> </a></li>
 				<% end %>
 			</ul>
 			<div class="clearfix"></div>
@@ -35,14 +35,9 @@
 <div class='row'>
 	<div class='col-md-12'>
 		<div class="dashboard-list-box margin-top-0">
-			<% @order_status.each do |status_filter, french_status| %>
-				<h4><%= french_status %></h4>
+			<% @user_orders.each do |order| %>
 				<ul>
-					<% @user_orders.each do |status, orders| %>
-						<% if status = status_filter %>
-						<% orders.each do |order| %>
-
-						<li>
+						<li class=<%= order.status %> >
 							<div class='class="list-box-listing'>
 								<div class="list-box-listing-img">
 								</div>
