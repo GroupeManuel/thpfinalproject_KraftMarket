@@ -1,13 +1,11 @@
 .navbar{
 	min-height: 70px;
-	font-family: -apple-system, BlinkMacSystemFont,
-    “Segoe UI”, “Roboto”, “Oxygen”,
-    “Ubuntu”, “Cantarell”, “Fira Sans”,
-    “Droid Sans”, “Helvetica Neue”, sans-serif;;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .nav-item{
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: 100;
 	padding-right: 10px;
 	padding-left: 10px;
@@ -15,9 +13,9 @@
 	display: block;
   position: relative;
   opacity: 0.75;
+  margin-top:auto;
+  margin-bottom:auto;
 }		
-
-
 
 .nav-item:hover {
   opacity: 1;
@@ -31,77 +29,41 @@
   background-color: #378F62;
 }
 
-.nav-link-ltr::before {
-  width: 0%;
-  bottom: 5px;
-}
-
-.nav-link-ltr:hover::before {
-  width: 85%;
-}
-
 
 nav .navbar-nav li a{
   color: black !important;
   text-decoration: none;
   }
 
-nav .navbar-nav li a:hover{
-  
-  }  
+header .left-part {
+  height:100%;
+  display:flex;
+  align-items:center;
+}
+
+@media (max-width: 992px) {
+  .left-part {
+    display:flex;
+    flex-direction:row-reverse;
+  } 
+}
 
 .nav-item2 li a:hover{
   color: white !important;
   text-decoration: none;
 }
 
-.btn-outline-primary.custom-btn{
-  border-color: #378F62;
-  font-size: 16px;
-  border-radius: 40px;
-  padding: 5px 10px;
-  margin-top: 8px;
-}
-
-
-.nav-link{
-  margin-top: 8px;
-}
-
-.btn-outline-primary.custom-btn:hover{
-  background-color: #378F62; 
- 
-}
-
-a.btn-outline-primary.custom-btn:hover{
-   color: white;
-}
-
-
-
 .cart-icon{
 	color: #378F62;
 }
 
-.navbar-collapse {
-  margin-right: 50px;
-}
-
-.d-flex{
-  margin-left: 50px;
-}
-
-.dropdown-menu {
-  font-size:14px;
+.navbar .dropdown-menu {
+  font-size:13px;
+  position:absolute;
 }
 
 .sticky-top{
   position: fixed;
   top: 0;
   width: 100%
-}
-
-
-img {
-  margin-top: 5px;
 }

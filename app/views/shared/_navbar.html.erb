@@ -1,15 +1,17 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-  <% if user_signed_in? %>
+<header class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
 
-    <div class="d-flex flex-grow-1">
-      <span class="w-200 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
-       <a class="navbar-brand">
+  <nav class='container d-flex justify-content-between align-items-center'>
+
+    <div class="w-100 left-part">
+
+      <div id='logo' class='navbar-brand margin-top-0'>
         <%= link_to root_path do %>
-        <%= image_tag "logo-kraft", size: "170x50"%>
-        <% end %>        
-      </a>
-      <div class="w-100 text-right">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+          <%= image_tag "logo-kraft", style: "height: 50px"%>
+        <% end %>
+      </div>
+   
+      <div class='text-right toggle-div'>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
@@ -17,27 +19,63 @@
 
     <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
       <ul class="navbar-nav ml-auto flex-nowrap">
-          <li class="nav-item">
-              <%= link_to "Vendre sur Kraft", home_seller_path, :class => "btn btn-outline-primary custom-btn" %>
+
+        <!-- Button to promote selling -->
+          <li class="nav-item text-nowrap">
+            <% if user_signed_in? && current_user.is_seller %>
+              <%= button_to new_item_path, method: :get, class: "button" do %>
+                <i class="fas fa-plus-square"></i> Nouvelle annonce
+              <% end %>
+            <% else %>
+              <%= button_to "Devenez ravitailleur", home_seller_path, method: :get, class: "button" %>
+            <% end %>
          </li>
-         <li class="nav-item ">
-              <%= link_to "Voir les produits", items_path,  :class =>"nav-link" %>
+
+        <!-- Button to promote items -->
+          <li class="nav-item text-nowrap">
+            <% if user_signed_in? && current_user.is_buyer %>
+              <%= link_to "Parcourir les matières", items_path, class: "nav-link" %>
+            <% else %>
+              <%= link_to "Découvrir les matières", items_path, class: "nav-link" %>
+            <% end %>
           </li>
-          <li class="nav-item dropdown">
-           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Mon compte
-           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Mes commandes", user_path(current_user.id), class:"dropdown-item" %>
-            <%= link_to "Mon profil", user_path(current_user.id),  class:"dropdown-item" %>
-            <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item"%>
-        
-          </div>
-          </li>
-            
-           <li class="nav-item">
-              <% if current_user %>
-					<li class ="cart">
+
+        <!-- Profile dropdown if signed-in or signin -->
+
+          <% if user_signed_in? %>
+
+            <li class="nav-item dropdown text-nowrap">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Mon compte</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <%= link_to user_path(current_user.id), class:"dropdown-item" do %>
+                  <i class="fa fa-folder-open"></i> Mes annonces
+                <% end %>
+                <%= link_to user_path(current_user.id), class:"dropdown-item" do %>
+                  <i class="fa fa-shopping-cart"></i> Mes commandes
+                <% end %>
+                <%= link_to user_path(current_user.id),  class:"dropdown-item" do %>
+                  <i class="fa fa-user-edit"></i> Mon profil
+                <% end %>
+                <%= link_to destroy_user_session_path, method: :delete, class:"dropdown-item" do %>
+                  <i class="fa fa-sign-out-alt"></i> Déconnexion
+                <% end %>
+              </div>
+            </li>
+          <% else %>
+  
+            <li class="nav-item text-nowrap">
+                <%= link_to "Le concept", about_path, :class =>"nav-link" %>
+            </li>
+            <li class="nav-item text-nowrap">
+              <%= link_to "Connexion", new_user_session_path,  :class =>"nav-link" %>
+            </li>
+  
+          <% end %>
+
+      <!-- Display cart if user signed in -->
+        <% if user_signed_in? %>
+          <li class="nav-item cart">
 						<%= link_to cart_path(current_user.cart.id), class:"button_cart" do %>
 							<% if Item.find_by(cart_id: current_user.cart.id) == nil %>
 								<%= image_tag 'cart-icon/empty', style: "width: 35px; height: 35px" %>
@@ -46,58 +84,12 @@
 								<%= image_tag 'cart-icon/full', style: "width: 35px; height: 35px" %>
 							<%end%>
 						<% end %>	
-					</li>	
-				<% end %>             
-          </li>
+					</li>
+        <% end %>
+
       </ul>
     </div>
-  
-  <% else %>
-        <div class="d-flex flex-grow-1">
-        <span class="w-200 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
-       <a class="navbar-brand">
-        <%= link_to root_path do %>
-        <%= image_tag "logo-kraft", size: "170x50"%>
-        <% end %>        
-    </a>
-        <div class="w-100 text-right">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </div>
-    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
-        <ul class="navbar-nav ml-auto flex-nowrap">
-          <li class="nav-item2">
-              <%= link_to "Publier une annonce", new_item_path, :class => "btn btn-outline-primary custom-btn" %> 
-          </li>
-           <li class="nav-item ">
-              <%= link_to "Voir les produits", items_path,  :class =>"nav-link" %>
-          </li>
-          <li class="nav-item ">
-              <%= link_to "Connexion", new_user_session_path,  :class =>"nav-link" %>
-          </li>
-          <li class="nav-item">
-              <%= link_to "Comment ça marche", about_path, :class =>"nav-link" %>
-          </li>
-            
-            <li class="nav-item">
-                <% if current_user %>
-					<li class ="cart">
-						<%= link_to cart_path(current_user.cart.id), class:"button_cart" do %>
-							<% if Item.find_by(cart_id: current_user.cart.id) == nil %>
-								<%= image_tag 'cart-icon/empty', style: "width: 45px; height: 50px" %>
-							<%else%>
-								<!-- Esthétique du panier quand une réservation est faite ! -->
-								<%= image_tag 'cart-icon/full', style: "width: 45px; height: 50px" %>
-							<%end%>
-						<% end %>	
-					</li>	
-				<% end %>             
-            </li>
-        </ul>
-    </div>
-    <% end %>
-</nav>
+  </nav>
+</header>
 
  

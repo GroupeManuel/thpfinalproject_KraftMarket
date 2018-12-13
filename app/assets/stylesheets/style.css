@@ -1680,7 +1680,7 @@ em.mm-counter+a.mm-fullsubopen+span {
 	
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 992px) {
 
 
 
@@ -9942,6 +9942,8 @@ span.testimony-avatar {
 	-moz-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
+	margin-left: auto;
+	align-items: bottom;
 }
 
 #breadcrumbs ul { margin: 0; }
@@ -14706,7 +14708,7 @@ img.mfp-img {
 	    margin: 0 auto;
 	    margin-top: 20px;
 	    width: 35%;
-	    text-align: center;
+	    text-align: left;
 	    left: 0;
 	    right: 0;
 	}
@@ -15298,8 +15300,6 @@ img.mfp-img {
 	    font-weight: 400;
 	    line-height: 32px;
 	}
-
-	.main-search-container:before { background: rgba(255,255,255,0.92); }
 
 }
 
