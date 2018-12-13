@@ -18,7 +18,10 @@
     <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
       <ul class="navbar-nav ml-auto flex-nowrap">
           <li class="nav-item">
-              <%= link_to "Vendre sur Kraft", home_seller_path, :class => "btn btn-outline-primary custom-btn" %> 
+              <%= link_to "Vendre sur Kraft", home_seller_path, :class => "btn btn-outline-primary custom-btn" %>
+         </li>
+         <li class="nav-item ">
+              <%= link_to "Voir les produits", items_path,  :class =>"nav-link" %>
           </li>
           <li class="nav-item dropdown">
            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -37,10 +40,10 @@
 					<li class ="cart">
 						<%= link_to cart_path(current_user.cart.id), class:"button_cart" do %>
 							<% if Item.find_by(cart_id: current_user.cart.id) == nil %>
-								<%= image_tag 'cart-icon/empty', style: "width: 45px; height: 50px" %>
+								<%= image_tag 'cart-icon/empty', style: "width: 35px; height: 35px" %>
 							<%else%>
 								<!-- Esthétique du panier quand une réservation est faite ! -->
-								<%= image_tag 'cart-icon/full', style: "width: 45px; height: 50px" %>
+								<%= image_tag 'cart-icon/full', style: "width: 35px; height: 35px" %>
 							<%end%>
 						<% end %>	
 					</li>	
@@ -65,8 +68,11 @@
     </div>
     <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
         <ul class="navbar-nav ml-auto flex-nowrap">
-          <li class="nav-item">
-              <%= link_to "Vendre sur Kraft", home_seller_path, :class => "btn btn-outline-primary custom-btn" %> 
+          <li class="nav-item2">
+              <%= link_to "Publier une annonce", new_item_path, :class => "btn btn-outline-primary custom-btn" %> 
+          </li>
+           <li class="nav-item ">
+              <%= link_to "Voir les produits", items_path,  :class =>"nav-link" %>
           </li>
           <li class="nav-item ">
               <%= link_to "Connexion", new_user_session_path,  :class =>"nav-link" %>
