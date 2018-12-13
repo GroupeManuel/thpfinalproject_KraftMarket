@@ -1,0 +1,55 @@
+.digg_pagination {  
+    display: flex;
+    justify-content: center;
+    background: white;
+    font-size: 1.4em;
+    cursor: default;
+    padding: 15px;
+    /* self-clearing method: */ }
+    a {
+      border-radius: 30px;
+    }
+    .digg_pagination a, .digg_pagination span, .digg_pagination em {
+      padding: 0.2em 0.4em;
+      display: block;
+      float: left;
+      margin-right: 10px; }
+    .digg_pagination .disabled {
+      border-radius: 30px;
+      color: #999999;
+      border: 1px solid #dddddd; }
+    .digg_pagination .current {
+      border-radius: 30px;
+      font-style: normal;
+      font-weight: bold;
+      background: #378F62;
+      color: white;
+      border: 1px solid #378F62; }
+    .digg_pagination a {
+      text-decoration: none;
+      color: #378F62;
+      border: 1px solid #378F62; }
+      .digg_pagination a:hover, .digg_pagination a:focus {
+        color: #000033;
+        border-color: #000033; }
+    .digg_pagination .page_info {
+      background: #378F62;
+      color: white;
+      padding: 0.4em 0.6em;
+      width: 22em;
+      margin-bottom: 0.3em;
+      text-align: center; }
+      .digg_pagination .page_info b {
+        color: #000033;
+        background: #378F62;
+        padding: 0.1em 0.25em; }
+    .digg_pagination:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    * html .digg_pagination {
+      height: 1%; }
+    *:first-child + html .digg_pagination {
+      overflow: hidden; }
