@@ -3,6 +3,13 @@ class ApplicationController < ActionController::Base
 
 	before_action :configure_permitted_params, if: :devise_controller?
 
+	# Show the right page show after user sign in 
+	def after_sign_in_path_for(user)
+		if session[:draft_cart_id]
+			item_path(session[:draft_cart_id])
+		end
+	end
+	
 	def configure_permitted_params
 
 		devise_parameter_sanitizer.permit(:account_update, keys: [
