@@ -13919,8 +13919,8 @@ img.mfp-img {
 .slick-prev { left: 3px; transform: translate3d(-90px,-50%,0); }
 .slick-next { right: 3px; transform: translate3d(90px,-50%,0); }
 
-.slick-prev:before { content: '\e605'; }
-.slick-next:before { content: '\e606'; }
+.slick-prev:before { content: '<'; }
+.slick-next:before { content: '>'; }
 
 
 /* Dots */
@@ -14040,6 +14040,11 @@ img.mfp-img {
 .category-box-container {
 	position: relative;
 	height: 100%;
+}
+
+.category-box-container:hover .category-box-btn {
+	background-color: #378F62;
+	border-color: #378F62;
 }
 
 .category-box-container.half {

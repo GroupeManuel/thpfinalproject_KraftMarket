@@ -6,10 +6,15 @@
         
         <div class="listing-item">
 
-            <!-- Product image to be put from activerecort -->
-            
+            <!-- Product image to be put from active record -->
             <% if item.item_images.attached? %>
                 <%= image_tag item.item_images[0] %>
+            <% else %> 
+                <% if item.Faker_image.nil? %>
+                    <%= image_tag '/assets/generique/no-image.jpg' %>
+                    <% else %>
+                        <%= image_tag ('/assets/image_seed/' + item.Faker_image)%>
+                <% end %>
             <% end %>
 
             <!-- badge in case item is reserved -->

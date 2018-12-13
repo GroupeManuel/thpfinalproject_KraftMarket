@@ -7,12 +7,17 @@
     
         <div class="listing-item">
 
-            <!-- Product image to be put from activerecort -->
-            <% if @cart_item.item_images.attached? %>
+            <!-- Product image to be put from active record -->
+           <% if @cart_item.item_images.attached? %>
                 <%= image_tag @cart_item.item_images[0] %>
-                <% else %> 
-                <%= image_tag '/assets/generique/no-image.jpg' %>
+            <% else %> 
+                <% if @cart_item.Faker_image.nil? %>
+                    <%= image_tag '/assets/generique/no-image.jpg' %>
+                    <% else %>
+                        <%= image_tag ('/assets/image_seed/' + @cart_item.Faker_image)%>
+                <% end %>
             <% end %>
+
 
             <!-- Content in the item card -->
             <div class="listing-item-content">

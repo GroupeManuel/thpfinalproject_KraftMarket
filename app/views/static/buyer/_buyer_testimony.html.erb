@@ -6,22 +6,19 @@
 			</div>
 			<div class="fullwidth-slick-carousel category-carousel">
 				<!-- Item -->
-				<%2.times do %>
 					<% Category.all.each_with_index do |category,i| %>
-						<div >
+					<% image_category = category.category_name.downcase + ".jpg"%>
+						<%= link_to items_path(item_filter:{category_id:category.id, status:"published"}) do %>
 							<div class="category-box-container">
-								<div class="category-box" data-background-image="<%= asset_path('artisan/artisan1'+(i+rand(0..4)).to_s+'.jpg') %>">
-									<%= link_to items_path() do %>
-										<div class="category-box-content">
-											<h3><%= category.category_name %></h3>
-											<span>67 listings</span>
-										</div>
-										<span class="category-box-btn">Voir</span>
-									<% end %>
+								<div class="category-box" data-background-image="<%= asset_path('image-category/' +image_category) %>">
+									<div class="category-box-content">
+										<h3><%= category.category_name %></h3>
+										<span><%= Item.where(category_id: category.id, status: "published").count %> articles</span>
+									</div>
+									<span class="category-box-btn">Voir</span>
 								</div>
 							</div>
-						</div>	
+						<% end %>
 					<% end %>
-				<% end %>
 			</div>
 </section>
