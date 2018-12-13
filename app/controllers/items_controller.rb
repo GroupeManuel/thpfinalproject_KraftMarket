@@ -10,6 +10,11 @@ class ItemsController < ApplicationController
     #creation of the new item
     new_item = Item.create!(item_params)
 
+    #update of the user status
+    unless new_item.seller.is_seller
+      new_item.seller.update(is_seller:true)
+    end
+
     redirect_to item_path(new_item.id), notice: "Merci d'avoir créé cet article"
   end
 
