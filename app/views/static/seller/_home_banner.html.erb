@@ -4,11 +4,27 @@
 			<div class="row" >
 				<div class="col-md-12" >
 					<h2 id="banner_h2">Devenez acteur de l'économie circulaire !</h2>
-					<div class="banner_button">			
-					 <button class="button-banner" onclick="window.location.href='./items/new' ">Publier mon annonce</button>
-					 </div>
+					<div class="banner_button">
+						<%= form_for :button_new_item do |f| %>
+							<% if current_user %>
+								<%= f.hidden_field :redirect_status, value: "false" %>
+							<% else %>
+								<%= f.hidden_field :redirect_status, value: "true" %>
+							<%end %>
+							<%= f.button type: :submit, class:"button-banner" do %>
+								Publier mon annonce
+							<% end %>
+						<% end %>
+						<!--<%= button_to class:"button-banner", params: {redirect_status: "vrai"} do %>
+							Publier mon annonce
+						<% end %>-->
+					 	<!--<button class="button-banner" onclick="window.location.href='./items/new' ">Publier mon annonce</button>-->
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+button_to 'Send Invitation', invitation_path(user), params: {'user[email]' => user.email}
+
