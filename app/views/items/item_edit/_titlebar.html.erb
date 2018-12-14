@@ -3,16 +3,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Modifier votre article <%= @item.title %></h2>
+				<h2>Modifier votre annonce</h2>
 				<!-- Breadcrumbs -->
-				<nav id="breadcrumbs">
+				<nav id="breadcrumbs" class='text-right'>
 					<ul>
 						<% if user_signed_in? %>
-						<li><%= link_to "Accueil", root_path %></li>
-					    <li><%= link_to "Mon compte", user_path(current_user.id) %></li>
-						<% else %>
-						<li><%= link_to "Accueil", root_path %></li>
-						<li><%= link_to "Mon compte", user_session_path %></li>						
+							<li><%= link_to "Accueil", root_path %></li>
+						    <li><%= link_to "Mes annonces", user_path(current_user.id) %></li>
+						    <li><%= link_to @item.title, edit_item_path(@item.id) %></li>
 						<% end %> 
 					</ul>
 				</nav>

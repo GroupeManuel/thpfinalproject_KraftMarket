@@ -3,14 +3,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>Proposer une ressource</h2>
+				<h2>Nouvelle annonce</h2>
 				<!-- Breadcrumbs -->
-				<nav id="breadcrumbs">
+				<nav id="breadcrumbs" class='text-right'>
 					<ul>
 						<% if user_signed_in? %>
 						<li><%= link_to "Accueil", root_path %></li>
 					    <li><%= link_to "Ressources", items_path %></li>
-					    <li><%= link_to "Proposer une ressource", new_item_path %></li>					
+					    <li><%= link_to "Nouvelle annonce", new_item_path %></li>					
 						<% end %> 
 					</ul>
 				</nav>
