@@ -63,9 +63,9 @@ $(document).ready(function(){
 	/*----------------------------------------------------*/
 	/*  Sticky Header
 	/*----------------------------------------------------*/
-	$( "#header" ).not( "#header.not-sticky" ).clone(true).addClass('cloned unsticky').insertAfter( "#header" );
+	$( "#header" ).not( "#header.not-sticky" ).clone(true).addClass('cloned').insertAfter( "#header" );
 	$('#header.cloned #sign-in-dialog').remove();
-	$( "#navigation.style-2" ).clone(true).addClass('cloned unsticky').insertAfter( "#navigation.style-2" );
+	$( "#navigation.style-2" ).clone(true).addClass('cloned').insertAfter( "#navigation.style-2" );
 
 	// Logo for header style 2
 	$( "#logo .sticky-logo" ).clone(true).prependTo("#navigation.style-2.cloned ul#responsive");
