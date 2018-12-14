@@ -1,40 +1,37 @@
 <!-- Template page: http://www.vasterad.com/themes/listeo_latest/pages-booking.html -->
+<% title('Réservation - KraftMarket') %>
 
-<%= render 'carts/cart_show/titlebar' %>
+<div id="wrapper">
+  <%= render 'carts/cart_show/titlebar' %>
 
-<div class='container'>
+  <div class='container'>
+    <% if @cart_item == nil %>
+        <h4> Vous n'avez aucun objet réservé</h4>
+        <p>
+            <%= button_to "Découvrir les ressources", items_path, method: :get, class:"btn btn-primary" %>
+        </p>
 
-<% if @cart_item == nil %>
-    <h4> Vous n'avez aucun objet réservé</h4>
-  </div>
+    <% else %>
 
-<% else %>
-  
-  <div class='row'>
+        <div class='row'>
+            <%= render 'carts/cart_show/order_summary' %>
+            <div class='col-md-8 col-sm-12'>
 
-    <%= render 'carts/cart_show/order_summary' %>
+            <!-- Use simple_form gem for radio button choice -->
+                <%= form_with model: @order, method:'create', class:'form' do |f| %>
+                  <%= f.hidden_field :item_id, value: @cart_item.id %>
 
-    <div class='col-md-8 col-sm-12'>
-
-    <!-- Use simple_form gem for radio button choice -->
-    <%= form_with model: @order, method:'create', class:'form' do |f| %>
-      <%= f.hidden_field :item_id, value: @cart_item.id %>
-
-      <!-- Radio button to choose between pickup and bike delivery -->
-      <%= render 'carts/cart_show/shipping_choice', f:f %>
-
-      <!-- Form to choose address and invoice address -->
-      <%= render 'carts/cart_show/invoice_form', f:f %>
-
-      <%= render 'carts/cart_show/payment_button', f:f %>
-    
+                  <!-- Radio button to choose between pickup and bike delivery -->
+                  <%= render 'carts/cart_show/shipping_choice', f:f %>
+                  <!-- Form to choose address and invoice address -->
+                  <%= render 'carts/cart_show/invoice_form', f:f %>
+                  <%= render 'carts/cart_show/payment_button', f:f %>
+                <% end %>
+            </div>
+        </div>
     <% end %>
-    </div>
   </div>
-
-<% end %>
 </div>
-
 
 <script type="text/javascript">
   $(document).ready(function() {
