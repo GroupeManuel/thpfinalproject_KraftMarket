@@ -23,13 +23,6 @@
             <div class="listing-item-content">
                 <span class="tag"><%= @cart_item.category.category_name %></span>
                 <h3><%= @cart_item.title %></h3>
-                <span>
-                    <% if @cart_item.seller.company_name %>
-                        <%= link_to 'Vendu par '+@cart_item.seller.company_name, user_path(@cart_item.seller.id) %>
-                    <% else %>
-                        <%= link_to 'Vendu par '+@cart_item.seller.first_name, user_path(@cart_item.seller.id) %>
-                    <% end %>
-                </span>
             </div>
         </div>
     </div>
