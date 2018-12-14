@@ -517,7 +517,7 @@ header.fullwidth .container {
 
 #backtotop a {
 	text-decoration: none;
-	border: 0 none;
+	border:1px solid #fff;
 	display: block;
 	width: 46px;
 	height: 46px;
@@ -15493,7 +15493,6 @@ img.mfp-img {
     background-color: #378F62;
 }
 
-.comment-by-listing a:hover,
 .browse-all-user-listings a i,
 .hosted-by-title h4 a:hover,
 .style-2 .trigger.active a,
@@ -15508,8 +15507,6 @@ img.mfp-img {
 .star-rating .rating-counter a:hover,
 .more-search-options-trigger:after,
 .header-widget .sign-in:hover,
-#footer a,
-#footer .footer-links li a:hover,
 #navigation.style-1 .current,
 #navigation.style-1 ul li:hover a,
 .user-menu.active .user-name:after,
@@ -15701,7 +15698,6 @@ oration: none;
 .dashboard-nav ul li.active,
 .dashboard-nav ul li:hover { border-color: #378F62; }
 
-.dashboard-list-box .comment-by-listing a:hover { color: #378F62; }
 
 .opening-day:hover h5 { color: #378F62 !important; }
 
