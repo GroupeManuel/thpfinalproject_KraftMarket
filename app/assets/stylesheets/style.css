@@ -5986,8 +5986,8 @@ a.rate-review:hover {
 .pagination .current,
 .pagination ul li a:hover,
 .pagination-next-prev ul li a:hover {
-	background-color: #f2f2f2;
-	color: #333;
+	background-color: #e8e8e8;
+	color: #378F62;
 }
 
 .pagination-next-prev a.next { float: right; }

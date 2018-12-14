@@ -1,0 +1,39 @@
+<div class="dashboard-list-box margin-top-0">
+	<ul>
+	    <% @items_advert.each do |item| %>
+	    	<li>
+	    		<div class='list-box-listing'>
+	    			<div class="list-box-listing-img col-2">
+	    				<a>
+	    				 <% if item.item_images.attached? %>
+	                        <%= image_tag item.item_images[0].variant(resize: "200x200") %>
+	                    <% elsif item.Faker_image.nil? %>
+	                        <%= image_tag '/assets/generique/no-image.jpg' %>
+	                    <% else %>
+	                        <%= image_tag ('/assets/image_seed/' + item.Faker_image)%>
+	                    <% end %>
+	                	</a>
+	            	</div>
+	    			<div class='list-box-listing-content col-7'>
+	    				<div class='inner'>
+	    					<h3><%= item.title %></h3>
+	    					<span><%= item.category.category_name %></span><br/>
+	    					<span><%= item.price %> €</span>
+	    				</div>
+	    			</div>
+	    			<div class="list-box-listing-content col-3">
+                        <div class="inner text-right no-wrap">
+                            <span>Publié le <%= item.created_at.strftime("%d/%m/%y") %>
+                            à <%= item.created_at.strftime("%H:%M") %></span>
+                        </div>
+	    			</div>
+	    		</div>
+	    	</li>
+	    <% end %>
+		<div class="digg_pagination col-md-12">
+			<div class="margin-top-20 margin-bottom-40">
+				<%= will_paginate @items_advert, previous_label: '<', next_label: '>' %>		
+			</div>
+		</div>
+    </ul>
+</div>

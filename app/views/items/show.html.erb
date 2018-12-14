@@ -9,7 +9,7 @@
     	    		<nav id="breadcrumbs">
     	    			<ul>
     	    				<li><%= link_to "Accueil", root_path %></li>
-    	    				<li><%= link_to "Produits", items_path %></li>
+    	    				<li><%= link_to "Ressources", items_path %></li>
                             <li><%= link_to @item.category.category_name, items_path(item_filter:{category_id: @item.category_id}) %></li>
                             <li><%= link_to @item.title, item_path(@item.id) %></li>
     	    			</ul>
@@ -25,7 +25,7 @@
         		<div id="add-listing" class="separated-form">
                     <div class="add-listing-section">
         				<div class="add-listing-headline">
-        					<h3><%= @item.title %>, article vendu par <%= User.find(@item.seller_id).first_name %><i class="tip" data-tip-content="<%= User.find(@item.seller_id).first_name %> a déjà vendu sur Kraft Market"></i></h3>
+        					<h3><%= @item.title %>, article vendu par <%= User.find(@item.seller_id).first_name %></h3>
         				</div>
                         <div class="col-md-4">
                             <h5>Image principale</h5>

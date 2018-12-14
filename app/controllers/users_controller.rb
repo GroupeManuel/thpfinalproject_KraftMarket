@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   include UsersHelper
 
   before_action :set_user
-  before_action :user_sales, :user_orders, :user_section, only:[:show]
+  before_action :user_sales, :user_orders, :user_section, only:[:show, :public_profile]
 
   def show
     unless user_checked
@@ -23,6 +23,9 @@ class UsersController < ApplicationController
   end
 
   def public_profile
+    @items_sold = @user_sales.where(status: "sold").paginate(page: params[:page], per_page: 5)
+    @items_advert = @user_sales.where(status: "published").paginate(page: params[:page], per_page: 5)
+    @user_orders = @user_orders.paginate(page: params[:page], per_page: 5)
   end
 
   private
@@ -44,7 +47,7 @@ class UsersController < ApplicationController
       'sold' => 'Objets vendus'
     }
 
-    @user_sales = @user.orders.order('created_at DESC')
+    @user_sales = @user.items.order('created_at DESC')
 
   end
 
