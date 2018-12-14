@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
 
 	# Show the right page show after user sign in 
 	def after_sign_in_path_for(user)
-		if session[:draft_cart_id]
-			item_path(session[:draft_cart_id])
+		if session[:item_added_to_cart]
+			item_path(session[:item_added_to_cart])
 		else
 			items_path
 		end

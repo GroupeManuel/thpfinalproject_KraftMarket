@@ -1,0 +1,25 @@
+// Place all the styles related to the errors controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.container_error{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-items: center;
+	align-items: center;
+	margin-top: 20px;
+}
+
+
+
+.error_image{
+	
+
+}
+
+.text-error{
+	margin-bottom: 20px;
+	
+}

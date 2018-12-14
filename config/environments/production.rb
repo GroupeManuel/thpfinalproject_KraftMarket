@@ -1,6 +1,11 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+
+  # setting routes for custom 404 page
+   config.exceptions_app = self.routes
+
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
