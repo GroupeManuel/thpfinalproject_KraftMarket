@@ -17,9 +17,14 @@
         <%= f.label :email, 'Email', class:'col-3 margin-top-0' %>
         <%= f.email_field :email, value: @user.email, class:'col-8 form-control mb-0' %>
       </div>
-      <div class="form-inline row">
+      <div class="form-group form-inline row mb-4">
         <%= f.label :phone_number, 'Téléphone', class:'col-3 margin-top-0' %>
         <%= f.text_field :phone_number, value: @user.phone_number, class:'col-8 form-control mb-0' %>
+      </div>
+
+      <div class="form-inline row">
+        <%= f.label :personal_description, 'Biographie', class:'col-3 margin-top-0' %>
+        <%= f.text_area :personal_description, value: @user.company_description, class:'col-8 form-control mb-0' %>
       </div>
     </div>
   </div>

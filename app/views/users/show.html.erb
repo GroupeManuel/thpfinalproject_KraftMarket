@@ -21,7 +21,7 @@
 							<% end %> !
 			            </h2>
 						<!-- Breadcrumbs -->
-						<nav id="breadcrumbs">
+						<nav id="breadcrumbs" class='text-right'>
 							<ul>
 			    				<li><%= link_to "Accueil", root_path %></li>
 								<li><%= link_to "Mon profil", user_path(current_user.id) %></li>
@@ -43,7 +43,7 @@
 <script type="text/javascript">
 
   $(document).ready(function() {
-  	// Hide delivery_form by default
-    $('.dashboard-nav li#profile_dashboard').addClass('active');
+    $('footer').hide();
+app/views/items/item_edit/_titlebar.html.erb    $('.dashboard-nav li#profile_dashboard').addClass('active');
   });
 </script>
