@@ -23,10 +23,10 @@ class CartsController < ApplicationController
       end
     else
       # New session variable to remember the page the user wants to see after sign in success
-      session[:draft_cart_id] = Item.find(params[:item_id]).id
+      #session[:item_added_to_cart] = params[:item_id]
 
       flash[:error] = "Vous devez être connecté pour commander un article"
-      redirect_to new_user_session_path
+      redirect_to new_user_session_path(clicked_link:{item_added_to_cart:params[:item_id]})
     end
 
   end

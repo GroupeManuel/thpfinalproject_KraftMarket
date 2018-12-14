@@ -23,8 +23,8 @@
         <!-- Button to promote selling -->
           <li class="nav-item text-nowrap">
             <% if user_signed_in? %>
-              <%= button_to new_item_path, method: :get, class: "header-cta button no-wrap d-flex justify-content-end" do %>
-                <i class="fas fa-plus-square"></i> Nouvelle annonce
+              <%= link_to new_item_path, class: "header-cta button no-wrap" do %>
+                <i class="fa fa-plus-square"></i>Nouvelle annonce
               <% end %>
             <% else %>
               <%= link_to "Devenez ravitailleur", home_seller_path, class: "header-cta button d-flex justify-content-end" %>
