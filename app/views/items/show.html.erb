@@ -9,7 +9,7 @@
     	    		<nav id="breadcrumbs">
     	    			<ul>
     	    				<li><%= link_to "Accueil", root_path %></li>
-    	    				<li><%= link_to "Produits", items_path %></li>
+    	    				<li><%= link_to "Ressources", items_path %></li>
                             <li><%= link_to @item.category.category_name, items_path(item_filter:{category_id: @item.category_id}) %></li>
                             <li><%= link_to @item.title, item_path(@item.id) %></li>
     	    			</ul>
