@@ -53,10 +53,10 @@ a:hover {
 }
 
 
-
 #footer.green-footer {
 	background: #368f62;
 	color: #fff;
+	z-index:998;
 }
 
 #footer.green-footer a,
@@ -75,3 +75,16 @@ a:hover {
 html, body {
 	height:100%;
 }
+
+///// LINK TO PROFILE PUBLIC
+
+.green-link {
+	color: #378F62;
+	font-weight: bold;
+}
+
+.green-link:hover {
+	text-decoration: none;
+	color: rgb(0, 71, 35);
+}
+

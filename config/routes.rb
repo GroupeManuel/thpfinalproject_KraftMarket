@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show, :update, :edit]
   get 'users/public_profile/:id', to: 'users#public_profile', as: 'public_profile'
+  get 'users/sales/:id', to: 'users#sales', as: 'user_sales'
+  get 'users/orders/:id', to: 'users#orders', as: 'user_orders'
 
     #Controller Order
 

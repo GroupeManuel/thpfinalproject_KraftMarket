@@ -1,4 +1,4 @@
-<% title('Mon profil - KraftMarket') %>
+<% title('Dashboard - KraftMarket') %>
 
 <%= render 'profile_header' %>
 
@@ -10,17 +10,29 @@
   	<div class="dashboard-content">
 	
 		<div class='profile-tab-content' id="personal-dashboard" >
-	  		<%= render 'users/show/public_dashboard' %>
-	  	</div>
+	  		
+	  		<!-- Titlebar -->
+			<div id="titlebar">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Bienvenue
+							<% if current_user.first_name? %>
+			                	<%= ' '+ current_user.first_name %>
+							<% end %> !
+			            </h2>
+						<!-- Breadcrumbs -->
+						<nav id="breadcrumbs" class='text-right'>
+							<ul>
+			    				<li><%= link_to "Accueil", root_path %></li>
+								<li><%= link_to "Mon profil", user_path(current_user.id) %></li>
+								<li><%= link_to "Tableau de bord", user_path(current_user.id) %></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
 
-		<!-- Tab-content displaying items owned by the user -->
-		<div class='profile-tab-content' id="seller" >
-	  		<%= render 'users/show/seller_profile' %>
-	  	</div>
-
-		<!-- Tab-content displaying orders done by the user -->
-		<div class='profile-tab-content' id="buyer" >
-	  		<%= render 'users/show/buyer_profile' %>
+	  		<%= render 'users/show/dashboard' %>
 	  	</div>
 
 	</div>
@@ -28,26 +40,10 @@
 
 <%= render 'profile_footer' %>
 
-
 <script type="text/javascript">
 
-
   $(document).ready(function() {
-
-  	// Hide delivery_form by default
-    $('.profile-tab-content').hide();
-    $('.dashboard-nav li:first').addClass('active');
-    $('.profile-tab-content:first').show();
-
-    //Display the delivery form if shipping is required
-
-    $("li.profile-tab:not('#profile-info')").on('click', function(e) {
-    	e.preventDefault();
-  		$('.active').removeClass('active'); //Desactivate the previous tab
- 		$(this).addClass('active'); //Activate the right tab
-      	$('.profile-tab-content').hide(); //Hide all tabs
-      	$('.profile-tab-content#'+e.currentTarget.id).show(); //Hide all tabs
-    })
-
+    $('footer').hide();
+app/views/items/item_edit/_titlebar.html.erb    $('.dashboard-nav li#profile_dashboard').addClass('active');
   });
 </script>

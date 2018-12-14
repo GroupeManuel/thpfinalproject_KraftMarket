@@ -7,7 +7,6 @@
     padding: 15px;
     /* self-clearing method: */ }
     a {
-      border-radius: 30px;
     }
     .digg_pagination a, .digg_pagination span, .digg_pagination em {
       padding: 0.2em 0.4em;
@@ -16,21 +15,19 @@
       margin-right: 10px; }
     .digg_pagination .disabled {
       border-radius: 30px;
-      color: #999999;
-      border: 1px solid #dddddd; }
+      color: #999999; }
     .digg_pagination .current {
-      border-radius: 30px;
       font-style: normal;
       font-weight: bold;
       background: #378F62;
-      color: white;
-      border: 1px solid #378F62; }
+      color: white;}
     .digg_pagination a {
       text-decoration: none;
-      color: #378F62;
-      border: 1px solid #378F62; }
+      color: #378F62;}
       .digg_pagination a:hover, .digg_pagination a:focus {
-        color: #000033;
+        text-decoration: none;
+        font-weight: bold;
+        color: #378F62;
         border-color: #000033; }
     .digg_pagination .page_info {
       background: #378F62;
