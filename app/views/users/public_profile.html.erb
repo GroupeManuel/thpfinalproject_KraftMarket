@@ -9,8 +9,11 @@
 								<div class="user-profile-avatar"><%= image_tag 'image_profil_min.jpg' %></div>
 									<div class="user-profile-name">
 										<h2><%= @user.first_name %> <%= @user.last_name %></h2>
-										<div class="star-rating" data-rating="5"></div>
-										<div class="rating-counter"><a href="#listing-reviews">(60 reviews)</a></div>
+										<% if @user.personal_description != nil %>
+											<p><%= @user.personal_description %></p>
+										<% else %>
+											<p><i><%= @user.first_name %> n'a pas encore renseigné son profil...</i></p>
+										<% end %>
 									</div>
 								</div>
 							</div>
