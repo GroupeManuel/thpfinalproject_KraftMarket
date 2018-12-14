@@ -15,7 +15,7 @@
 	</div>
 </div>
 
-<div>
+<div class='margin-bottom-15'>
 	<%= form_for(current_user, url: user_path(current_user.id), html: { method: :put, class:'row'}) do |f| %>
 
 	<!-- Form to update id information -->
@@ -40,10 +40,13 @@
 		</div>
 	</div>
 
-<% end %></div>
-
+<% end %>
 
 <!-- Form to update password with devise, using UsersHelper -->
-<div class='profile-section-content w-100 d-flex justify-content-center' id="password-info">
-	<%= render 'devise/registrations/edit_password' %>
+	<div class='profile-section-content w-100' id="password-info">
+		<%= render 'devise/registrations/edit_password' %>
+	</div>
+
 </div>
+
+

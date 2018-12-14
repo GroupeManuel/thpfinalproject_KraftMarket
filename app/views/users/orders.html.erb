@@ -1,0 +1,27 @@
+<% title('Mes commandes - KraftMarket') %>
+
+<%= render 'profile_header' %>
+
+<div class='padding-top-0' id='dashboard'>
+
+	<!-- Tabs to display profile section -->
+	<%= render 'profile_tabs' %>
+
+  	<div class="dashboard-content">
+
+		<!-- Tab-content displaying items owned by the user -->
+		<div class='profile-tab-content' id="buyer" >
+	  		<%= render 'users/show/buyer_profile' %>
+	  	</div>
+
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+  $(document).ready(function() {
+  	// Hide delivery_form by default
+    $('.dashboard-nav li#buyer').addClass('active');
+  });
+</script>

@@ -36,7 +36,7 @@
         <%= f.text_field :delivery_country, value: @user.delivery_country, class:'form-control col-8 mb-0' %>
       </div>
 
-      <div class="form-group form-inline row mb-4">
+      <div class="form-inline row">
         <%= f.label :delivery_instructions, class:'col-sm-12 text-left' do %>Instructions de livraison <i class="tip" data-tip-content="Préciser si besoin le code, numéro de téléphone pour accéder au destinataire du colis"></i><% end %>
         <%= f.text_area :delivery_instructions, value: @user.delivery_instructions, class:'form-control col-sm-12' %>
       </div>

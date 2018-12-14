@@ -3,23 +3,40 @@ class UsersController < ApplicationController
   include UsersHelper
 
   before_action :set_user
-  before_action :user_sales, :user_orders, :user_section, only:[:show]
-
-  def show
-    unless user_checked
-      redirect_to public_profile_path(params[:id])
-    end
-  end
+  before_action :user_sales
+  before_action :user_orders
 
   def edit
     unless user_checked
       redirect_to public_profile_path(params[:id])
+      flash[:error] = "Vous n'avez les droits pour accéder à cette page."
     end
   end
 
   def update
   	@user.update(user_params)
   	redirect_back fallback_location: user_path(@user.id)
+  end
+
+  def show
+    unless user_checked
+      redirect_to public_profile_path(params[:id])
+      flash[:error] = "Vous n'avez les droits pour accéder à cette page."
+    end
+  end
+
+  def sales
+    unless user_checked
+      redirect_to public_profile_path(params[:id])
+      flash[:error] = "Vous n'avez les droits pour accéder à cette page."
+    end
+  end
+
+  def orders
+    unless user_checked
+      redirect_to public_profile_path(params[:id])
+      flash[:error] = "Vous n'avez les droits pour accéder à cette page."
+    end
   end
 
   def public_profile
@@ -44,7 +61,7 @@ class UsersController < ApplicationController
       'sold' => 'Objets vendus'
     }
 
-    @user_sales = @user.orders.order('created_at DESC')
+    @user_sales = @user.items.order('created_at DESC')
 
   end
 
@@ -57,15 +74,6 @@ class UsersController < ApplicationController
     }
 
     @user_orders = @user.orders.order('created_at DESC')
-  end
-
-  def user_section
-    begin 
-      @section = params[:user].permit(:user_section)
-    rescue
-      @section = 'dashboard'
-    end
-    puts @section
   end
 
 end

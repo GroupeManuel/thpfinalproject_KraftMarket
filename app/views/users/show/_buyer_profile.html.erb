@@ -8,7 +8,7 @@
 				<ul>
     				<li><%= link_to "Accueil", root_path %></li>
 					<li><%= link_to "Mon profil", user_path(current_user.id) %></li>
-					<li><%= link_to "Mes commandes" %></li>app/controllers/items_controller.rb
+					<li><%= link_to "Mes commandes" %></li>
 				</ul>
 			</nav>
 		</div>
@@ -35,30 +35,37 @@
 <div class='row'>
 	<div class='col-md-12'>
 		<div class="dashboard-list-box margin-top-0">
+			<ul>
 			<% @user_orders.each do |order| %>
-				<ul>
-						<li class=<%= order.status %> >
-							<div class='class="list-box-listing'>
-								<div class="list-box-listing-img">
-								</div>
-								<div class='list-box-listing-content'>
-									<div class='inner'>
-										<h3><%= order.item.title %></h3>
-										<span><%= order.item.category.category_name %></span><br/>
-										<span><%= order.item.price %> €</span>
-									</div>
-								</div>
-								<div class="buttons-to-right">
-									<%= link_to order_path(order.id), class:'button gray' do %><i class="fa fa-search-plus"></i> Détails
-									<% end %>
-								</div>
+				<li class=<%= order.status %> >
+					<div class='list-box-listing'>
+						<div class="list-box-listing-img">
+							<a>
+							 <% if order.item.item_images.attached? %>
+                                <%= image_tag @item.item_images[0].variant(resize: "200x200") %>
+                            <% elsif order.item.Faker_image.nil? %>
+                                <%= image_tag '/assets/generique/no-image.jpg' %>
+                            <% else %>
+                                <%= image_tag ('/assets/image_seed/' + order.item.Faker_image)%>
+                            <% end %>
+                        	</a>
+                    	</div>
+						<div class='list-box-listing-content'>
+							<div class='inner'>
+								<h3><%= order.item.title %></h3>
+								<span><%= order.item.category.category_name %></span><br/>
+								<span><%= order.item.price %> €</span>
 							</div>
-						</li>
-						<% end %>
-						<% end %>
-					<% end %>
-				</ul>
+						</div>
+						<div class="buttons-to-right">
+							<%= link_to order_path(order.id), class:'button gray' do %><i class="fa fa-search-plus"></i> Détails
+							<% end %>
+						</div>
+					</div>
+				</li>
 			<% end %>
+					
+			</ul>
 		</div>
 	</div>
 </div>
