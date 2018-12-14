@@ -23,11 +23,11 @@
         <!-- Button to promote selling -->
           <li class="nav-item text-nowrap">
             <% if user_signed_in? %>
-              <%= button_to new_item_path, method: :get, class: "header-cta button" do %>
+              <%= button_to new_item_path, method: :get, class: "header-cta button no-wrap d-flex justify-content-end" do %>
                 <i class="fas fa-plus-square"></i> Nouvelle annonce
               <% end %>
             <% else %>
-              <%= link_to "Devenez ravitailleur", home_seller_path, class: "header-cta button" %>
+              <%= link_to "Devenez ravitailleur", home_seller_path, class: "header-cta button d-flex justify-content-end" %>
             <% end %>
          </li>
 
@@ -48,7 +48,7 @@
              </li>
 
             <li class="nav-item nav-icon">
-              <%= link_to destroy_user_session_path, method: :delete, class:"nav-link" do %>
+              <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
                 <i class="fa fa-sign-out-alt" alt='Déconnexion'></i>
               <% end %>
             </li>

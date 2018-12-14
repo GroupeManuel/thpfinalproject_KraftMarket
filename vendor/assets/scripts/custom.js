@@ -74,6 +74,15 @@ $(document).ready(function(){
 	// sticky header script
 	var headerOffset = $("#header-container").height() * 2; // height on which the sticky header will shows
 
+//	$(window).scroll(function(){
+//		if($(window).scrollTop() >= headerOffset){
+//			$("#header.cloned").addClass('sticky').removeClass("unsticky");
+//			$("#navigation.style-2.cloned").addClass('sticky').removeClass("unsticky");
+//		} else {
+//			$("#header.cloned").addClass('unsticky').removeClass("sticky");
+//			$("#navigation.style-2.cloned").addClass('unsticky').removeClass("sticky");
+//		}
+//	});
 
 	/*----------------------------------------------------*/
 	/*  Back to Top
