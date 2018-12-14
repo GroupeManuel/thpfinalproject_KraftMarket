@@ -1,10 +1,12 @@
+<% title('Ressources - KraftMarket') %>
+
 <div  id="wrapper" class='container' style="margin-top: 50px">
 	<div class="row margin-bottom-25">
 
 	    <!-- Rendering filters in a sidebar -->
 	    <%= render 'items/item_index/sidebar_index' %>
 
-	    <div class="col-lg-10 col-md-9 padding-left-30">
+	    <div class="col-lg-10 col-md-9 padding-left-30 index">
 	        <% @item_selection.each_with_index do |item, i| %>
 
 	            <!-- Rendering each item in a card -->
@@ -16,7 +18,8 @@
 
 	<div class="digg_pagination col-md-12">
 		<div class="margin-top-20 margin-bottom-40">
-			<%= will_paginate @item_selection, previous_label: 'Précédent', next_label: 'Suivant' %>		</div>
+			<%= will_paginate @item_selection, previous_label: 'Précédent', next_label: 'Suivant' %>		
+		</div>
 	</div>
 </div>
 
