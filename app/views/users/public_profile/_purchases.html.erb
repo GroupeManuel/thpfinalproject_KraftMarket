@@ -1,5 +1,10 @@
 <div class="dashboard-list-box margin-top-0">
 	<ul>
+
+		<% if @user_orders.count == 0 %>
+			<li><h3><%= @user.first_name %> n'a pas encore acquis de ressource sur KraftMarket</h3></li>
+		<% else %>
+	    
 	    <% @user_orders.each do |order| %>
 	    	<li>
 	    		<div class='list-box-listing'>
@@ -35,9 +40,10 @@
 	    	</li>
 	    <% end %>
 		<div class="digg_pagination col-md-12">
-			<div class="margin-top-20 margin-bottom-40">
+			<div class="margin-top-20 margin-bottom-30">
 				<%= will_paginate @user_orders, previous_label: '<', next_label: '>' %>		
 			</div>
 		</div>
+		<% end %>
     </ul>
 </div>

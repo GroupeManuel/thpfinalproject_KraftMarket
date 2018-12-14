@@ -1,6 +1,10 @@
 <div class="dashboard-list-box margin-top-0">
 	<ul>
-	    <% @items_advert.each do |item| %>
+		<% if @user_adverts.count == 0 %>
+			<li><h3><%= @user.first_name %> n'a pas d'annonce en ligne</h3></li>
+		<% else %>
+
+ 	    <% @user_adverts.each do |item| %>
 	    	<li>
 	    		<div class='list-box-listing'>
 	    			<div class="list-box-listing-img col-2">
@@ -31,9 +35,11 @@
 	    	</li>
 	    <% end %>
 		<div class="digg_pagination col-md-12">
-			<div class="margin-top-20 margin-bottom-40">
-				<%= will_paginate @items_advert, previous_label: '<', next_label: '>' %>		
+			<div class="margin-top-20 margin-bottom-30">
+				<%= will_paginate @user_adverts, previous_label: '<', next_label: '>' %>
 			</div>
 		</div>
+
+		<% end %>
     </ul>
 </div>

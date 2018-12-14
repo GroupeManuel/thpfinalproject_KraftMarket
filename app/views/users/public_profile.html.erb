@@ -1,51 +1,54 @@
+<% title(@user.first_name+' '+@user.last_name+' - KraftMarket') %>
+
 <div id="wrapper">
-    <div class="container">
-        <div class="row">
-        	<div class="col-lg-12">
-        		<div id="add-listing" class="separated-form">
-                    <div class="add-listing-section">
-        				<div class="add-listing-headline">
-        					<div class="user-profile-titlebar">
-								<div class="user-profile-avatar"><%= image_tag 'image_profil_min.jpg' %></div>
-									<div class="user-profile-name">
-										<h2><%= @user.first_name %> <%= @user.last_name %></h2>
-										<% if @user.personal_description != nil %>
-											<p><%= @user.personal_description %></p>
-										<% else %>
-											<p><i><%= @user.first_name %> n'a pas encore renseigné son profil...</i></p>
-										<% end %>
-									</div>
-								</div>
-							</div>
-        				</div>
-        			</div>
-                </div>
-        	</div>
-			<div class="col-md-12">
-				<div class="style-2">
-					<!-- Tabs Navigation -->
-					<ul class="tabs-nav">
-						<li><a href="#tab1a"><i class="fa fa-folder-open"></i> Ses annonces</a></li>
-						<li><a href="#tab2a"><i class="fas fa-handshake"></i> Ses ventes</a></li>
-						<li><a href="#tab3a"><i class='fa fa-shopping-basket'></i> Ses achats</a></li>
-					</ul>
+    <div class="container public-profile">
 
-					<!-- Tabs Content -->
-					<div class="tabs-container">
-						<div class="tab-content" id="tab1a">
-							<%= render "users/public_profile/adverts"%>
-						</div>
-
-						<div class="tab-content" id="tab2a">
-							<%= render "users/public_profile/sales"%>
-						</div>
-
-						<div class="tab-content" id="tab3a">
-							<%= render "users/public_profile/purchases"%>
+    	<!-- Titlebar -->
+		<div id="titlebar">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="user-profile-avatar"><%= image_tag 'image_profil_min.jpg' %>
+					</div>
+					<div class="user-profile-name">
+						<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+						<div class='personal_description'>
+							<% if @user.personal_description != nil %>
+								<%= @user.personal_description %>
+							<% else %>
+								<i><%= @user.first_name %> n'a pas encore renseigné son profil...</i>
+							<% end %>
 						</div>
 					</div>
 				</div>
 			</div>
-        </div>
+		</div>
+
+
+		<div class="col-md-12">
+			<div class="style-2">
+				<!-- Tabs Navigation -->
+				<ul class="tabs-nav" id='public-profile-tabs'>
+					<li><a href="#tab1a"><i class="fa fa-folder-open"></i> Ses annonces <span class="nav-tag"><%= @user_adverts.count %></span></a></li>
+					<li><a href="#tab2a"><i class="fas fa-handshake"></i> Ses ventes <span class="nav-tag"><%= @user_sales.count %></span></a></li>
+					<li><a href="#tab3a"><i class='fa fa-shopping-basket'></i> Ses achats <span class="nav-tag"><%= @user_orders.count %></span></a></li>
+				</ul>
+
+				<!-- Tabs Content -->
+				<div class="tabs-container">
+					<div class="tab-content" id="tab1a">
+						<%= render "users/public_profile/adverts"%>
+					</div>
+
+					<div class="tab-content" id="tab2a">
+						<%= render "users/public_profile/sales"%>
+					</div>
+
+					<div class="tab-content" id="tab3a">
+						<%= render "users/public_profile/purchases"%>
+					</div>
+				</div>
+			</div>
+		</div>
+
     </div>
 </div>
