@@ -40,8 +40,8 @@ class UsersController < ApplicationController
   end
 
   def public_profile
-    @items_sold = @user_sales.where(status: "sold").paginate(page: params[:page], per_page: 5)
-    @items_advert = @user_sales.where(status: "published").paginate(page: params[:page], per_page: 5)
+    @user_sales = @user_sales.where(status: "sold").paginate(page: params[:page], per_page: 5)
+    @user_adverts = @user_sales.where(status: "published").paginate(page: params[:page], per_page: 5)
     @user_orders = @user_orders.paginate(page: params[:page], per_page: 5)
   end
 
