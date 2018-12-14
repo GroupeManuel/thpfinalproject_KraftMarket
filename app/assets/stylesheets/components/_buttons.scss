@@ -50,5 +50,27 @@ border-radius: 50px;
 }
 
 
+.button-error{
+    background-color: #378F62;
+    top: 0;
+    padding: 8px 16px;
+    color: #fff;
+    position: relative;
+    font-size: 16px;
+    font-weight: 400;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    margin-right: 6px;
+    overflow: hidden;
+    border: none;
+    border-radius: 50px;
+    margin-bottom: 10px;
+}
+
+.button-error:hover{
+    background-color: #2f7c54;
+    }
+
 
 

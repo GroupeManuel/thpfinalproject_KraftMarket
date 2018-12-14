@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+ 
+    # Dynamic error pages
+  get "/404", to: "errors#not_found", :via => :all
 
   get '/', to: 'static#home_buyer', as: 'root'
   get 'bienvenue-ravitailleur', to: 'static#home_seller', as: 'home_seller'
