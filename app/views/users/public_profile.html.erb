@@ -3,15 +3,19 @@
 
 <!-- Titlebar
 ================================================== -->
+
 <div id="titlebar" class="gradient">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 
 				<div class="user-profile-titlebar">
-<!--					<div class="user-profile-avatar"><img src="images/user-profile-avatar.jpg" alt=""></div> -->
+					<div class="user-profile-avatar"><%= image_tag 'artisan03.jpg', class:"img-circle", style: "width: 100px; height: 100px;" %></div>
 					<div class="user-profile-name">
 						<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+						<div class="star-rating" data-rating="5">
+							<div class="rating-counter"><a href="#listing-reviews">(60 reviews)</a></div>
+						</div>
 					</div>
 				</div>
 
