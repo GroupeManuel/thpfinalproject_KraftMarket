@@ -33,12 +33,12 @@ a.button.border, a.button {
 }
 
 .button-banner{
-background-color: #378F62;
+background-color: #4da88b;  
 top: 0;
 padding: 20px 30px;
 color: #fff;
 position: relative;
-font-size: 24px;
+font-size: 19px;
 font-weight: 600;
 display: inline-block;
 transition: all 0.2s ease-in-out;
@@ -69,9 +69,6 @@ border-radius: 50px;
     margin-bottom: 10px;
 }
 
-
-
-.button-banner:hover {
-background-color: #31875b;
-}
-
+  .button-banner:hover {
+     background-color: #378F62;  
+  }
