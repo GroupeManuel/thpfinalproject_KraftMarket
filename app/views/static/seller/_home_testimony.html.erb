@@ -18,56 +18,56 @@
 				<!-- Listing Item -->
 			<% 2.times do %>
 				<div class="carousel-item">
-						<a href="listings-single-page.html" class="listing-item-container">
-							<div class="listing-item">
-								<%= image_tag ("ravitailleur/ravitailleur0" + rand(1..5).to_s + ".jpg")%>
+					<%= link_to public_profile_path(:user_id), class: "listing-item-container" do %>
+						<div class="listing-item">
+							<%= image_tag ("ravitailleur/ravitailleur0" + rand(1..5).to_s + ".jpg")%>
 								<div class="listing-item-content">
 									<span class="tag">Restaurant</span>
 									<h3>Pierre</h3>
 									<span>Clichy-la-Garenne</span>
 								</div>
 								<span class="like-icon"></span>
-							</div>
-							<div class="star-rating" data-rating="2.0">
-								<div class="rating-counter">Sounds great</div>
-							</div>
-						</a>
+						</div>
+						<div class="star-rating" data-rating="2.0">
+							<div class="rating-counter">Sounds great</div>
+						</div>
+					<% end %>
 				</div>
 			<% end %>
 			<% 2.times do %>
 				<div class="carousel-item">
-						<a href="listings-single-page.html" class="listing-item-container">
-							<div class="listing-item">
-								<%= image_tag ("ravitailleur/ravitailleur0" + rand(1..5).to_s + ".jpg")%>
-								<div class="listing-item-content">
-									<span class="tag">Coffee shop</span>
-									<h3>Etienne</h3>
-									<span>Paris 13</span>
-								</div>
-								<span class="like-icon"></span>
+					<%= link_to public_profile_path(:user_id), class: "listing-item-container" do %>
+						<div class="listing-item">
+							<%= image_tag ("ravitailleur/ravitailleur0" + rand(1..5).to_s + ".jpg")%>
+							<div class="listing-item-content">
+								<span class="tag">Coffee shop</span>
+								<h3>Etienne</h3>
+								<span>Paris 13</span>
 							</div>
-							<div class="star-rating" data-rating="2.0">
-								<div class="rating-counter">Sounds great</div>
-							</div>
-						</a>
+							<span class="like-icon"></span>
+						</div>
+						<div class="star-rating" data-rating="2.0">
+							<div class="rating-counter">Sounds great</div>
+						</div>
+					<% end %>
 				</div>
 			<% end %>
 			<% 2.times do %>
 				<div class="carousel-item">
-						<a href="listings-single-page.html" class="listing-item-container">
-							<div class="listing-item">
-								<%= image_tag ("ravitailleur/ravitailleur0" + rand(1..5).to_s + ".jpg")%>
-								<div class="listing-item-content">
-									<span class="tag">Caviste</span>
-									<h3>Camille</h3>
-									<span>Versailles</span>
-								</div>
-								<span class="like-icon"></span>
+					<%= link_to public_profile_path(:user_id), class: "listing-item-container" do %>
+						<div class="listing-item">
+							<%= image_tag ("ravitailleur/ravitailleur0" + rand(1..5).to_s + ".jpg")%>
+							<div class="listing-item-content">
+								<span class="tag">Caviste</span>
+								<h3>Camille</h3>
+								<span>Versailles</span>
 							</div>
-							<div class="star-rating" data-rating="2.0">
-								<div class="rating-counter">Sounds great</div>
-							</div>
-						</a>
+							<span class="like-icon"></span>
+						</div>
+						<div class="star-rating" data-rating="2.0">
+							<div class="rating-counter">Sounds great</div>
+						</div>
+					<% end %>
 				</div>
 			<% end %>
 			<!-- Listing Item / End -->

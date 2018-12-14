@@ -27,7 +27,6 @@
 			</ul>
 			<div class="clearfix"></div>
 		</div>
-
 	</div>
 </div>
 
@@ -37,26 +36,23 @@
 		<div class="dashboard-list-box margin-top-0">
 			<% @user_orders.each do |order| %>
 				<ul>
-						<li class=<%= order.status %> >
-							<div class='class="list-box-listing'>
-								<div class="list-box-listing-img">
-								</div>
-								<div class='list-box-listing-content'>
-									<div class='inner'>
-										<h3><%= order.item.title %></h3>
-										<span><%= order.item.category.category_name %></span><br/>
-										<span><%= order.item.price %> €</span>
-									</div>
-								</div>
-								<div class="buttons-to-right">
-									<%= link_to order_path(order.id), class:'button gray' do %><i class="fa fa-search-plus"></i> Détails
-									<% end %>
+					<li class=<%= order.status %> >
+						<div class='class="list-box-listing'>
+							<div class="list-box-listing-img">
+							</div>
+							<div class='list-box-listing-content'>
+								<div class='inner'>
+									<h3><%= order.item.title %></h3>
+									<span><%= order.item.category.category_name %></span><br/>
+									<span><%= order.item.price %> €</span>
 								</div>
 							</div>
-						</li>
-						<% end %>
-						<% end %>
-					<% end %>
+							<div class="buttons-to-right">
+								<%= link_to order_path(order.id), class:'button gray' do %><i class="fa fa-search-plus"></i> Détails
+								<% end %>
+							</div>
+						</div>
+					</li>
 				</ul>
 			<% end %>
 		</div>
