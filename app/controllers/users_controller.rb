@@ -44,10 +44,7 @@ class UsersController < ApplicationController
       'sold' => 'Objets vendus'
     }
 
-    @user_sales = {}
-    @item_status.each do |status,translation|
-      @user_sales[status] = @user.items.where(status:status)
-    end
+    @user_sales = @user.orders.order('created_at DESC')
 
   end
 
@@ -59,10 +56,7 @@ class UsersController < ApplicationController
       'shipped' => 'Objets reçus'
     }
 
-    @user_orders = {}
-    @order_status.each do |status,translation|
-      @user_orders[status] = @user.orders.where(status:status)
-    end
+    @user_orders = @user.orders.order('created_at DESC')
   end
 
   def user_section

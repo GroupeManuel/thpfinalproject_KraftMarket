@@ -58,6 +58,11 @@ class OrdersController < ApplicationController
 
     #Update with delivery and invoice information filled with the form
     new_order.update(params_order)
+
+    #Actualisation du statut
+    unless buyer.is_buyer
+      buyer.update(is_buyer:true)
+    end
                   
     # Update the item to empty the cart and make it sold
     Item.find(purchased_item.id).update(cart_id: nil, order_id: new_order.id)
