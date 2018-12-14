@@ -6,10 +6,12 @@
 
   <div class='container'>
     <% if @cart_item == nil %>
-        <h4> Vous n'avez aucun objet réservé</h4>
-        <p>
-            <%= button_to "Découvrir les ressources", items_path, method: :get, class:"btn btn-primary" %>
-        </p>
+      <div class='empty-cart-container messages-container'>
+        <h3> Vous n'avez aucun objet réservé</h3>
+        <div>
+            <%= link_to "Découvrir les ressources", items_path, class:"button" %>
+        </div>
+      </div>
 
     <% else %>
 
