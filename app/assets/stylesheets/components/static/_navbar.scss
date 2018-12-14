@@ -2,6 +2,8 @@
 	min-height: 70px;
   margin-top: auto;
   margin-bottom: auto;
+  padding-bottom:0 !important;
+  padding-top:0 !important;
 }
 
 .nav-item{
@@ -46,24 +48,36 @@ header .left-part {
     display:flex;
     flex-direction:row-reverse;
   } 
+
+  .navbar-collapse {
+  margin-top: 11px;
+  }
 }
+
+@media (min-width: 992px) {
+  .vertical-separator {
+    border-left: 1px solid #000;
+    margin: 8px 5px;
+  }
+}
+
 
 .nav-item2 li a:hover{
   color: white !important;
   text-decoration: none;
 }
 
-.cart-icon{
-	color: #378F62;
-}
-
-.navbar .dropdown-menu {
-  font-size:13px;
-  position:absolute;
-}
-
 .sticky-top{
   position: fixed;
   top: 0;
   width: 100%
+}
+
+nav .navbar-nav li .header-cta {
+  margin-right: 0;
+  color: #fff !important ;
+}
+
+.nav-icon {
+  font-size: 18px;
 }
