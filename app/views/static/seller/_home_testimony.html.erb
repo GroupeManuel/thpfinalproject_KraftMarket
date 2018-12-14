@@ -18,7 +18,7 @@
 				<!-- Listing Item -->
 			<% 2.times do %>
 				<div class="carousel-item">
-					<%= link_to public_profile_path(:user_id), class: "listing-item-container" do %>
+					<%= link_to public_profile_path(User.find(rand(User.first.id..User.last.id)).id), class: "listing-item-container" do %>
 						<div class="listing-item">
 							<%= image_tag ("ravitailleur/ravitailleur0" + rand(1..5).to_s + ".jpg")%>
 								<div class="listing-item-content">
@@ -36,7 +36,7 @@
 			<% end %>
 			<% 2.times do %>
 				<div class="carousel-item">
-					<%= link_to public_profile_path(:user_id), class: "listing-item-container" do %>
+					<%= link_to public_profile_path(User.find(rand(User.first.id..User.last.id)).id), class: "listing-item-container" do %>
 						<div class="listing-item">
 							<%= image_tag ("ravitailleur/ravitailleur0" + rand(1..5).to_s + ".jpg")%>
 							<div class="listing-item-content">
@@ -54,7 +54,7 @@
 			<% end %>
 			<% 2.times do %>
 				<div class="carousel-item">
-					<%= link_to public_profile_path(:user_id), class: "listing-item-container" do %>
+					<%= link_to public_profile_path(User.find(rand(User.first.id..User.last.id)).id), class: "listing-item-container" do %>
 						<div class="listing-item">
 							<%= image_tag ("ravitailleur/ravitailleur0" + rand(1..5).to_s + ".jpg")%>
 							<div class="listing-item-content">

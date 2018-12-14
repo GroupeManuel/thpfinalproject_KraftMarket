@@ -3,23 +3,40 @@ class UsersController < ApplicationController
   include UsersHelper
 
   before_action :set_user
-  before_action :user_sales, :user_orders, :user_section, only:[:show, :public_profile]
-
-  def show
-    unless user_checked
-      redirect_to public_profile_path(params[:id])
-    end
-  end
+  before_action :user_sales
+  before_action :user_orders
 
   def edit
     unless user_checked
       redirect_to public_profile_path(params[:id])
+      flash[:error] = "Vous n'avez les droits pour accéder à cette page."
     end
   end
 
   def update
   	@user.update(user_params)
   	redirect_back fallback_location: user_path(@user.id)
+  end
+
+  def show
+    unless user_checked
+      redirect_to public_profile_path(params[:id])
+      flash[:error] = "Vous n'avez les droits pour accéder à cette page."
+    end
+  end
+
+  def sales
+    unless user_checked
+      redirect_to public_profile_path(params[:id])
+      flash[:error] = "Vous n'avez les droits pour accéder à cette page."
+    end
+  end
+
+  def orders
+    unless user_checked
+      redirect_to public_profile_path(params[:id])
+      flash[:error] = "Vous n'avez les droits pour accéder à cette page."
+    end
   end
 
   def public_profile
@@ -36,7 +53,7 @@ class UsersController < ApplicationController
 
   #extract of all params before updating user
   def user_params
-  	params[:user].permit(:email, :first_name, :last_name, :phone_number, :activity, :company_name, :company_ID_number, :company_description, :invoice_entity, :invoice_street, :invoice_street2, :invoice_postcode, :invoice_city, :invoice_country, :delivery_entity, :delivery_street, :delivery_street2, :delivery_postcode, :delivery_city, :delivery_country, :delivery_instructions)
+  	params[:user].permit(:email, :first_name, :last_name, :phone_number, :personal_description, :activity, :company_name, :company_ID_number, :company_description, :invoice_entity, :invoice_street, :invoice_street2, :invoice_postcode, :invoice_city, :invoice_country, :delivery_entity, :delivery_street, :delivery_street2, :delivery_postcode, :delivery_city, :delivery_country, :delivery_instructions)
   end
 
   #sort of all items by status to display on profile page
@@ -60,15 +77,6 @@ class UsersController < ApplicationController
     }
 
     @user_orders = @user.orders.order('created_at DESC')
-  end
-
-  def user_section
-    begin 
-      @section = params[:user].permit(:user_section)
-    rescue
-      @section = 'dashboard'
-    end
-    puts @section
   end
 
 end

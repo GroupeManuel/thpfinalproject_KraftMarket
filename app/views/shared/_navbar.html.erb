@@ -1,4 +1,4 @@
-<header class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+<header class="navbar navbar-expand-lg navbar-light bg-light sticky" id='header'>
 
   <nav class='container d-flex justify-content-between align-items-center'>
 
@@ -23,11 +23,11 @@
         <!-- Button to promote selling -->
           <li class="nav-item text-nowrap">
             <% if user_signed_in? %>
-              <%= button_to new_item_path, method: :get, class: "header-cta button" do %>
-                <i class="fas fa-plus-square"></i> Nouvelle annonce
+              <%= link_to new_item_path, class: "header-cta button no-wrap" do %>
+                <i class="fa fa-plus-square"></i>Nouvelle annonce
               <% end %>
             <% else %>
-              <%= link_to "Devenez ravitailleur", home_seller_path, class: "header-cta button" %>
+              <%= link_to "Devenez ravitailleur", home_seller_path, class: "header-cta button d-flex justify-content-end" %>
             <% end %>
          </li>
 
@@ -48,7 +48,7 @@
              </li>
 
             <li class="nav-item nav-icon">
-              <%= link_to destroy_user_session_path, method: :delete, class:"nav-link" do %>
+              <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
                 <i class="fa fa-sign-out-alt" alt='Déconnexion'></i>
               <% end %>
             </li>

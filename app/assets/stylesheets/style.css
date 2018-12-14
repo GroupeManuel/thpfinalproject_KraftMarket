@@ -217,9 +217,13 @@ fieldset {
 }
 
 
-a, button { outline: none !important; }
+a, button { 
+	outline: none !important; }
 a:focus,
-a:hover { text-decoration: none; color: #333;}
+a:hover { 
+	text-decoration: none !important;
+	color: #333;
+}
 img { max-width: 100%; }
 
 
@@ -10059,11 +10063,15 @@ span.testimony-avatar {
 	display: flex;
 	flex-wrap: wrap;
 	padding-top: 80px;
+	z-index:10;
 }
 
 /* Flexbox Adjustments */
 .dashboard-content,
-.dashboard-nav { flex: 1; }
+.dashboard-nav { 
+	flex: 1; 
+	z-index:10;
+}
 
 .dashboard-content {
 	padding: 40px 45px;
@@ -14688,8 +14696,6 @@ img.mfp-img {
 	    min-height: 400px;
 	    max-height: 400px;
 	}
-
-	#header.cloned { display: none; }
 }
 
 
@@ -14813,6 +14819,7 @@ img.mfp-img {
 		font-weight: 600;
 		transition: 0.2s;
 		display: block;
+		font-size:15px;
 	}
 
 	a.dashboard-responsive-nav-trigger i {
@@ -15538,8 +15545,9 @@ a.button.border,
 .listing-share .social-icons li a:hover i,
 .agent .social-icons li a:hover i,
 #footer .social-icons li a:hover i,
-.headline span i {
-    color: #378F62;
+.headline span i
+a.dashboard-responsive-nav-trigger:hover {
+    color: #378F62 !important; 
 }
 
 .qtyTotal,

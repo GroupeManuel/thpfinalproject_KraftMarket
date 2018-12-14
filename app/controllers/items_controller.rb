@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :def_filters, only: [:index]
 
   def new
-    if current_user
+    if user_signed_in?
       @item = Item.new
     else
       flash[:error] = "Vous devez être connecté pour publier un article"
@@ -32,6 +32,11 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    unless @item.seller == current_user
+      flash[:error] = "Vous n'avez pas les droits pour éditer cet objet"
+      redirect_to item_path(params[:id])
+    end
+
   end
 
   def update

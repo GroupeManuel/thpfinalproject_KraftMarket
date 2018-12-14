@@ -6,7 +6,7 @@
     	    <div class="row">
     	    	<div class="col-md-12">
     	    		<!-- Breadcrumbs -->
-    	    		<nav id="breadcrumbs">
+    	    		<nav id="breadcrumbs" class='text-right'>
     	    			<ul>
     	    				<li><%= link_to "Accueil", root_path %></li>
     	    				<li><%= link_to "Ressources", items_path %></li>
@@ -25,7 +25,15 @@
         		<div id="add-listing" class="separated-form">
                     <div class="add-listing-section">
         				<div class="add-listing-headline">
-        					<h3><%= @item.title %>, article vendu par <%= User.find(@item.seller_id).first_name %></h3>
+        					<h3><%= @item.title %></h3><br>
+                            <% if @item.seller.first_name != nil %>
+                                <h4>
+                                    Vendu par
+                                    <%= link_to public_profile_path(@item.seller.id), class:"green-link" do %>
+                                        <%= @item.seller.first_name.capitalize %> <%= @item.seller.last_name.capitalize %>
+                                    <% end %>
+                                </h4>
+                            <% end %>
         				</div>
                         <div class="col-md-4">
                             <h5>Image principale</h5>
