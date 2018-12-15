@@ -51,7 +51,7 @@
             <% if item.cart %>
                 <% if item.cart.buyer == current_user %>
                     <%= link_to cart_path(current_user.cart.id), {style: "background: orange;  text-decoration: none;", class:'button fullwidth'} do %>
-                        Ma réservation
+                        <span id="timer"></span>
                     <% end %>   
                 <% else %>
                     <button class="button fullwidth" style="background: red">
