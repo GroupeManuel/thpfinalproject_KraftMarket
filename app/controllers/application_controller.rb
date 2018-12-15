@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
 	before_action :configure_permitted_params, if: :devise_controller?
 
-	# Show the right page show after user sign in 
+	# Show the right page show after user sign in
 	def after_sign_in_path_for(user)
 		if session[:item_added_to_cart]
 			item_path(session[:item_added_to_cart])
@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
 	
 	def configure_permitted_params
 
+		# Authorize some user attributes for the sign-up form
+		devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :company_ID_number])
+
+		# Authorize all user attributes for the updating form
 		devise_parameter_sanitizer.permit(:account_update, keys: [
 		   	:first_name,
 		    :last_name,
@@ -42,5 +46,5 @@ class ApplicationController < ActionController::Base
 		)
 	end
 
-
+	
 end

@@ -9,6 +9,11 @@ class User < ApplicationRecord
   has_many :orders, :class_name => 'Order', :foreign_key => 'buyer_id'
   has_one :cart, :class_name => 'Cart', :foreign_key => 'buyer_id'
 
+  # Can't create a account without user name
+  validates :first_name, presence: true, on: :create 
+  validates :last_name, presence: true, on: :create 
+
+
   after_create :init_cart
 
   # Following lines enable to send a welcome email to any new subscriber 
