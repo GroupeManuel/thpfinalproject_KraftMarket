@@ -9657,7 +9657,20 @@ section.fullwidth .listing-item-container.list-layout,
 
 
 /* Star Rating */
-.star-rating { display: block; font-size: 17px; height: 74px; }
+.star-rating { 
+	display: block; 
+	font-size: 17px; 
+	height: 74px; 
+}
+
+
+.seller-link { 
+	display: flex; 
+	justify-content: center;
+	margin-top: 14px;
+	font-size: 15px; 
+	height: 30px; 
+}
 
 .listing-item-container .star-rating {
 	padding: 15px 32px;

@@ -40,12 +40,21 @@
 						<%= pluralize(((Time.now - item.created_at)/(3600*24)).to_i, 'jour') %>
 					<% end%>							
 				</span>
+                <span>
             </div>
         </div>
         <% end %>
 
+        <!-- Link to seller public profle -->
+        <div class='seller-link'>
+            <span>
+                Vendu par <%= link_to public_profile_path(item.seller.id), class:"green-link" do %>
+                <%= item.seller.first_name %>
+                <% end %>
+            </span>
+        </div>
 
-        <!-- Card footer -->
+        <!-- Button for put the item in a cart -->
         <div class='star-rating'>   
             <!-- icon to book the item if possible -->
             <% if item.cart %>
@@ -66,6 +75,5 @@
                 <% end %>
             <% end %>
         </div>
-
     </div>
 </div>

@@ -6,7 +6,7 @@ Item.delete_all
 Order.delete_all
 
     # Create instances of model User
-first_names = ["Ettore", "hando", "hugue", "fabien"]
+first_names = ["marius", "octave", "oscar", "augustin"]
 
 if User.count < 3
     then 
@@ -49,7 +49,7 @@ order_status = ["payed", "being_shipped", "shipped"]
     item = Item.create!(
         title: "chutes de bois - " + rand(1..15).to_s + "kg", 
         description: Faker::Lorem.paragraph, 
-        price: rand(5..100), 
+        price: rand(1..50), 
         status: item_status[rand(0..3)], 
         category_id: Category.last.id-5, 
         seller_id: rand(User.first.id..User.last.id),
@@ -87,9 +87,9 @@ end
 30.times do
     # Create instances 
     item = Item.create!(
-        title: "papier " + Faker::Color.color_name, 
+        title: "Papier " + Faker::Color.color_name, 
         description: Faker::Lorem.paragraph, 
-        price: rand(5..100), 
+        price: rand(1..50), 
         status: item_status[rand(0..3)], 
         category_id: Category.last.id-4, 
         seller_id: rand(User.first.id..User.last.id),
@@ -129,7 +129,7 @@ end
     item = Item.create!(
         title: Faker::Number.number(2) + " bouts de tissu " + Faker::Color.color_name, 
         description: Faker::Lorem.paragraph, 
-        price: rand(5..100), 
+        price: rand(1..50), 
         status: item_status[rand(0..3)], 
         category_id: Category.last.id-3, 
         seller_id: rand(User.first.id..User.last.id),
@@ -169,7 +169,7 @@ end
     item = Item.create!(
         title: Faker::Number.decimal(1, 1) + "kg de cuir (chutes)", 
         description: Faker::Lorem.paragraph, 
-        price: rand(5..100), 
+        price: rand(1..50), 
         status: item_status[rand(0..3)], 
         category_id: Category.last.id-2, 
         seller_id: rand(User.first.id..User.last.id),
@@ -207,9 +207,9 @@ end
 30.times do
     # Create instances 
     item = Item.create!(
-        title: "sac de café - " + Faker::Coffee.origin, 
+        title: "Sac de café - " + Faker::Coffee.origin, 
         description: Faker::Lorem.paragraph, 
-        price: Faker::Number.between(5, 10).to_s.gsub('.', ',').to_f
+        price: Faker::Number.between(5, 10).to_s.gsub('.', ',').to_f,
         status: item_status[rand(0..3)], 
         category_id: Category.last.id-1, 
         seller_id: rand(User.first.id..User.last.id),
