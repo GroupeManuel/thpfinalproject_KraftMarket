@@ -16,6 +16,10 @@ class CartsController < ApplicationController
       if cart.item == nil
         Item.find(params[:item_id]).update(cart_id:current_user.cart.id)
 
+        id = current_user.cart.id
+
+        HardWorker.perform_at(1.minutes.from_now, id)
+
         redirect_to cart_path(cart.id)
       else
         flash[:error] = "Vous avez déjà un objet réservé ! Veuillez finaliser votre commande ou l'annuler."
