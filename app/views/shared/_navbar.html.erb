@@ -67,15 +67,19 @@
       <!-- Display cart if user signed in -->
         <% if user_signed_in? %>
 
-      <!-- Vertical separator -->
+          <!-- Vertical separator -->
           <li class='vertical-separator'></li>
 
           <li class="nav-item nav-icon nav-link">
-						<%= link_to cart_path(current_user.cart.id), class:"nav-link button_cart" do %>
-								<i class='fa fa-shopping-basket'></i>
-                <% if Item.find_by(cart_id: current_user.cart.id) != nil %>
-							<%end%>
-						<% end %>	
+            <% if Item.find_by(cart_id: current_user.cart.id) != nil %>
+              <%= link_to cart_path(current_user.cart.id), class:"nav-link button_cart" do %>
+						  		<i class='fa fa-shopping-basket' style="color: red"></i>
+						  <%end%>
+            <% else %>
+              <%= link_to cart_path(current_user.cart.id), class:"nav-link button_cart" do %>
+						  		<i class='fa fa-shopping-basket' style="color: #378F62"></i>
+						  <%end%>
+            <% end %>	
 					</li>
 
         <% end %>
