@@ -28,12 +28,15 @@
         	                <div class="inner text-right no-wrap">
         	                    <span>Publié le <%= item.created_at.strftime("%d/%m/%y") %>
         	                    à <%= item.created_at.strftime("%H:%M") %></span>
-        	                </div>
+        	                </div><br>
+							<hr>
 							<div class="inner text-right no-wrap">
-								<hr><span><%= link_to "Voir l'annonce", item_path(item.id), class:"green-link" %></span>
+								<%= link_to item_path(item.id), class:"button gray" do %>Voir l'annonce<% end %>
+								<%= link_to edit_item_path(item.id), class:'button gray' do %><i class="fa fa-edit"></i> Editer<% end %>
+                        		<%= link_to new_item_path, class:'button gray' do %><i class="fa fa-clone"></i> Dupliquer<% end %>						
 							</div>
 	    				</div>
-	    			</div>
+	    			</div>		
 	    		</li>
 	    	<% end %>
 		<% end %>
