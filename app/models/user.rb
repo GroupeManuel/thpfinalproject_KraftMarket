@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :items, :class_name => 'Item', :foreign_key => 'seller_id'
   has_many :orders, :class_name => 'Order', :foreign_key => 'buyer_id'
   has_one :cart, :class_name => 'Cart', :foreign_key => 'buyer_id'
+  has_one_attached :avatar
 
   # Can't create a account without user name
   validates :first_name, presence: true, on: :create 

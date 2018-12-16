@@ -57,20 +57,29 @@
           </div>
 
           <div class="field">
-            <%= f.label :siret, "Numéro de SIRET " %><em>(optionnel)</em><br />
+            <%= f.label :siret, "Numéro de SIRET " %><em>(optionnel)</em><br>
             <%= f.text_field :company_ID_number, autofocus: true %>
           </div>
+          
+          <div class="submit-section">
+            <%= f.label :image, "Image de profil " %><em>(optionnel)</em><br>
+            <%= f.file_field :avatar %>
+          </div>
 
-          <div class="actions d-flex justify-content-center mb-4">
+          
+
+          <div class="actions d-flex justify-content-center margin-top-25">
             <%= f.submit "S'inscrire" %>
           </div>
         <% end %>
 
-        <span class='lost_password'>
-          <%- if controller_name != 'sessions' %>
-            <%= link_to "Déjà inscrit ? Connectez-vous", new_session_path(resource_name) %><br />
-          <% end -%>
-        </span>
+        <div class="margin-top-25">
+          <span class='lost_password'>
+            <%- if controller_name != 'sessions' %>
+              <%= link_to "Déjà inscrit ? Connectez-vous", new_session_path(resource_name) %><br />
+            <% end -%>
+          </span>
+        </div>
       </div>
     </div>
   </div>

@@ -7,8 +7,11 @@
 		<div id="titlebar">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="user-profile-avatar"><%= image_tag 'image_profil_min.jpg' %>
-					</div>
+					<% if @user.avatar.attached? %>
+						<div class="user-profile-avatar"><%= image_tag @user.avatar.variant(resize: "300x300") %></div>
+					<% else %>
+						<div class="user-profile-avatar"><%= image_tag 'image_profil_min.jpg' %></div>
+					<% end %>
 					<div class="user-profile-name">
 						<h2><%= @user.first_name %> <%= @user.last_name %></h2>
 						<div class='personal_description'>

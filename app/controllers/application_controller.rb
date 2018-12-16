@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 	def configure_permitted_params
 
 		# Authorize some user attributes for the sign-up form
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :company_ID_number])
+		devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :company_ID_number, :avatar])
 
 		# Authorize all user attributes for the updating form
 		devise_parameter_sanitizer.permit(:account_update, keys: [
