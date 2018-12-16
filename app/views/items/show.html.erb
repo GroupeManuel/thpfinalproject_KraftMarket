@@ -67,7 +67,9 @@
                             </div>
                         </div>
                         <p>
-                            <%= button_to "Réserver l'article", carts_path(item_id:@item.id), method: :post, class:"btn btn-primary" %>
+                            <% if @item.status != "sold" %>
+                                <%= button_to "Réserver l'article", carts_path(item_id:@item.id), method: :post, class:"btn btn-primary" %>
+                            <% end %>
                         </p>
         			</div>
                 </div>

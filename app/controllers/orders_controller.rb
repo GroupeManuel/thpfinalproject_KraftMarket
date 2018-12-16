@@ -65,7 +65,7 @@ class OrdersController < ApplicationController
     end
                   
     # Update the item to empty the cart and make it sold
-    Item.find(purchased_item.id).update(cart_id: nil, order_id: new_order.id)
+    Item.find(purchased_item.id).update(cart_id: nil, order_id: new_order.id, status: "sold")
 
     #Envoi email confirmation : récupère email puis active le mailing.rb
     buyer_email = User.find(Order.last.buyer_id).email
