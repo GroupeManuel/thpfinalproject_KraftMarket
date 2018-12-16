@@ -62,7 +62,7 @@ class ItemsController < ApplicationController
     @item.save
 
     flash[:notice] = "Votre annonce a bien été ajoutée à vos brouillons."
-    redirect_to edit_item_path(new_item.id)
+    redirect_to edit_item_path(@item.id)
   end
   
   private
