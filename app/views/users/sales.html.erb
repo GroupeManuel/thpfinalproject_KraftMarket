@@ -31,20 +31,20 @@
 				<div class="style-2">
 					<!-- Tabs Navigation -->
 					<ul class="tabs-nav" id='public-profile-tabs'>
-						<li><a href="#tab1a"><i class="fas fa-plug"></i></i> En ligne <span class="nav-tag"><%= current_user.items.where(status: "published").count %></span></a></li>
-						<li><a href="#tab3a"><i class="fas fa-handshake"></i> Objets vendus <span class="nav-tag"><%= current_user.items.where(status: "sold").count %></span></a></li>
-						<li><a href="#tab2a"><i class="far fa-file-alt"></i></i> Brouillons <span class="nav-tag"><%= current_user.items.where(status: "draft").count %></span></a></li>
+						<li><a href="#published"><i class="fas fa-eye"></i></i> En ligne <span class="nav-tag"><%= current_user.items.where(status: "published").count %></span></a></li>
+						<li><a href="#drafts"><i class="far fa-file-alt"></i></i> Brouillons <span class="nav-tag"><%= current_user.items.where(status: "draft").count %></span></a></li>
+						<li><a href="#sold"><i class="fas fa-handshake"></i> Objets vendus <span class="nav-tag"><%= current_user.items.where(status: "sold").count %></span></a></li>
 					</ul>
 
 					<!-- Tabs Content -->
 					<div class="tabs-container">
-						<div class="tab-content" id="tab1a">
-							<%= render "users/private_profile/sales/adverts"%>
+						<div class="tab-content" id="published">
+							<%= render "users/private_profile/sales/published"%>
 						</div>
-						<div class="tab-content" id="tab2a">
+						<div class="tab-content" id="drafts">
 							<%= render "users/private_profile/sales/drafts"%>
 						</div>
-						<div class="tab-content" id="tab3a">
+						<div class="tab-content" id="sold">
 							<%= render "users/private_profile/sales/sold"%>
 						</div>
 					</div>
