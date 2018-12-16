@@ -1,0 +1,41 @@
+<div class="dashboard-list-box margin-top-0">
+	<ul>
+		<% if Order.where(buyer_id: current_user.id, status: "being_shipped").count == 0 %>
+			<li><h3>Vous n'avez pas de commandes en cours de livraison </h3></li>
+		<% else %>
+ 	    	<% Order.where(buyer_id: current_user.id, status: "being_shipped").each do |order| %>
+	    		<li>
+	    			<div class='list-box-listing'>
+	    				<div class="list-box-listing-img col-2">
+	    					<a>
+	    					 <% if order.item.item_images.attached? %>
+	    	                    <%= image_tag order.item.item_images[0].variant(resize: "200x200") %>
+	    	                <% elsif order.item.Faker_image.nil? %>
+	    	                    <%= image_tag '/assets/generique/no-image.jpg' %>
+	    	                <% else %>
+	    	                    <%= image_tag ('/assets/image_seed/' + order.item.Faker_image)%>
+	    	                <% end %>
+	    	            	</a>
+	    	        	</div>
+	    				<div class='list-box-listing-content col-7'>
+	    					<div class='inner'>
+	    						<h3><%= order.item.title %></h3>
+	    						<span><%= order.item.category.category_name %></span><br/>
+	    						<span><%= order.item.price %> €</span>
+	    					</div>
+	    				</div>
+	    				<div class="list-box-listing-content col-3">
+        	                <div class="inner text-right no-wrap">
+        	                    <span>Publié le <%= order.item.created_at.strftime("%d/%m/%y") %>
+        	                    à <%= order.item.created_at.strftime("%H:%M") %></span>
+        	                </div>
+							<div class="inner text-right no-wrap">
+								<hr><span><%= link_to "Voir l'annonce", item_path(order.item.id), class:"green-link" %></span>
+							</div>
+	    				</div>
+	    			</div>
+	    		</li>
+	    	<% end %>
+		<% end %>
+    </ul>
+</div>
