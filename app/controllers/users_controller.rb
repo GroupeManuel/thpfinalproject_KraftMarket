@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   include UsersHelper
 
   before_action :set_user
-  before_action :user_sales
-  before_action :user_orders
+  before_action :user_sales, except: [:update, :edit, :orders]
+  before_action :user_orders, except: [:update, :edit, :sales]
 
   def edit
     unless user_checked

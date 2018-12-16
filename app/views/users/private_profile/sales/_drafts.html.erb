@@ -1,0 +1,50 @@
+<div class="dashboard-list-box margin-top-0">
+	<ul>
+		<% if @user_sales.where(status: "draft").count == 0 %>
+			<li>
+                <h3>Vous n'avez pas d'annonce en attente de publication</h3>
+            </li>
+		<% else %>
+ 	    	<% @user_sales.where(status: "draft").each do |item| %>
+	    		<li>
+	    			<div class='list-box-listing'>
+	    				
+	    				<!-- Card image -->
+	    				<div class="list-box-listing-img col-2">
+	    					<%= link_to item_path(item.id) do %>
+	    					 <% if item.item_images.attached? %>
+	    	                    <%= image_tag item.item_images[0].variant(resize: "200x200") %>
+	    	                <% elsif item.Faker_image.nil? %>
+	    	                    <%= image_tag '/assets/generique/no-image.jpg' %>
+	    	                <% else %>
+	    	                    <%= image_tag ('/assets/image_seed/' + item.Faker_image)%>
+	    	                <% end %>
+	    	            	<% end %>
+	    	        	</div>
+	    				
+	    				<!-- Card left part -->
+	    				<div class='list-box-listing-content col-6'>
+	    					<div class='inner'>
+	    						<%= link_to item_path(item.id), class:"green-link" do %><h3><%= item.title %></h3><% end %>
+	    						<span><%= item.category.category_name %></span><br/>
+	    						<span><%= item.price %> €</span>
+	    					</div>
+	    				</div>
+
+	    				<!-- Card right part -->
+	    				<div class="list-box-listing-content col-4">
+        	                <div class="inner text-right">
+        	                    <span class='no-wrap'>Créée le <%= item.created_at.strftime("%d/%m/%y") %> </span>
+        	                    <span> à <%= item.created_at.strftime("%H:%M") %></span>
+        	                    <div class='margin-top-10'>
+									<%= link_to edit_item_path(item.id), class:'button gray no-wrap' do %><i class="fa fa-edit"></i> Editer<% end %>
+								</div>
+									<%= link_to item_path(item.id), method: :delete, class:'button cancel-button gray no-wrap' do %><i class="fa fa-times"></i> Supprimer<% end %>
+        	                </div>
+	    				</div>
+	    			</div>
+	    		</li>
+	    	<% end %>
+		<% end %>
+    </ul>
+</div>

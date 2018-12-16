@@ -79,13 +79,27 @@ html, body {
 ///// LINK TO PROFILE PUBLIC
 
 .green-link {
-	color: #378F62;
+	color: #378F62 !important;
 	font-weight: bold;
+	opacity:0.85;
 }
 
 .green-link:hover {
 	text-decoration: none;
 	color: rgb(0, 71, 35);
+	opacity:1;
+}
+
+.cancel-button {
+	background:#fff !important;
+	border:1px #378F62 solid !important;
+	color: #378F62 !important;
+}
+
+.cancel-button:hover {
+	background:#dc3545 !important;
+	border: 1px #dc3545 solid !important;
+	color: #fff !important;
 }
 
 ///// HOVER LINK IN THE FOOTER PAGE

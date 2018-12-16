@@ -9,7 +9,7 @@
 					<ul>
 						<% if user_signed_in? %>
 							<li><%= link_to "Accueil", root_path %></li>
-						    <li><%= link_to "Mes annonces", user_path(current_user.id) %></li>
+						    <li><%= link_to "Mes annonces", user_sales_path(current_user.id) %></li>
 						    <li><%= link_to @item.title, edit_item_path(@item.id) %></li>
 						<% end %> 
 					</ul>

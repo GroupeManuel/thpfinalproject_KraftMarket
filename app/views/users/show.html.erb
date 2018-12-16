@@ -12,7 +12,7 @@
 	  		<!-- Titlebar -->
 			<div id="titlebar">
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-sm-12 no-wrap">
 						<h2>Bienvenue
 							<% if current_user.first_name? %>
 			                	<%= ' '+ current_user.first_name %>
@@ -30,7 +30,7 @@
 				</div>
 			</div>
 
-	  		<%= render 'users/show/dashboard' %>
+	  		<%= render 'users/private_profile/dashboard' %>
 	  	</div>
 
 	</div>
@@ -40,6 +40,6 @@
 
   $(document).ready(function() {
     $('footer').hide();
-app/views/items/item_edit/_titlebar.html.erb    $('.dashboard-nav li#profile_dashboard').addClass('active');
+    $('.dashboard-nav li#profile_dashboard').addClass('active');
   });
 </script>

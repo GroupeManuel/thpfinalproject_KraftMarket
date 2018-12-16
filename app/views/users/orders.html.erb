@@ -5,11 +5,52 @@
 	<!-- Tabs to display profile section -->
 	<%= render 'users/private_profile/profile_tabs' %>
 
-  	<div class="dashboard-content">
+  	<div class="dashboard-content private-profile">
 
 		<!-- Tab-content displaying items owned by the user -->
 		<div class='profile-tab-content' id="buyer" >
-	  		<%= render 'users/show/buyer_profile' %>
+	  		<!-- Titlebar -->
+			<div id="titlebar">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Mes commandes</h2>
+						<hr>
+						<!-- Breadcrumbs -->
+						<nav id="breadcrumbs">
+							<ul>
+			    				<li><%= link_to "Accueil", root_path %></li>
+								<li><%= link_to "Mon profil", user_path(current_user.id) %></li>
+								<li><%= link_to "Mes commandes" %></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12">
+				<div class="style-2">
+					<!-- Tabs Navigation -->
+					<ul class="tabs-nav" id='public-profile-tabs'>
+						<li><a href="#tab1a"><i class="fas fa-euro-sign"></i> Objets payés <span class="nav-tag"><%= @user_orders.where(status: "payed").count %></span></a></li>
+						<li><a href="#tab2a"><i class="fas fa-bicycle"></i> En cours de livraison <span class="nav-tag"><%= @user_orders.where(status: "being_shipped").count %></span></a></li>
+						<li><a href="#tab3a"><i class="fas fa-home"></i> Objets reçus <span class="nav-tag"><%= @user_orders.where(status: "shipped").count %></span></a></li>
+					</ul>
+
+					<!-- Tabs Content -->
+					<div class="tabs-container">
+						<div class="tab-content" id="tab1a">
+							<%= render "users/private_profile/orders/paid"%>
+						</div>
+						<div class="tab-content" id="tab2a">
+							<%= render "users/private_profile/orders/shipping"%>
+						</div>
+						<div class="tab-content" id="tab3a">
+							<%= render "users/private_profile/orders/sent"%>
+						</div>
+					</div>
+				</div>
+			</div>
+
 	  	</div>
 
 	</div>

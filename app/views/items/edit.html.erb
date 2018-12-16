@@ -25,7 +25,10 @@
 						<!-- Section Photos -->
 						<%= render 'items/item_edit/change_add_photos', f:f %>
 
-					  	<%= f.submit class:'button preview' %>
+						<div class='d-flex justify-content-center row margin-top-15 margin-bottom-25'>
+							<%= link_to user_sales_path(current_user.id), class:'button cancel-button btn-danger' do %><i class='fa fa-times'></i> Annuler<% end %>
+						  	<%= f.submit "Sauvegarder et publier l'annonce", class:'button' %>
+					  	</div>
 					<% end %>
 				</div>
 			</div>

@@ -37,16 +37,22 @@
 	display:flex;
 }
 
-.public-profile .tabs-container {
+.public-profile .tabs-container,
+.private-profile .tabs-container {
 	margin-bottom:25px;
 	padding:0 !important;
 }
 
-.public-profile .tab-content {
+.public-profile .tab-content,
+.private-profile .tab-content {
 	padding:0 !important;
 }
 
 .public-profile #titlebar {
 	padding-top:25px;
 	padding-bottom:25px;
+}
+
+#user-card-buttons {
+	top:0;
 }

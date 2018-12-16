@@ -4,7 +4,10 @@
 	<div class="col-md-6">
 	<%= link_to user_sales_path(current_user.id) do %>
 			<div class="dashboard-stat color-1">
-				<div class="dashboard-stat-content"><h4><% current_user.items.where(status:'published').count %></h4> <span>Annonces en ligne</span></div>
+				<div class="dashboard-stat-content">
+					<h4><%= @user_sales.where(status:'published').count %></h4>
+					<span><%= pluralize(@user_sales.where(status:'published').count,'Annonce','Annonces').split(' ')[1] %> en ligne</span>
+				</div>
 				<div class="dashboard-stat-icon"><i class="fa fa-tags"></i></div>
 			</div>
 	<% end %>
@@ -13,7 +16,10 @@
 	<!-- Item -->
 	<div class="col-md-6">
 		<div class="dashboard-stat color-3">
-			<div class="dashboard-stat-content"><h4></h4> <span>L'évaluation des vendeurs arrive bientôt sur Kraft Market</span></div>
+			<div class="dashboard-stat-content">
+				<h4></h4> 
+				<span>L'évaluation des vendeurs arrive bientôt sur KraftMarket</span>
+			</div>
 			<div class="dashboard-stat-icon"><i class="fa fa-star-half-alt"></i></div>
 		</div>
 	</div>
@@ -23,7 +29,10 @@
 	<div class="col-md-6">
 	<%= link_to user_orders_path(current_user.id) do %>
 		<div class="dashboard-stat color-4">
-			<div class="dashboard-stat-content"><h4><% current_user.orders.count %></h4> <span>Objets recyclés</span></div>
+			<div class="dashboard-stat-content">
+				<h4><%= @user_orders.count %></h4> 
+				<span><%= pluralize(@user_orders.count,'Objet','Objets').split(' ')[1] %> recyclés</span>
+			</div>
 			<div class="dashboard-stat-icon"><i class="fa fa-tags"></i></div>
 		</div>
 	<% end %>
@@ -32,7 +41,10 @@
 	<!-- Item -->
 	<div class="col-md-6">
 		<div class="dashboard-stat color-2">
-			<div class="dashboard-stat-content"><h4></h4> <span>L'ajout de vos vendeurs favoris arrive bientôt sur Kraft Market</span></div>
+			<div class="dashboard-stat-content">
+				<h4></h4>
+				<span>Le suivi de vos vendeurs favoris arrive bientôt sur KraftMarket</span>
+			</div>
 			<div class="dashboard-stat-icon"><i class="fa fa-bookmark"></i></div>
 		</div>
 	</div>

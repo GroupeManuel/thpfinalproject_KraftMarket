@@ -1,0 +1,55 @@
+<div class="dashboard-list-box margin-top-0">
+	<% if @user_sales.where(status: "published").count == 0 %>
+
+		<ul><li><h3>Vous n'avez pas d'annonce en ligne</h3></li></ul>
+		<div>
+			<% link_to new_item_path, class:'button' do %>
+				Publier une annonce
+			<% end %>
+		</div>
+
+	<% else %>
+	 	<ul>
+	    	<% @user_sales.where(status: "published").each do |item| %>
+	    		<li>
+	    			<div class='list-box-listing'>
+	    				<div class="list-box-listing-img col-2">
+	    					<%= link_to item_path(item.id) do %>
+		    					<% if item.item_images.attached? %>
+		    	                    <%= image_tag item.item_images[0].variant(resize: "200x200") %>
+		    	                <% elsif item.Faker_image.nil? %>
+		    	                    <%= image_tag '/assets/generique/no-image.jpg' %>
+		    	                <% else %>
+		    	                    <%= image_tag ('/assets/image_seed/' + item.Faker_image)%>
+		    	                <% end %>
+	    	            	<% end %>
+	    	        	</div>
+
+
+	    				<!-- Card left part -->
+	    				<div class='list-box-listing-content col-6'>
+	    					<div class='inner'>
+	    						<%= link_to item_path(item.id), class:"green-link" do %><h3><%= item.title %></h3><% end %>
+	    						<span><%= item.category.category_name %></span><br/>
+	    						<span><%= item.price %> €</span>
+	    					</div>
+	    				</div>
+
+	    				<!-- Card right part -->
+	    				<div class="list-box-listing-content col-4">
+        	                <div class="inner text-right">
+        	                    <span class='no-wrap'>Publiée le <%= item.created_at.strftime("%d/%m/%y") %> </span>
+        	                    <span> à <%= item.created_at.strftime("%H:%M") %></span>
+        	                    <div class='margin-top-10 no-wrap'>
+									<%= link_to edit_item_path(item.id), class:'button gray' do %><i class="fa fa-edit"></i> Editer<% end %>
+	                        		<%= link_to duplicate_item_path(item.id), method: :create, class:'button gray' do %><i class="fa fa-clone"></i> Dupliquer<% end %>
+									<%= link_to draft_item_path(item.id), method: :put, class:'button gray' do %><i class="fa fa-undo-alt"></i> Passer en brouillon<% end %>
+								</div>
+        	                </div>
+	    				</div>
+	    			</div>		
+	    		</li>
+		<% end %>
+    </ul>
+    <% end %>
+</div>

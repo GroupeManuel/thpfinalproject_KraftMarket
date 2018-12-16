@@ -97,11 +97,11 @@
 /* ---------------------------------- */
 /* Forms Reset & Styles
 ------------------------------------- */
-input,
 input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="number"],
+input[type="select"],
 textarea,
 select {
 	height: 51px;
@@ -6815,7 +6815,7 @@ a.button {
 
 input[type="button"],
 input[type="submit"] {
-	line-height: 32px;
+	line-height: inherit;
 }
 
 button.button:before,
@@ -14826,12 +14826,13 @@ img.mfp-img {
 		margin-top: 40px;
 		background-color: #333;
 		border-radius: 5px;
-		color: #fff;
+		color: #fff !important;
 		padding: 16px 30px;
 		font-weight: 600;
 		transition: 0.2s;
 		display: block;
 		font-size:15px;
+		max-height: 54px;
 	}
 
 	a.dashboard-responsive-nav-trigger i {
