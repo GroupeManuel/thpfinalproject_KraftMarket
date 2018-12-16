@@ -31,20 +31,20 @@
 				<div class="style-2">
 					<!-- Tabs Navigation -->
 					<ul class="tabs-nav" id='public-profile-tabs'>
-						<li><a href="#tab1a"><i class="fas fa-euro-sign"></i> Objets payés <span class="nav-tag"><%= @user_orders.where(status: "payed").count %></span></a></li>
-						<li><a href="#tab2a"><i class="fas fa-bicycle"></i> En cours de livraison <span class="nav-tag"><%= @user_orders.where(status: "being_shipped").count %></span></a></li>
-						<li><a href="#tab3a"><i class="fas fa-home"></i> Objets reçus <span class="nav-tag"><%= @user_orders.where(status: "shipped").count %></span></a></li>
+						<li><a href="#orders"><i class="fas fa-euro-sign"></i> Objets payés <span class="nav-tag"><%= @user_orders.where(status: "payed-orders").count %></span></a></li>
+						<li><a href="#shipped-orders"><i class="fas fa-bicycle"></i> En cours de livraison <span class="nav-tag"><%= @user_orders.where(status: "being_shipped").count %></span></a></li>
+						<li><a href="#sent-orders"><i class="fas fa-home"></i> Objets reçus <span class="nav-tag"><%= @user_orders.where(status: "shipped").count %></span></a></li>
 					</ul>
 
 					<!-- Tabs Content -->
 					<div class="tabs-container">
-						<div class="tab-content" id="tab1a">
+						<div class="tab-content" id="payed-orders">
 							<%= render "users/private_profile/orders/paid"%>
 						</div>
-						<div class="tab-content" id="tab2a">
+						<div class="tab-content" id="shipped-orders">
 							<%= render "users/private_profile/orders/shipping"%>
 						</div>
-						<div class="tab-content" id="tab3a">
+						<div class="tab-content" id="sent-orders">
 							<%= render "users/private_profile/orders/sent"%>
 						</div>
 					</div>
