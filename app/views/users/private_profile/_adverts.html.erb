@@ -33,7 +33,8 @@
 							<div class="inner text-right no-wrap">
 								<%= link_to item_path(item.id), class:"button gray" do %>Voir l'annonce<% end %>
 								<%= link_to edit_item_path(item.id), class:'button gray' do %><i class="fa fa-edit"></i> Editer<% end %>
-                        		<%= link_to duplicate_item_path(item.id), class:'button gray' do %><i class="fa fa-clone"></i> Dupliquer<% end %>						
+                        		<%= link_to duplicate_item_path(item.id), method: :create, class:'button gray' do %><i class="fa fa-clone"></i> Dupliquer<% end %>
+								<%= link_to draft_item_path(item.id), method: :put, class:'button gray' do %><i class="fa fa-undo-alt"></i>Passer en brouillon<% end %>						
 							</div>
 	    				</div>
 	    			</div>		
