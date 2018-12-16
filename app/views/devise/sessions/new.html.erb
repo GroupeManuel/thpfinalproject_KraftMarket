@@ -46,24 +46,15 @@
             <%= f.submit "Connexion" %>
           </div>
 
-<!--      <div class="checkboxes">
-            <% if devise_mapping.rememberable? -%>
-              <div class="checkboxes margin-top-10 margin-bottom-10">
-                <%= check_box_tag(:remember_me) %>
-                <%= f.label :"se souvenir de moi" %>      
-              </div>
-            <% end -%>
-          </div>
--->
-
         <% end %>
 
-        <span class='lost_password'>
-          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-              <%= link_to "Pas encore inscrit ?", new_registration_path(resource_name) %><br />
-          <% end -%>
-        </span>
-
+        <div class="margin-top-25">
+          <span class='lost_password'>
+            <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                <%= link_to "Pas encore inscrit ?", new_registration_path(resource_name) %><br />
+            <% end -%>
+          </span>
+        </div>
       </div>
     </div>
   </div>
