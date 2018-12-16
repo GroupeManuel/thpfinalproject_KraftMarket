@@ -17,14 +17,14 @@
 	    	                <% end %>
 	    	            	</a>
 	    	        	</div>
-	    				<div class='list-box-listing-content col-7'>
+	    				<div class='list-box-listing-content col-5'>
 	    					<div class='inner'>
 	    						<h3><%= item.title %></h3>
 	    						<span><%= item.category.category_name %></span><br/>
 	    						<span><%= item.price %> €</span>
 	    					</div>
 	    				</div>
-	    				<div class="list-box-listing-content col-3">
+	    				<div class="list-box-listing-content col-5">
         	                <div class="inner text-right no-wrap">
         	                    <span>Publié le <%= item.created_at.strftime("%d/%m/%y") %>
         	                    à <%= item.created_at.strftime("%H:%M") %></span>
@@ -33,7 +33,7 @@
 							<div class="inner text-right no-wrap">
 								<%= link_to item_path(item.id), class:"button gray" do %>Voir l'annonce<% end %>
 								<%= link_to edit_item_path(item.id), class:'button gray' do %><i class="fa fa-edit"></i> Editer<% end %>
-                        		<%= link_to new_item_path, class:'button gray' do %><i class="fa fa-clone"></i> Dupliquer<% end %>						
+                        		<%= link_to duplicate_item_path(item.id), class:'button gray' do %><i class="fa fa-clone"></i> Dupliquer<% end %>						
 							</div>
 	    				</div>
 	    			</div>		
