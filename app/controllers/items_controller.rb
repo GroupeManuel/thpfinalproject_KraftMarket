@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :def_filters, only: [:index]
+  before_action :set_item, except: [:new, :create, :index]
 
   def new
     if user_signed_in?
@@ -27,11 +28,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
     unless @item.seller == current_user
       flash[:error] = "Vous n'avez pas les droits pour éditer cet objet"
       redirect_to item_path(params[:id])
@@ -40,18 +39,29 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
     @item.update(item_params)
     redirect_to item_path(@item.id), notice: "Article modifié"
   end
 
   def destroy
-    @destroy_item = Item.find(params[:item_id])
-    @destroy_item.destroy
+    @item.destroy
     redirect_to new_item_path
+  end
+
+  def duplicate
+    new_item = Item.new
+    new_item = @item
+    new_item.save
+
+    flash[:notice] = "Votre annonce a bien été dupliquée. Prenez le temps de la relire avant de la publier"
+    redirect_to edit_item_path(new_item.id)
   end
   
   private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
       params.require(:item).permit(:title, :category_id, :description, :price, :seller_id, :status, item_images: [])

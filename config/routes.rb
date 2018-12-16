@@ -10,9 +10,9 @@ Rails.application.routes.draw do
     # Controller Item
 
   resources :items
+  post 'item/duplicate/:id', to: 'item#duplicate', as: 'duplicate_item'
 
-    # Controller User via Devise
-
+  # Controller User via Devise
   devise_for :users
   resources :users, only: [:show, :update, :edit]
   get 'users/public_profile/:id', to: 'users#public_profile', as: 'public_profile'
