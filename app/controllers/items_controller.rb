@@ -49,11 +49,19 @@ class ItemsController < ApplicationController
   end
 
   def duplicate
-    new_item = Item.new
-    new_item = @item
+    new_item = Item.create(@item.attributes.except('id','status','order_id','cart_id','created_at','updated_at'))
+    new_item.status = 'draft'
     new_item.save
 
-    flash[:notice] = "Votre annonce a bien été dupliquée. Prenez le temps de la relire avant de la publier"
+    flash[:notice] = "Votre annonce a été ajoutée à vos brouillons. Prenez le temps de la relire avant de la publier"
+    redirect_to edit_item_path(new_item.id)
+  end
+
+  def draft
+    @item.status = 'draft'
+    @item.save
+
+    flash[:notice] = "Votre annonce a bien été ajoutée à vos brouillons."
     redirect_to edit_item_path(new_item.id)
   end
   

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :items
   post 'item/duplicate/:id', to: 'item#duplicate', as: 'duplicate_item'
+  put 'item/draft/:id', to: 'item#draft', as: 'draft_item'
 
   # Controller User via Devise
   devise_for :users
