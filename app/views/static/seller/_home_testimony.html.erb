@@ -7,7 +7,7 @@
 		<div class="row">
 
 			<div class="col-md-12">
-				<h3 class="headline centered margin-bottom-45">
+				<h3 class="headline centered margin-bottom-45">	
 					Ils ont déjà rejoint le mouvement
 				</h3>
 			</div>
@@ -15,57 +15,22 @@
 			<div class="col-md-12">
 				<div class="simple-slick-carousel dots-nav">
 
+			
 				<!-- Listing Item -->
-			<% 2.times do %>
+			<% 4.times do |i| %>
 				<div class="carousel-item">
-					<%= link_to public_profile_path(User.find(rand(User.first.id..User.last.id)).id), class: "listing-item-container" do %>
+					<% @this_user = User.find((User.first.id) + i) %>
+					<%= link_to public_profile_path(@this_user.id), class: "listing-item-container" do %>
 						<div class="listing-item">
-							<%= image_tag ("ravitailleur/ravitailleur0" + rand(1..5).to_s + ".jpg")%>
+							<%= image_tag ("ravitailleur/ravitailleur0" + (i + 1).to_s + ".jpg")%>
 								<div class="listing-item-content">
-									<span class="tag">Restaurant</span>
-									<h3>Pierre</h3>
-									<span>Clichy-la-Garenne</span>
+									<span class="tag"><%= @this_user.company_name %></span>
+									<h3><%= @this_user.first_name %></h3>
+									<span><%= @this_user.delivery_city %></span>
 								</div>
-								<span class="like-icon"></span>
 						</div>
 						<div class="star-rating" data-rating="2.0">
-							<div class="rating-counter">Sounds great</div>
-						</div>
-					<% end %>
-				</div>
-			<% end %>
-			<% 2.times do %>
-				<div class="carousel-item">
-					<%= link_to public_profile_path(User.find(rand(User.first.id..User.last.id)).id), class: "listing-item-container" do %>
-						<div class="listing-item">
-							<%= image_tag ("ravitailleur/ravitailleur0" + rand(1..5).to_s + ".jpg")%>
-							<div class="listing-item-content">
-								<span class="tag">Coffee shop</span>
-								<h3>Etienne</h3>
-								<span>Paris 13</span>
-							</div>
-							<span class="like-icon"></span>
-						</div>
-						<div class="star-rating" data-rating="2.0">
-							<div class="rating-counter">Sounds great</div>
-						</div>
-					<% end %>
-				</div>
-			<% end %>
-			<% 2.times do %>
-				<div class="carousel-item">
-					<%= link_to public_profile_path(User.find(rand(User.first.id..User.last.id)).id), class: "listing-item-container" do %>
-						<div class="listing-item">
-							<%= image_tag ("ravitailleur/ravitailleur0" + rand(1..5).to_s + ".jpg")%>
-							<div class="listing-item-content">
-								<span class="tag">Caviste</span>
-								<h3>Camille</h3>
-								<span>Versailles</span>
-							</div>
-							<span class="like-icon"></span>
-						</div>
-						<div class="star-rating" data-rating="2.0">
-							<div class="rating-counter">Sounds great</div>
+							<div class="rating-counter"><%= @this_user.company_description.truncate(38) %></div>
 						</div>
 					<% end %>
 				</div>
