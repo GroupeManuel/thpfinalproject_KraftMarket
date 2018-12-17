@@ -1,0 +1,50 @@
+<div class='col-md-6 col-sm-12'>
+
+	<div class="field form-inline">
+	    <%= f.label :company_ID_number, "Numéro de SIRET" %>
+	    <%= f.text_field :company_ID_number, value: attributes[:company_ID_number], autofocus: true %>
+	</div>
+
+	<div class="field form-inline">
+	    <%= f.label :activity, "Activité" %>
+	    <%= f.text_field :activity, autofocus: true, value: attributes[:activity], readonly:true  %>
+	</div>
+
+	<div class="field form-inline">
+	    <%= f.label :activity_id, "Activité" %>
+	    <%= f.text_field :activity_id, autofocus: true, value: attributes[:activity_id], readonly:true  %>
+	</div>
+
+	<div class="field form-inline">
+	    <%= f.label :company_foundation, "Date de création" %>
+	    <%= f.text_field :company_foundation, autofocus: true, value: attributes[:company_foundation], readonly:true %>
+	</div>
+
+	<div class="field form-inline">
+		<%= f.label :invoice_entity, 'Raison sociale' %>
+		<%= f.text_field :invoice_entity, value: attributes[:invoice_entity], readonly:true %>
+	</div>
+
+	<div class="field form-inline">
+		<%= f.label :invoice_street, 'Rue' %>
+		<%= f.text_field :invoice_street, value: attributes[:invoice_street] %>
+	</div>
+
+	<div class="field form-inline">
+		<%= f.label :invoice_street, 'Complément' %>
+		<%= f.text_field :invoice_street2, value: attributes[:invoice_street2] %>
+	</div>
+
+	<div class="field form-inline">
+		<%= f.label :invoice_postcode, 'Code postal' %>
+		<%= f.text_field :invoice_postcode, value: attributes[:invoice_postcode], readonly:true %>
+	</div>
+
+	<div class="field form-inline">
+		<%= f.label :invoice_city, 'Ville' %>
+		<%= f.text_field :invoice_city, value: attributes[:invoice_city], readonly:true %>
+	</div>
+
+	<%= f.hidden_field :invoice_country, value: 'France' %>
+
+</div>
