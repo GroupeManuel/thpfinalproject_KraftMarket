@@ -29,7 +29,7 @@
                     <div class="list-box-listing-content col-5">
                         <div class="inner text-right no-wrap">
                             <span>Acheté à
-                            <%= link_to public_profile_path(order.seller.id), class:"green-link" do %>
+                            <%= link_to public_profile_path(order.item.seller.id), class:"green-link" do %>
                             <%= order.item.seller.first_name + " " + order.item.seller.last_name %><br>
                             <% end %>
                             le <%= order.created_at.strftime("%d/%m/%y") %> à <%= order.created_at.strftime("%H:%M") %>
