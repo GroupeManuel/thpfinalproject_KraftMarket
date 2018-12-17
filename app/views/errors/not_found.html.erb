@@ -1,4 +1,5 @@
-<div class= "container_error">
+<div class='container'>
+	<div class= "container_error">
 		<div class = "error_image">
 			<svg width="440" height="490" viewBox="0 0 240 279" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path fill-rule="evenodd" clip-rule="evenodd" d="M60.0043 24.5941C76.9318 -13.6628 184.556 -6.66088 217.671 43.0026C250.786 92.666 212.94 203 179.015 203C145.09 203 145.09 128.506 131.102 106.629C117.114 84.7517 43.0768 62.851 60.0043 24.5941Z" fill="#91FFBD" fill-opacity="0.7"/>
@@ -19,9 +20,12 @@
 			<path fill-rule="evenodd" clip-rule="evenodd" d="M109.059 117.885C115.473 145.505 115.178 168.115 101.017 168.115H79.1206C75.6429 144.652 84.783 112.12 93.2565 95.7115C93.5801 95.0849 94.269 93.9037 95.8917 93.9037H102.254C102.257 93.9121 102.26 93.9206 102.263 93.929C104.177 93.9448 106.286 94.015 108.569 94.0911C120.324 94.4829 136.715 95.0292 155.159 89.085L157.333 99.9931C140.686 110.741 123.83 119.067 109.059 117.885Z" fill="#1F28CF"/>
 			</svg>
 		</div>
-	 	<div class ="text-error">
-			<h3> Oups, on dirait qu'on a pas trouvé la page que vous cherchez. </br> Vous pourriez peut-être trouver votre bonheur ici :</h3> </br></br>
-			<button class="button-error" onclick="window.location.href='./items' ">Voir les matières</button>
-			<button class="button-error" onclick="window.location.href='./items/new' ">Publier mon annonce</button>	
+	 	<div class ="text-error text-center">
+			<h3>Apparemment, vous avez fait fausse route. La page que vous cherchez n'existe pas.</br>
+			Mais vous devriez trouver votre bonheur par ici :</h3>
+
+			<%= button_to items_path, method: :get, class:"button margin-top-15" do %>Parcourir les annonces<% end %>
+			<%= button_to new_item_path, method: :get, class:"button margin-top-15" do %>Publier mon annonce<% end %>
 		</div>	
+	</div>
 </div>
