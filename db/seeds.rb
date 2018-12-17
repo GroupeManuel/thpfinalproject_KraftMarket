@@ -4,27 +4,23 @@
 Category.delete_all
 Item.delete_all
 Order.delete_all
+User.delete_all
 
     # Create instances of model User
-first_names = ["marius", "octave", "oscar", "augustin"]
-
-if User.count < 3
-    then 
-    first_names.each do |prenom|
-        User.create(
-            email: "#{prenom}@#{prenom}.fr", 
-            password: "123456", 
-            first_name: prenom.capitalize, 
-            last_name: Faker::Name.last_name,
-            delivery_street: Faker::Address.street_address, 
-            delivery_street2: Faker::Address.secondary_address,
-            delivery_city: Faker::Address.city, 
-            company_name: Faker::Company.name,
-            company_description:Faker::StarWars.quote
-            )
-
-        Cart.create(buyer_id: User.last.id)
-    end
+30.times do 
+    User.create(
+        email: Faker::Internet.email, 
+        password: "123456", 
+        first_name: Faker::Name.first_name, 
+        last_name: Faker::Name.last_name,
+        delivery_street: Faker::Address.street_address, 
+        delivery_street2: Faker::Address.secondary_address,
+        delivery_city: Faker::Address.city, 
+        company_name: Faker::Company.name,
+        company_description:Faker::StarWars.quote
+        )
+        
+    Cart.create(buyer_id: User.last.id)
 end
 
     # Create 6 categories
