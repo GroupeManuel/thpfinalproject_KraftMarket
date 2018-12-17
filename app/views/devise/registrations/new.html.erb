@@ -26,26 +26,17 @@
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
-          <div class='row'>
+          <div class='row d-flex flex-column'>
 
-          <div class="field">
-            <%= f.label :prénom %><br />
-            <%= f.text_field :first_name, autofocus: true %>
-          </div>
-
-          <div class="field">
-            <%= f.label :nom %><br />
-            <%= f.text_field :last_name, autofocus: true %>
-          </div>
+            <div class='offset-md-3 col-md-6 col-sm-12'>
             <% if params['attributes'] %>
-              <div class='col-md-6 col-sm-12'>
             <% end %>
-              <div class="field form-inline">
+              <div class="field form-inline form-group">
                 <%= f.label :email %>
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
               </div>
 
-              <div class="field form-inline">
+              <div class="field form-inline form-group">
                 <%= f.label :password, "Mot de passe " %>
                 <% if @minimum_password_length %>
                    <i class="tip" data-tip-content='<%= @minimum_password_length.to_s %> caractères minimum' ></i>
@@ -53,7 +44,7 @@
                 <%= f.password_field :password, autocomplete: "new-password" %>
               </div>
 
-              <div class="field form-inline">
+              <div class="field form-inline form-group">
                 <%= f.label :'Confirmez votre mot de passe' %>
                 <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
               </div>
@@ -67,6 +58,11 @@
                 <%= f.label :prénom %><br />
                 <%= f.text_field :first_name, autofocus: true %>
               </div>
+              
+              <div class="submit-section">
+                <%= f.label :image, "Image de profil " %><em>(optionnel)</em><br>
+                <%= f.file_field :avatar %>
+              </div>
 
             <% if params['attributes'] %>
               </div>
@@ -75,10 +71,7 @@
 
           </div>
           
-          <div class="submit-section">
-            <%= f.label :image, "Image de profil " %><em>(optionnel)</em><br>
-            <%= f.file_field :avatar %>
-          </div>
+
 
           
 
