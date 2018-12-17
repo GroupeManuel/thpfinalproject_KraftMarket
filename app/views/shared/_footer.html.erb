@@ -7,7 +7,7 @@
 				<h4>Artisans,</h4>
 				<ul class="footer-links">
 					<li>Sourcez des matières premières uniques et originales pour vos créations</li><br>
-					<li></i> <%= link_to "Découvrir les ressources disponibles !", items_path %> </li>
+					<li></i> <%= link_to "Découvrir les ressources disponibles !", items_path, data: { turbolinks: false } %> </li>
 				</ul>
 			</div>
 
@@ -15,15 +15,15 @@
 				<h4>Commerçants locaux,</h4>
 				<ul class="footer-links">
 					<li>Valorisez vos déchets et le savoir-faire des artisans en redécorant votre boutique</li><br>
-					<li></i> <%= link_to "S'inscrire et recycler !", new_item_path %> </li>
+					<li></i> <%= link_to "S'inscrire et recycler !", new_item_path, data: { turbolinks: false } %> </li>
 				</ul>
 			</div>
 
 			<div class="col-md-4 col-sm-12">
 				<h4>En savoir plus</h4>
 				<ul class="footer-links">
-					<li></i> Une question ? <%= link_to "Contactez nous !", new_contact_path %> </li>
-					<li></i> Découvrez l'aventure <%= link_to "Kraft Market ici", about_path %> </li>
+					<li></i> Une question ? <%= link_to "Contactez nous !", new_contact_path, data: { turbolinks: false } %> </li>
+					<li></i> Découvrez l'aventure <%= link_to "Kraft Market ici", about_path, data: { turbolinks: false } %> </li>
 					<li>Paiements sécurisés via <i class="fab fa-stripe fa-2x"></i></li>
 				</ul>
 			</div>

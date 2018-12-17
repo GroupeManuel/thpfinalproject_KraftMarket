@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
     if user_signed_in?
       @item = Item.new
     else
-      flash[:danger] = "Vous devez être connecté pour publier un article"
+      flash[:error] = "Vous devez être connecté pour publier un article"
       redirect_to new_user_session_path
     end
   end
