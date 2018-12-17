@@ -1,0 +1,57 @@
+<% title('Inscription par SIRET - KraftMarket') %>
+
+<div id="wrapper">
+  <!-- Titlebar -->
+  <div id="titlebar" class='gradient'>
+    <div class='container'>
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Inscription par SIRET</h2>
+          <!-- Breadcrumbs -->
+          <nav id="breadcrumbs">
+            <ul>
+              <li><%= link_to "Accueil", root_path %></li>
+              <li><%= link_to "Inscription par SIRET", new_user_path %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='container' id='siret-search'>
+    <div class='d-flex align-items-center flex-column add-listing-section padding-bottom-15 padding-top-15 margin-bottom-15'>
+      <div class="with_forms">
+      	<%= form_for :siren, method: :get, class:'text-right' do |f| %>
+		  	<div class="form-inline text-right">
+		    	<%= f.text_field :request, placeholder: 'SIRET', value: @request, class:"form-control form-inline mr-5" %>
+		    	<%= f.submit 'Rechercher', class: 'margin-bottom-16 form-group button'%>
+		  	</div>
+		<% end %>
+	  </div>
+	  <div>
+		  	<div>
+
+			<% if @error %>
+				<%= @error %>
+			<% elsif @siret_result %>
+				<ul>
+					<li>SIRET : <%= @siret_result[:company_ID_number] %></li>
+					<li>Raison sociale : <%= @siret_result[:invoice_entity] %></li>
+					<li>Date de création : <%= @siret_result[:company_foundation].strftime('%d/%m/%Y') %></li>
+				</ul>
+				<%= link_to "C'est bien mon entreprise",new_user_registration_path(attributes:@siret_result), class:'button' %>
+			<% end %>
+
+			</div>
+
+		  	<div>
+		  		Pour retrouver votre numéro de Siret, consulter une de vos factures ou lancer une recherche 
+		  		<%= link_to 'ici', 'https://www.sirene.fr/sirene/public/recherche', class:'green-link' %>
+		  	</div>
+		</div>
+
+	</div>
+
+  </div>
+</div>

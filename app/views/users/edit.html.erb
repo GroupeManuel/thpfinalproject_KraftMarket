@@ -17,7 +17,7 @@
               <nav id="breadcrumbs" class='text-right'>
                 <ul>
                     <li><%= link_to "Accueil", root_path %></li>
-                  <li><%= link_to "Mon profil", user_path(current_user.id) %></li>
+                  <li><%= link_to "Mon profil", user_path(@user.id) %></li>
                   <li><%= link_to "Détails du profil" %></li>
                 </ul>
               </nav>
@@ -26,7 +26,7 @@
         </div>
 
         <div class='margin-bottom-15'>
-          <%= form_for(current_user, url: user_path(current_user.id), html: { method: :put, class:'row'}) do |f| %>
+          <%= form_for(@user, url: user_path(@user.id), html: { method: :put, class:'row'}) do |f| %>
 
           <!-- Form to update id information -->
           <div class='profile-section-content w-100' id="personal-info" >
