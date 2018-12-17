@@ -9914,10 +9914,11 @@ span.testimony-avatar {
 /* Titlebar
 ------------------------------------- */
 #titlebar {
-	background-color: #f8f8f8;
+	background-color: white;
 	position: relative;
 	padding: 45px 0;
 	margin-bottom: 40px;
+	margin-top: 40px;
 }
 
 #titlebar.gradient {
