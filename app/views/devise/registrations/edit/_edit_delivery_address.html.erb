@@ -27,7 +27,7 @@
 
   <div class="form-group form-inline row">
     <div class='col-3'>Pays</div>
-    <%= f.text_field :delivery_country, value: @user.delivery_country, class:'form-control' %>
+    <%= f.country_select :invoice_country, priority_countries: ["FR"], value: @user.invoice_country, class:'form-control col-8 mb-0' %>
   </div>
 
   <div class="form-group form-inline row">

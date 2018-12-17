@@ -1,9 +1,9 @@
 <div class="dashboard-list-box margin-top-0">
 	<ul>
-		<% if @user_orders.where(status: "payed").count == 0 %>
+		<% if @user_orders.where(status: "paid").count == 0 %>
 			<li><h3>Vous n'avez pas fait d'achats sur Kraft Market </h3></li>
 		<% else %>
- 	    	<% @user_orders.where(status: "payed").each do |order| %>
+ 	    	<% @user_orders.where(status: "paid").each do |order| %>
 	    		<li>
 	    			<div class='list-box-listing'>
     					<div class="list-box-listing-img col-2">

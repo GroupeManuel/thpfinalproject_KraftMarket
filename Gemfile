@@ -73,8 +73,6 @@ gem "aws-sdk-s3", require: false
 # Gem to modify images coming from active storage - by calling method variant
 gem 'image_processing', '~> 1.2'
 
-gem "simple_form", "~> 4.1"
-
 # Gem to send emails from hte contact form
 gem 'mail_form'
 gem "country_select", "~> 3.1"
@@ -89,3 +87,5 @@ gem "data-confirm-modal", "~> 1.6"
 gem 'google-api-client'
 
 gem "will_paginate", "~> 3.1"
+gem 'httparty', '~> 0.16.2'
+

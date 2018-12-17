@@ -40,7 +40,7 @@ Category.create!(category_name: "Autre")
     # Possible item and order status
 
 item_status = ["draft", "published", "sold", "deleted"]
-order_status = ["payed", "being_shipped", "shipped"]
+order_status = ["paid", "being_shipped", "shipped"]
 
     # Create instances of model Item category bois
 

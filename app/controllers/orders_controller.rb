@@ -52,7 +52,7 @@ class OrdersController < ApplicationController
     new_order = Order.create!(
       buyer_id: cart.buyer_id, 
       price: purchased_item.price,
-      status:'payed',
+      status:'paid',
       payment_id: charge.id
       )
 

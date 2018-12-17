@@ -33,7 +33,7 @@
 
       <div class="form-inline row">
         <%= f.label :invoice_country, 'Pays', class:'col-3 text-left' %>
-        <%= f.text_field :invoice_country, value: @user.invoice_country, class:'form-control col-8 mb-0' %>
+        <%= f.country_select :invoice_country, priority_countries: ["FR"], value: @user.invoice_country, class:'form-control col-8 mb-0' %>
       </div>
       
     </div>

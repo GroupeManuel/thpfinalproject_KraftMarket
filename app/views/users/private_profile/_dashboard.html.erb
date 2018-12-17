@@ -8,7 +8,7 @@
 					<h4><%= @user_sales.where(status:'published').count %></h4>
 					<span><%= pluralize(@user_sales.where(status:'published').count,'Annonce','Annonces').split(' ')[1] %> en ligne</span>
 				</div>
-				<div class="dashboard-stat-icon"><i class="fa fa-tags"></i></div>
+				<div class="dashboard-stat-icon"><i class="fa fa-eye"></i></div>
 			</div>
 	<% end %>
 		</div>

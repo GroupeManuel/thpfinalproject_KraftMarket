@@ -31,22 +31,22 @@
 			<div class="style-2">
 				<!-- Tabs Navigation -->
 				<ul class="tabs-nav" id='public-profile-tabs'>
-					<li><a href="#tab1a"><i class="fa fa-folder-open"></i> Ses annonces <span class="nav-tag"><%= @user_adverts.count %></span></a></li>
-					<li><a href="#tab2a"><i class="fas fa-handshake"></i> Ses ventes <span class="nav-tag"><%= @user_sales.count %></span></a></li>
-					<li><a href="#tab3a"><i class='fa fa-shopping-basket'></i> Ses achats <span class="nav-tag"><%= @user_orders.count %></span></a></li>
+					<li><a href="#adverts"><i class="fa fa-folder-open"></i> Ses annonces <span class="nav-tag"><%= @user_adverts.count %></span></a></li>
+					<li><a href="#sales"><i class="fas fa-handshake"></i> Ses ventes <span class="nav-tag"><%= @user_sales.count %></span></a></li>
+					<li><a href="#orders"><i class='fa fa-shopping-basket'></i> Ses achats <span class="nav-tag"><%= @user_orders.count %></span></a></li>
 				</ul>
 
 				<!-- Tabs Content -->
 				<div class="tabs-container">
-					<div class="tab-content" id="tab1a">
+					<div class="tab-content" id="adverts">
 						<%= render "users/public_profile/adverts"%>
 					</div>
 
-					<div class="tab-content" id="tab2a">
+					<div class="tab-content" id="sales">
 						<%= render "users/public_profile/sales"%>
 					</div>
 
-					<div class="tab-content" id="tab3a">
+					<div class="tab-content" id="orders">
 						<%= render "users/public_profile/orders"%>
 					</div>
 				</div>

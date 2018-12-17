@@ -31,14 +31,14 @@
 				<div class="style-2">
 					<!-- Tabs Navigation -->
 					<ul class="tabs-nav" id='public-profile-tabs'>
-						<li><a href="#orders"><i class="fas fa-euro-sign"></i> Objets payés <span class="nav-tag"><%= @user_orders.where(status: "payed-orders").count %></span></a></li>
+						<li><a href="#paid-orders"><i class="fas fa-euro-sign"></i> Objets payés <span class="nav-tag"><%= @user_orders.where(status: "paid").count %></span></a></li>
 						<li><a href="#shipped-orders"><i class="fas fa-bicycle"></i> En cours de livraison <span class="nav-tag"><%= @user_orders.where(status: "being_shipped").count %></span></a></li>
 						<li><a href="#sent-orders"><i class="fas fa-home"></i> Objets reçus <span class="nav-tag"><%= @user_orders.where(status: "shipped").count %></span></a></li>
 					</ul>
 
 					<!-- Tabs Content -->
 					<div class="tabs-container">
-						<div class="tab-content" id="payed-orders">
+						<div class="tab-content" id="paid-orders">
 							<%= render "users/private_profile/orders/paid"%>
 						</div>
 						<div class="tab-content" id="shipped-orders">

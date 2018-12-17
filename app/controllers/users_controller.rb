@@ -2,9 +2,11 @@ class UsersController < ApplicationController
 
   include UsersHelper
 
-  before_action :set_user
-  before_action :user_sales, except: [:update, :edit, :orders]
-  before_action :user_orders, except: [:update, :edit, :sales]
+  before_action :set_user, except: [:new]
+  before_action :user_sales, except: [:update, :edit, :orders, :new]
+  before_action :user_orders, except: [:update, :edit, :sales, :new]
+  before_action :siret_search, only: [:new]
+
 
   def edit
     unless user_checked
@@ -22,6 +24,13 @@ class UsersController < ApplicationController
     unless user_checked
       redirect_to public_profile_path(params[:id])
       flash[:error] = "Vous n'avez les droits pour accéder à cette page."
+    end
+  end
+
+  def new
+    if user_signed_in?
+      flash[:error] = "Vous devez être déconnecté pour accéder à cette page."
+      redirect_to user_path(current_user.id)
     end
   end
 
@@ -72,12 +81,23 @@ class UsersController < ApplicationController
   #sort of all orders by status to display on profile page
   def user_orders
     @order_status = {
-      'payed' => 'Objets payés',
+      'paid' => 'Objets payés',
       'being_shipped' => 'En cours de livraison',
       'shipped' => 'Objets reçus'
     }
 
     @user_orders = @user.orders.order('created_at DESC')
+  end
+
+  def siret_search
+
+    #launch search if parameter is detected
+    if params['siren']
+      @request = params['siren']['request']
+      @siret_result = Sirene.new(@request).perform
+      puts @error 
+    end
+
   end
 
 end
