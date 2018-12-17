@@ -4,7 +4,7 @@
     <div class="container public-profile">
 
     	<!-- Titlebar -->
-		<div id="titlebar">
+		<div id="titlebar" style="margin-top: 30px">
 			<div class="row">
 				<div class="col-md-12">
 					<% if @user.avatar.attached? %>
@@ -13,7 +13,7 @@
 						<div class="user-profile-avatar"><%= image_tag 'image_profil_min.jpg' %></div>
 					<% end %>
 					<div class="user-profile-name">
-						<h2><%= @user.first_name %> <%= @user.last_name %></h2>
+						<h2><%= @user.first_name %> <%= @user.last_name %></h2>	
 						<div class='personal_description'>
 							<% if @user.personal_description != nil %>
 								<%= @user.personal_description %>
