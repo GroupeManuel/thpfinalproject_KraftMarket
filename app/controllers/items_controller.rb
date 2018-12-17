@@ -4,11 +4,11 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:new, :create, :index]
 
   def new
-    if user_signed_in?
+    if current_user
       @item = Item.new
     else
-      flash[:error] = "Vous devez être connecté pour publier un article"
       redirect_to new_user_session_path
+      flash[:error] = "Vous devez être connecté pour publier un article"
     end
   end
 
@@ -45,7 +45,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to new_item_path
+    redirect_to user_sales_path(current_user.id)
   end
 
   def duplicate
@@ -62,7 +62,7 @@ class ItemsController < ApplicationController
     @item.save
 
     flash[:notice] = "Votre annonce a bien été ajoutée à vos brouillons."
-    redirect_to edit_item_path(@item.id)
+    redirect_to user_sales_path(current_user.id)
   end
   
   private
